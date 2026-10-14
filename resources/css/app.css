@@ -70,7 +70,10 @@
     .home-practice-eyebrow::before, .home-news-eyebrow::before { content: ''; display: block; width: 56px; height: 2px; margin-bottom: 12px; background: linear-gradient(90deg, #003436, #017b81); }
     .home-practice-header h2, .home-news-header h2 { @apply flex flex-wrap items-center gap-6 font-sans text-2xl leading-8 font-semibold uppercase md:text-3xl md:leading-10; color: #002123; }
     .home-practice-header h2 img, .home-news-header h2 img { width: 32px; height: 32px; flex-shrink: 0; }
-    .home-practice-more, .home-news-more { @apply inline-flex shrink-0 items-center gap-2 rounded-2xl px-4 py-2 font-sans text-base leading-6 font-medium; color: #a92021; border: 1px solid #a92021; background: rgb(126 1 31 / 5%); cursor: default; }
+    .view-more { @apply inline-flex shrink-0 items-center justify-center gap-2 rounded-2xl px-4 py-2 font-sans text-base leading-6 font-medium; color: #a92021; border: 1px solid #a92021; background: rgb(126 1 31 / 5%); }
+    .view-more svg { flex-shrink: 0; }
+    .view-more[aria-disabled='true'] { cursor: default; }
+    .view-more[href]:hover { background: rgb(126 1 31 / 10%); }
     .home-practice-layout { @apply mt-10 grid items-start gap-10; }
     .home-practice-grid { @apply grid gap-5 sm:grid-cols-2; }
     .practice-area-card { @apply relative overflow-hidden rounded-3xl; border: 1px solid var(--color-brand-stroke); background: #fcfcfc; }
@@ -185,8 +188,6 @@
     .about-team .about-eyebrow { width: fit-content; color: #017b81; text-transform: none; }
     .about-team .about-heading { @apply flex items-center gap-6; }
     .about-team .about-heading img { @apply size-8 shrink-0; }
-    .about-team-more { @apply inline-flex items-center gap-3 rounded-full border px-4 py-2 text-base leading-6 font-medium; color: #a92021; border-color: rgb(169 32 33 / 50%); background: rgb(126 1 31 / 5%); }
-    .about-team-more:hover { background: rgb(169 32 33 / 10%); }
     .about-team-slider { @apply relative mt-8 md:mt-12; }
     .about-team-viewport { overflow: hidden; }
     .about-team-grid { @apply flex gap-6; }

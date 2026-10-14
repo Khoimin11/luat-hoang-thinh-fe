@@ -84,7 +84,7 @@
           <p class="about-eyebrow">Nhân sự</p>
           <h2 id="team-title" class="about-heading">Đội ngũ chủ chốt <img src="{{ asset('assets/icons/2970777 1.svg') }}" alt="" width="32" height="32"></h2>
         </div>
-        <button class="about-team-more" type="button" aria-disabled="true">Xem thêm <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 12h18m-6-6 6 6-6 6"/></svg></button>
+        <x-view-more />
       </div>
       <div class="about-team-slider">
         <div class="about-team-viewport" tabindex="0" role="region" aria-label="Slider đội ngũ chủ chốt">
