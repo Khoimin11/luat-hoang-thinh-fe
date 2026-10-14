@@ -30,11 +30,11 @@ export function initHeaderMenu(header) {
     clearTimeout(closeTimer);
     closeTimer = setTimeout(() => setDropdown(false), 200);
   };
-  trigger.addEventListener('mouseenter', () => {
+  dropdown.addEventListener('mouseenter', () => {
     clearTimeout(closeTimer);
     if (desktop.matches && hover.matches && panel.hidden) setDropdown(true, true);
   });
-  trigger.addEventListener('mouseleave', scheduleClose);
+  dropdown.addEventListener('mouseleave', scheduleClose);
   panel.addEventListener('mouseenter', () => clearTimeout(closeTimer));
   panel.addEventListener('mouseleave', scheduleClose);
   dropdown.addEventListener('focusout', (event) => {
@@ -44,7 +44,7 @@ export function initHeaderMenu(header) {
     if (event.key !== 'ArrowDown') return;
     event.preventDefault();
     setDropdown(true);
-    panel.querySelector('button')?.focus();
+    panel.querySelector('a')?.focus();
   });
   menuToggle.addEventListener('click', () => {
     setNavigation(menuToggle.getAttribute('aria-expanded') !== 'true');

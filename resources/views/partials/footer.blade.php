@@ -19,7 +19,7 @@
                 <ul class="footer-links">
                     <li><a href="{{ url('/') }}">Trang chủ</a></li>
                     <li><a href="{{ route('about') }}">Giới thiệu</a></li>
-                    <li><span aria-disabled="true">Lĩnh vực hoạt động</span></li>
+                    <li><a href="{{ route('practice-areas') }}">Lĩnh vực hoạt động</a></li>
                     <li><span aria-disabled="true">Tin tức</span></li>
                     <li><a href="#footer-contact">Liên hệ</a></li>
                 </ul>
@@ -27,14 +27,14 @@
             <nav class="footer-column" aria-labelledby="legal-links-title">
                 <h2 id="legal-links-title" class="footer-heading">Liên kết pháp lý</h2>
                 <ul class="footer-links">
-                    <li><a href="https://www.toaan.gov.vn/" target="_blank" rel="noopener noreferrer">TAND Tối cao<span class="sr-only"> (mở tab mới)</span></a></li>
-                    <li><a href="https://vksndtc.gov.vn/" target="_blank" rel="noopener noreferrer">VKSND Tối cao<span class="sr-only"> (mở tab mới)</span></a></li>
-                    <li><a href="https://moj.gov.vn/" target="_blank" rel="noopener noreferrer">Bộ Tư pháp<span class="sr-only"> (mở tab mới)</span></a></li>
-                    <li><a href="https://hochiminh.toaan.gov.vn/" target="_blank" rel="noopener noreferrer">TAND TP.HCM<span class="sr-only"> (mở tab mới)</span></a></li>
-                    <li><a href="https://hcmcbar.org/" target="_blank" rel="noopener noreferrer">Đoàn Luật sư TP.HCM<span class="sr-only"> (mở tab mới)</span></a></li>
-                    <li><a href="https://chinhphu.vn/" target="_blank" rel="noopener noreferrer">Cổng TTĐT Chính phủ<span class="sr-only"> (mở tab mới)</span></a></li>
-                    <li><a href="https://dichvucong.gov.vn/" target="_blank" rel="noopener noreferrer">Dịch vụ Công QG<span class="sr-only"> (mở tab mới)</span></a></li>
-                    <li><a href="https://dangkykinhdoanh.gov.vn/" target="_blank" rel="noopener noreferrer">Đăng ký KD QG<span class="sr-only"> (mở tab mới)</span></a></li>
+                    <li><a href="#" target="_blank" rel="noopener noreferrer">TAND Tối cao<span class="sr-only"> (mở tab mới)</span></a></li>
+                    <li><a href="#" target="_blank" rel="noopener noreferrer">VKSND Tối cao<span class="sr-only"> (mở tab mới)</span></a></li>
+                    <li><a href="#" target="_blank" rel="noopener noreferrer">Bộ Tư pháp<span class="sr-only"> (mở tab mới)</span></a></li>
+                    <li><a href="#" target="_blank" rel="noopener noreferrer">TAND TP.HCM<span class="sr-only"> (mở tab mới)</span></a></li>
+                    <li><a href="#" target="_blank" rel="noopener noreferrer">Đoàn Luật sư TP.HCM<span class="sr-only"> (mở tab mới)</span></a></li>
+                    <li><a href="#" target="_blank" rel="noopener noreferrer">Cổng TTĐT Chính phủ<span class="sr-only"> (mở tab mới)</span></a></li>
+                    <li><a href="#" target="_blank" rel="noopener noreferrer">Dịch vụ Công QG<span class="sr-only"> (mở tab mới)</span></a></li>
+                    <li><a href="#" target="_blank" rel="noopener noreferrer">Đăng ký KD QG<span class="sr-only"> (mở tab mới)</span></a></li>
                 </ul>
             </nav>
             <section id="footer-contact" class="footer-column" aria-labelledby="footer-contact-title">

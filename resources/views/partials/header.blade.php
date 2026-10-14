@@ -8,7 +8,8 @@
             <a class="header-link {{ request()->is('/') ? 'is-active' : '' }}" href="{{ url('/') }}" @if(request()->is('/')) aria-current="page" @endif>Trang chủ</a>
             <a class="header-link {{ request()->routeIs('about') ? 'is-active' : '' }}" href="{{ route('about') }}" @if(request()->routeIs('about')) aria-current="page" @endif>Giới thiệu</a>
             <div class="header-practice" data-practice-dropdown>
-                <button id="practice-menu-trigger" class="header-link header-link-dropdown" type="button" aria-expanded="false" aria-controls="practice-menu" data-practice-trigger>Lĩnh vực hoạt động <img src="{{ asset('assets/icons/Icon.svg') }}" width="12" height="12" alt=""></button>
+                <a id="practice-menu-link" class="header-link {{ request()->routeIs('practice-areas') ? 'is-active' : '' }}" href="{{ route('practice-areas') }}" @if(request()->routeIs('practice-areas')) aria-current="page" @endif>Lĩnh vực hoạt động</a>
+                <button id="practice-menu-trigger" class="header-practice-toggle header-link-dropdown" type="button" aria-label="Mở danh sách lĩnh vực hoạt động" aria-expanded="false" aria-controls="practice-menu" data-practice-trigger><img src="{{ asset('assets/icons/Icon.svg') }}" width="12" height="12" alt=""></button>
                 @include('partials.menu-dropdown')
             </div>
             <span class="header-link is-unavailable" aria-disabled="true">Tin tức và Kiến thức pháp luật</span>

@@ -66,7 +66,7 @@
           <p class="home-practice-eyebrow">Dịch Vụ Pháp Lý</p>
           <h2 id="home-practice-title">Lĩnh vực hoạt động nổi bật <img src="{{ asset('assets/icons/2970777 1.svg') }}" alt="" width="32" height="32" loading="lazy"></h2>
         </div>
-        <x-view-more />
+        <x-view-more :href="route('practice-areas')" />
       </div>
       <div class="home-practice-layout">
         <div class="home-practice-grid">
@@ -80,7 +80,7 @@
             ['Ảnh lĩnh vực-3.png', 'Biểu tượng lĩnh vực-1.svg', 'Luật sư Hành chính', 'Khiếu nại - Khởi kiện hành chính'],
             ['Ảnh lĩnh vực-2.png', 'Biểu tượng lĩnh vực.svg', 'Luật sư Lao động', 'Hợp đồng - Tranh chấp lao động'],
             ['Ảnh lĩnh vực-1.png', 'Biểu tượng lĩnh vực.svg', 'Luật sư Thuế', 'Tư vấn thuế - Giải quyết tranh chấp'],
-            ['Ảnh lĩnh vực.png', 'Biểu tượng lĩnh vực.svg', 'Luật sư Sở hữu trí tuệ', 'Nhãn hiệu – Bản quyền – Sáng chế'],
+            ['Ảnh lĩnh vực.png', 'Biểu tượng lĩnh vực.svg', 'Luật sư Sở hữu trí tuệ', 'Nhãn hiệu - Bản quyền - Sáng chế'],
           ] as [$image, $icon, $title, $description])
             <x-practice-area-card
               :image="asset('assets/images/'.$image)"
