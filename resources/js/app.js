@@ -24,15 +24,6 @@ document.querySelectorAll('[data-consultation-form]').forEach((form) => {
     }
   };
 
-  fields.forEach((name) => {
-    const field = form.elements.namedItem(name);
-    const validateField = () => showError(name, validateLienHe(getPayload())[name]);
-    field.addEventListener('blur', validateField);
-    field.addEventListener('input', () => {
-      if (field.hasAttribute('aria-invalid')) validateField();
-    });
-  });
-
   form.addEventListener('submit', (event) => {
     event.preventDefault();
 

@@ -135,11 +135,12 @@
     .about-contact-details .about-contact-phone { @apply text-lg leading-7 font-normal; margin-top: 32px; }
     .about-contact-phone + p { margin-top: 8px; }
     .about-contact-phone + p strong { font: inherit; }
-    .about-consultation-form { @apply flex flex-col gap-6 rounded-3xl bg-white/10 p-8 backdrop-blur-sm; }
+    .about-consultation-form { @apply flex flex-col gap-6 rounded-3xl bg-white/10 p-8 backdrop-blur-sm; --consultation-field-background: #918b85; }
     .about-form-row { @apply grid grid-cols-2 gap-6; }
     .about-form-row > div { min-width: 0; }
     .about-consultation-form label { @apply mb-2 block text-sm leading-5 font-normal text-white; }
-    .about-consultation-form input, .about-consultation-form select, .about-consultation-form textarea { @apply w-full rounded-2xl border-0 bg-white/40 px-4 py-3 font-sans text-base leading-6 font-normal text-white outline-offset-2 placeholder:text-white; }
+    .about-consultation-form input, .about-consultation-form select, .about-consultation-form textarea { @apply w-full rounded-2xl border-0 px-4 py-3 font-sans text-base leading-6 font-normal text-white outline-offset-2 placeholder:text-white; background-color: var(--consultation-field-background); }
+    .about-consultation-form :is(input, textarea):is(:autofill, :-webkit-autofill) { box-shadow: inset 0 0 0 1000px var(--consultation-field-background); -webkit-text-fill-color: white; caret-color: white; }
     .about-consultation-form ::placeholder { color: rgb(255 255 255 / 60%); opacity: 1; font-style: italic; }
     .about-consultation-form :disabled { opacity: 1; cursor: default; }
     .about-consultation-form input, .about-consultation-form select { height: 52px; }
