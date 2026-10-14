@@ -1,6 +1,8 @@
 import { validateLienHe } from './lienhe-validation';
 import { initTeamSlider } from './team-slider';
+import { initHeaderMenu } from './header-menu';
 
+document.querySelectorAll('.site-header').forEach(initHeaderMenu);
 document.querySelectorAll('[data-team-carousel]').forEach(initTeamSlider);
 
 document.querySelectorAll('[data-consultation-form]').forEach((form) => {

@@ -7,7 +7,10 @@
         <nav id="main-navigation" class="header-navigation" aria-label="Điều hướng chính">
             <a class="header-link {{ request()->is('/') ? 'is-active' : '' }}" href="{{ url('/') }}" @if(request()->is('/')) aria-current="page" @endif>Trang chủ</a>
             <a class="header-link {{ request()->routeIs('about') ? 'is-active' : '' }}" href="{{ route('about') }}" @if(request()->routeIs('about')) aria-current="page" @endif>Giới thiệu</a>
-            <span class="header-link header-link-dropdown is-unavailable" aria-disabled="true">Lĩnh vực hoạt động <img src="{{ asset('assets/icons/Icon.svg') }}" width="12" height="12" alt=""></span>
+            <div class="header-practice" data-practice-dropdown>
+                <button id="practice-menu-trigger" class="header-link header-link-dropdown" type="button" aria-expanded="false" aria-controls="practice-menu" data-practice-trigger>Lĩnh vực hoạt động <img src="{{ asset('assets/icons/Icon.svg') }}" width="12" height="12" alt=""></button>
+                @include('partials.menu-dropdown')
+            </div>
             <span class="header-link is-unavailable" aria-disabled="true">Tin tức và Kiến thức pháp luật</span>
             <a class="header-link" href="#footer-contact">Liên hệ</a>
         </nav>
