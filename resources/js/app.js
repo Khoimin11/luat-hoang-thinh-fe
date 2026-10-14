@@ -1,7 +1,9 @@
 import { validateLienHe } from './lienhe-validation';
 import { initTeamSlider } from './team-slider';
 import { initHeaderMenu } from './header-menu';
+import { initHomeSlider } from './home-slider';
 
+document.querySelectorAll('[data-home-slider]').forEach(initHomeSlider);
 document.querySelectorAll('.site-header').forEach(initHeaderMenu);
 document.querySelectorAll('[data-team-carousel]').forEach(initTeamSlider);
 

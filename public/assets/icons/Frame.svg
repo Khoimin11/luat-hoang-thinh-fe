@@ -1,12 +1,12 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M18 8L22 12L18 16" stroke="url(#paint0_linear_652_186)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M2 12H22" stroke="url(#paint1_linear_652_186)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M18 8L22 12L18 16" stroke="url(#paint0_linear_652_9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M2 12H22" stroke="url(#paint1_linear_652_9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <defs>
-<linearGradient id="paint0_linear_652_186" x1="20" y1="8" x2="20" y2="16" gradientUnits="userSpaceOnUse">
+<linearGradient id="paint0_linear_652_9" x1="20" y1="8" x2="20" y2="16" gradientUnits="userSpaceOnUse">
 <stop stop-color="#A92021"/>
 <stop offset="1" stop-color="#831314"/>
 </linearGradient>
-<linearGradient id="paint1_linear_652_186" x1="12" y1="12" x2="12" y2="13" gradientUnits="userSpaceOnUse">
+<linearGradient id="paint1_linear_652_9" x1="12" y1="12" x2="12" y2="13" gradientUnits="userSpaceOnUse">
 <stop stop-color="#A92021"/>
 <stop offset="1" stop-color="#831314"/>
 </linearGradient>
