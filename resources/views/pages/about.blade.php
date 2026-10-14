@@ -3,15 +3,7 @@
 @section('title', 'Giới thiệu')
 
 @section('content')
-  <section class="about-hero" aria-labelledby="about-title">
-    <img class="about-hero-image" src="{{ asset('assets/images/5367853b7c3df6fd8b4ff25acce6c36f968c8e4c.jpg') }}" alt="" fetchpriority="high">
-    <div class="about-hero-caption">
-      <div class="about-container about-hero-content">
-        <nav class="about-breadcrumb" aria-label="Đường dẫn trang"><a href="{{ url('/') }}">Trang chủ</a><span aria-hidden="true">/</span><span aria-current="page">Giới thiệu</span></nav>
-        <h1 id="about-title">Giới thiệu</h1>
-      </div>
-    </div>
-  </section>
+  <x-page-hero title="Giới thiệu" heading-id="about-title" />
 
   <section class="about-intro-section" aria-labelledby="intro-title">
     <div class="about-intro">
