@@ -49,7 +49,7 @@
             <h2 id="values-title" class="about-heading">Tầm nhìn & sứ mệnh</h2>
           </div>
           <div class="about-mission-description">
-            <p class="about-motto">Vững pháp lý – Trọn niềm tin – Đồng hành bền vững</p>
+            <p class="about-motto">Vững pháp lý - Trọn niềm tin - Đồng hành bền vững</p>
             <p class="about-mission-copy">Hoàng Thịnh Luật hướng đến xây dựng một thương hiệu pháp lý chuyên nghiệp, uy tín và tận tâm. Chúng tôi không chỉ cung cấp giải pháp pháp lý phù hợp mà còn đồng hành cùng khách hàng trong việc bảo vệ quyền lợi, kiểm soát rủi ro và tạo nền tảng phát triển bền vững.</p>
           </div>
         </div>
