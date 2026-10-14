@@ -97,19 +97,21 @@
     .home-news-container { @apply mx-auto w-full max-w-7xl; }
     .home-news-header > div { min-width: 0; }
     .home-news-grid { @apply mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4; }
-    .home-news-card { @apply flex min-w-0 flex-col gap-3 overflow-hidden rounded-3xl p-2; border: 1px solid rgb(0 0 0 / 5%); background: #fcfcfc; }
-    .home-news-image { @apply relative overflow-hidden rounded-2xl; }
-    .home-news-image img { width: 100%; height: 200px; object-fit: cover; }
-    .home-news-image::after { content: ''; position: absolute; inset: 0; background: rgb(0 0 0 / 40%); opacity: 0; transition: opacity 200ms ease; }
-    .home-news-card:hover .home-news-image::after { opacity: 1; }
-    .home-news-card-body { @apply flex flex-1 flex-col px-2 pb-2; }
-    .home-news-card h3 { @apply line-clamp-2 font-sans text-base leading-6 font-bold; min-height: 48px; color: #002123; }
-    .home-news-description { @apply mt-2 line-clamp-2 font-sans text-base leading-6 font-normal; min-height: 48px; color: #373d4e; }
-    .home-news-meta { @apply mt-4 flex flex-wrap items-center justify-between gap-2 font-sans text-sm leading-5 font-medium; }
-    .home-news-date { @apply inline-flex items-center gap-2; color: #373d4e; }
-    .home-news-date svg { color: #7e011f; }
-    .home-news-detail { @apply inline-flex items-center gap-2 rounded-full border-0 bg-transparent p-0 font-sans text-sm leading-5 font-medium; color: #7e011f; cursor: default; }
-    .home-news-detail span { width: 1px; height: 16px; background: rgb(126 1 31 / 10%); }
+    .blog-card { @apply flex min-w-0 flex-col gap-3 overflow-hidden rounded-3xl p-2; border: 1px solid rgb(0 0 0 / 5%); background: #fcfcfc; }
+    .blog-card-image { @apply relative overflow-hidden rounded-2xl; }
+    .blog-card-image img { width: 100%; height: 200px; object-fit: cover; }
+    .blog-card-image::after { content: ''; position: absolute; inset: 0; background: rgb(0 0 0 / 40%); opacity: 0; transition: opacity 200ms ease; }
+    .blog-card:hover .blog-card-image::after { opacity: 1; }
+    .blog-card-body { @apply flex flex-1 flex-col px-2 pb-2; }
+    .blog-card h3 { @apply line-clamp-2 font-sans text-base leading-6 font-bold; min-height: 48px; color: #002123; }
+    .blog-card-description { @apply mt-2 line-clamp-2 font-sans text-base leading-6 font-normal; min-height: 48px; color: #373d4e; }
+    .blog-card-meta { @apply mt-4 flex flex-wrap items-center justify-between gap-2 font-sans text-sm leading-5 font-medium; }
+    .blog-card-date { @apply inline-flex items-center gap-2; color: #373d4e; }
+    .blog-card-date svg { color: #7e011f; }
+    .blog-card-detail { @apply inline-flex items-center gap-2 rounded-full border-0 bg-transparent p-0 font-sans text-sm leading-5 font-medium; color: #7e011f; cursor: default; }
+    .blog-card-detail span { width: 1px; height: 16px; background: rgb(126 1 31 / 10%); }
+    .blog-card-detail[href] { cursor: pointer; }
+    .blog-card a:hover { color: #7e011f; }
 
     /* Trang Giới thiệu */
     .about-container { @apply mx-auto w-full max-w-7xl px-5 sm:px-8; }

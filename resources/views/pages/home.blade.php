@@ -126,22 +126,12 @@
           ['Image-1.png', 'Tư vấn ly hôn đơn phương: Quy trình, hồ sơ và chi phí chi tiết', 'Cập nhật quy định mới nhất giúp bạn giải quyết nhanh chóng, tối ưu hóa quyền lợi.'],
           ['Image-2.png', 'Doanh nghiệp cần lưu ý gì khi thay đổi người đại diện pháp luật?', 'Những quy định quan trọng về thủ tục cần thực hiện đúng theo quy định hiện hành.'],
         ] as [$image, $title, $description])
-          <article class="home-news-card">
-            <div class="home-news-image">
-              <img src="{{ asset('assets/images/'.$image) }}" alt="" width="292" height="200" loading="lazy">
-            </div>
-            <div class="home-news-card-body">
-              <h3>{{ $title }}</h3>
-              <p class="home-news-description">{{ $description }}</p>
-              <div class="home-news-meta">
-                <span class="home-news-date">
-                  <img src="{{ asset('assets/icons/10156100 1.svg') }}" alt="" width="14" height="14" loading="lazy">
-                  <time datetime="2026-07-26">26/07/2026</time>
-                </span>
-                <button class="home-news-detail" type="button" aria-disabled="true">Xem chi tiết <span aria-hidden="true"></span><svg width="8" height="14" viewBox="0 0 8 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m1 1 6 6-6 6"/></svg></button>
-              </div>
-            </div>
-          </article>
+          <x-blog-card
+            :image="asset('assets/images/'.$image)"
+            :title="$title"
+            :description="$description"
+            date="2026-07-26"
+          />
         @endforeach
       </div>
     </div>
