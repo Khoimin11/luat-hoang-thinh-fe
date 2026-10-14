@@ -95,12 +95,14 @@
         <button class="about-team-more" type="button" aria-disabled="true">Xem thêm <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 12h18m-6-6 6 6-6 6"/></svg></button>
       </div>
       <div class="about-team-slider">
-        <div id="about-team-cards" class="about-team-grid">
-          @foreach ([['ce93f17476f55c367e115332e23772954305e2bc.png', 'Giám đốc', 'Ông Phan Minh Hoàng'], ['cc4af13c0db17499cb4a14cc049a6f6ea2eabad0.png', 'Luật sư cộng sự', 'Bà Lê Thị Hồng'], ['12e6fce3db1ec81356ec1712864ccb945d4f3d50.png', 'Luật sư cộng sự', 'Ông Phạm Văn Dũng'], ['e414eb6291fc180212b12f6f7933207d4cd4cdfb.png', 'Luật sư cộng sự', 'Ông Hoàng Trung Nam']] as [$photo, $role, $name])
-            <article class="about-team-card"><div class="about-team-photo"><img src="{{ asset('assets/images/'.$photo) }}" alt="{{ $name }}" loading="lazy"></div><div class="about-team-caption"><p>{{ $role }}</p><h3>{{ $name }}</h3></div></article>
-          @endforeach
+        <div class="about-team-viewport" tabindex="0" role="region" aria-label="Slider đội ngũ chủ chốt">
+          <div id="about-team-cards" class="about-team-grid">
+            @foreach ([['ce93f17476f55c367e115332e23772954305e2bc.png', 'Giám đốc', 'Ông Phan Minh Hoàng'], ['cc4af13c0db17499cb4a14cc049a6f6ea2eabad0.png', 'Luật sư cộng sự', 'Bà Lê Thị Hồng'], ['12e6fce3db1ec81356ec1712864ccb945d4f3d50.png', 'Luật sư cộng sự', 'Ông Phạm Văn Dũng'], ['e414eb6291fc180212b12f6f7933207d4cd4cdfb.png', 'Luật sư cộng sự', 'Ông Hoàng Trung Nam']] as [$photo, $role, $name])
+              <article class="about-team-card"><div class="about-team-photo"><img src="{{ asset('assets/images/'.$photo) }}" alt="{{ $name }}" loading="lazy"></div><div class="about-team-caption"><p>{{ $role }}</p><h3>{{ $name }}</h3></div></article>
+            @endforeach
+          </div>
         </div>
-        <button class="about-team-arrow about-team-prev" type="button" aria-label="Xem nhân sự trước" aria-controls="about-team-cards" data-team-prev disabled><img src="{{ asset('assets/icons/Frame 2147238982.svg') }}" alt="" width="64" height="64"></button>
+        <button class="about-team-arrow about-team-prev" type="button" aria-label="Xem nhân sự trước" aria-controls="about-team-cards" data-team-prev><img src="{{ asset('assets/icons/Frame 2147238982.svg') }}" alt="" width="64" height="64"></button>
         <button class="about-team-arrow about-team-next" type="button" aria-label="Xem nhân sự tiếp theo" aria-controls="about-team-cards" data-team-next><img src="{{ asset('assets/icons/Frame 2147238981.svg') }}" alt="" width="64" height="64"></button>
       </div>
     </div>
@@ -114,26 +116,36 @@
         <address class="about-contact-details">
           <p><strong>Trụ sở chính:</strong><br><span class="about-contact-address">40/9/8 Trần Văn Quang, P. Bảy Hiền, TP.HCM</span></p>
           <p><strong>Văn phòng:</strong><br><span class="about-contact-address">1124 Lạc Long Quân, P. Tân Hòa, TP.HCM</span></p>
-          <p class="about-contact-phone">SĐT: <a href="tel:0913849072">0913.849.072</a> | Zalo: <a href="https://zalo.me/0913849072" target="_blank" rel="noopener noreferrer">0913.849.072</a></p>
+          <p class="about-contact-phone">SĐT: <a href="tel:0913849072">0913.849.072</a> | Zalo: <a href="" target="_blank" rel="noopener noreferrer">0913.849.072</a></p>
           <p><strong>Email:</strong> <a href="mailto:hoangthinhluat.lawfirm@gmail.com">hoangthinhluat.lawfirm@gmail.com</a></p>
         </address>
       </div>
-      <div class="about-consultation-form" role="form" aria-label="Form tư vấn" data-consultation-form>
+      <form class="about-consultation-form" method="post" novalidate aria-label="Form tư vấn" data-consultation-form>
         <h3 class="sr-only">Trao đổi nhu cầu tư vấn</h3>
         <div class="about-form-row">
-          <div><label for="consultation-name">Họ và tên</label><input id="consultation-name" autocomplete="off" disabled placeholder="Your Email"></div>
-          <div><label for="consultation-email">Email</label><input id="consultation-email" type="email" autocomplete="off" disabled placeholder="Email"></div>
+          <div>
+            <label for="consultation-name">Họ và tên</label>
+            <input id="consultation-name" name="name" autocomplete="name" required minlength="2" maxlength="100" aria-describedby="consultation-name-error" placeholder="Họ và tên">
+            <p id="consultation-name-error" class="about-form-error" aria-live="polite" hidden></p>
+          </div>
+          <div>
+            <label for="consultation-email">Email</label>
+            <input id="consultation-email" name="email" type="email" autocomplete="email" required maxlength="255" aria-describedby="consultation-email-error" placeholder="Email">
+            <p id="consultation-email-error" class="about-form-error" aria-live="polite" hidden></p>
+          </div>
         </div>
         <div>
           <label for="consultation-service">Dịch vụ cần tư vấn</label>
-          <input id="consultation-service" autocomplete="off" disabled placeholder="Dịch vụ cần tư vấn">
+          <input id="consultation-service" name="service" required maxlength="150" aria-describedby="consultation-service-error" placeholder="Dịch vụ cần tư vấn">
+          <p id="consultation-service-error" class="about-form-error" aria-live="polite" hidden></p>
         </div>
         <div>
           <label for="consultation-message">Lời nhắn</label>
-          <textarea id="consultation-message" rows="6" disabled placeholder="Lời nhắn của bạn"></textarea>
+          <textarea id="consultation-message" name="message" rows="6" required minlength="10" maxlength="2000" aria-describedby="consultation-message-error" placeholder="Lời nhắn của bạn"></textarea>
+          <p id="consultation-message-error" class="about-form-error" aria-live="polite" hidden></p>
         </div>
-        <button type="button" disabled>Gửi lời nhắn <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 12h18m-6-6 6 6-6 6"/></svg></button>
-      </div>
+        <button type="submit">Gửi lời nhắn <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 12h18m-6-6 6 6-6 6"/></svg></button>
+      </form>
     </div>
   </section>
 @endsection
