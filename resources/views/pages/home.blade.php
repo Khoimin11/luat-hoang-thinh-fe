@@ -82,16 +82,12 @@
             ['Ảnh lĩnh vực-1.png', 'Biểu tượng lĩnh vực.svg', 'Luật sư Thuế', 'Tư vấn thuế - Giải quyết tranh chấp'],
             ['Ảnh lĩnh vực.png', 'Biểu tượng lĩnh vực.svg', 'Luật sư Sở hữu trí tuệ', 'Nhãn hiệu – Bản quyền – Sáng chế'],
           ] as [$image, $icon, $title, $description])
-            <article class="home-practice-card">
-              <img class="home-practice-image" src="{{ asset('assets/images/'.$image) }}" alt="" loading="lazy" width="390" height="130">
-              <div class="home-practice-card-body">
-                <span class="home-practice-icon" aria-hidden="true"><img src="{{ asset('assets/icons/'.$icon) }}" alt="" width="20" height="20" loading="lazy"></span>
-                <div>
-                  <h3>{{ $title }}</h3>
-                  <p>{{ $description }}</p>
-                </div>
-              </div>
-            </article>
+            <x-practice-area-card
+              :image="asset('assets/images/'.$image)"
+              :icon="asset('assets/icons/'.$icon)"
+              :title="$title"
+              :description="$description"
+            />
           @endforeach
         </div>
         <aside class="home-practice-reasons" aria-labelledby="home-practice-reasons-title" style="--practice-background: url('{{ asset('assets/images/39437635f1daec47983a81bfb09828b281b59497.png') }}')">

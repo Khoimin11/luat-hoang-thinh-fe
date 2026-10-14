@@ -73,14 +73,15 @@
     .home-practice-more, .home-news-more { @apply inline-flex shrink-0 items-center gap-2 rounded-2xl px-4 py-2 font-sans text-base leading-6 font-medium; color: #a92021; border: 1px solid #a92021; background: rgb(126 1 31 / 5%); cursor: default; }
     .home-practice-layout { @apply mt-10 grid items-start gap-10; }
     .home-practice-grid { @apply grid gap-5 sm:grid-cols-2; }
-    .home-practice-card { @apply overflow-hidden rounded-3xl; border: 1px solid var(--color-brand-stroke); background: #fcfcfc; }
-    .home-practice-image { display: block; width: 100%; aspect-ratio: 3 / 1; object-fit: cover; }
-    .home-practice-card-body { @apply flex items-center gap-4 p-5; min-height: 100px; }
-    .home-practice-card-body > div { min-width: 0; }
-    .home-practice-icon { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: #e5f2f2; }
-    .home-practice-icon img { width: 20px; height: 20px; }
-    .home-practice-card h3 { @apply font-sans text-base leading-6 font-bold; color: #002123; }
-    .home-practice-card p { @apply mt-1 font-sans text-sm leading-5 font-normal; color: #373d4e; }
+    .practice-area-card { @apply relative overflow-hidden rounded-3xl; border: 1px solid var(--color-brand-stroke); background: #fcfcfc; }
+    .practice-area-card-link::after { content: ''; position: absolute; inset: 0; }
+    .practice-area-card-image { display: block; width: 100%; aspect-ratio: 3 / 1; object-fit: cover; }
+    .practice-area-card-body { @apply flex items-center gap-4 p-5; min-height: 100px; }
+    .practice-area-card-body > div { min-width: 0; }
+    .practice-area-card-icon { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: #e5f2f2; }
+    .practice-area-card-icon img { width: 20px; height: 20px; }
+    .practice-area-card h3 { @apply font-sans text-base leading-6 font-bold; color: #002123; }
+    .practice-area-card p { @apply mt-1 font-sans text-sm leading-5 font-normal; color: #373d4e; }
     .home-practice-reasons { @apply relative isolate overflow-hidden rounded-3xl p-8 text-white md:p-10; background: #003436; box-shadow: 0 16px 24px rgb(0 33 35 / 16%); }
     .home-practice-reasons::before { content: ''; position: absolute; inset: 0; z-index: -1; background-image: linear-gradient(rgb(1 123 129 / 80%), rgb(1 123 129 / 80%)), var(--practice-background); background-size: cover; background-position: right center; }
     .home-practice-reasons-eyebrow { @apply font-sans text-sm leading-5 font-bold uppercase; }
