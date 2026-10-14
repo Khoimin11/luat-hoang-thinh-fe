@@ -1,4 +1,4 @@
-export function validateLoiNhan(values) {
+export function validateLienHe(values) {
   const errors = {};
   const length = (value) => Array.from(value ?? '').length;
 
