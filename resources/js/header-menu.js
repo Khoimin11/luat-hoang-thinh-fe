@@ -5,8 +5,13 @@ export function initHeaderMenu(header) {
   const trigger = header.querySelector('[data-practice-trigger]');
   const panel = header.querySelector('[data-practice-panel]');
   const desktop = window.matchMedia('(min-width: 1536px)');
+  const hover = window.matchMedia('(hover: hover)');
+  let closeTimer;
+  let openedByHover = false;
 
-  const setDropdown = (open) => {
+  const setDropdown = (open, fromHover = false) => {
+    clearTimeout(closeTimer);
+    openedByHover = open && fromHover;
     trigger.setAttribute('aria-expanded', String(open));
     panel.hidden = !open;
   };
@@ -18,8 +23,20 @@ export function initHeaderMenu(header) {
   };
 
   trigger.addEventListener('click', () => {
-    setDropdown(panel.hidden);
+    setDropdown(panel.hidden || openedByHover);
   });
+  const scheduleClose = () => {
+    if (!desktop.matches || !hover.matches) return;
+    clearTimeout(closeTimer);
+    closeTimer = setTimeout(() => setDropdown(false), 200);
+  };
+  trigger.addEventListener('mouseenter', () => {
+    clearTimeout(closeTimer);
+    if (desktop.matches && hover.matches && panel.hidden) setDropdown(true, true);
+  });
+  trigger.addEventListener('mouseleave', scheduleClose);
+  panel.addEventListener('mouseenter', () => clearTimeout(closeTimer));
+  panel.addEventListener('mouseleave', scheduleClose);
   dropdown.addEventListener('focusout', (event) => {
     if (!dropdown.contains(event.relatedTarget)) setDropdown(false);
   });
