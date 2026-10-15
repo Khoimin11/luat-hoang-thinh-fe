@@ -34,7 +34,7 @@
     </div>
     <div class="about-container">
       <div class="about-mission">
-        <div class="about-mission-portrait"><img src="{{ asset('assets/images/94dd2de76160785f126a286fb2f1b3a3b1a1b5bb.png') }}" alt="" loading="lazy" width="1181" height="1332"></div>
+        <div class="about-mission-portrait"><img src="{{ asset('assets/images/image 809.png') }}" alt="" loading="lazy" width="277" height="309"></div>
         <div class="about-mission-content">
           <div class="about-mission-title">
             <p class="about-eyebrow">Định hướng phát triển</p>

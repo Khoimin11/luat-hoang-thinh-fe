@@ -7,6 +7,7 @@
 
     <title>@yield('title', 'Hoàng Thịnh Luật')</title>
 
+    {{ Vite::fonts('bebas-neue') }}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>

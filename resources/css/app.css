@@ -165,7 +165,6 @@
     .blog-card a:hover { color: #7e011f; }
 
     /* Trang Lĩnh vực hoạt động */
-    .practice-areas-hero .page-hero-container { max-width: 1344px; }
     .practice-areas-hero .page-hero-image { left: -12px; width: calc(100% + 24px); height: calc(100% + 24px); min-height: 0; object-position: center; }
     .practice-areas-section { @apply bg-white px-5 py-12 sm:px-8 md:py-16 xl:px-20; }
     .practice-areas-container { @apply mx-auto w-full max-w-7xl; }
@@ -180,7 +179,7 @@
     .page-hero-image { position: absolute; top: -12px; left: -7.7%; z-index: -20; width: 111%; max-width: none; height: auto; min-height: calc(100% + 24px); object-fit: cover; object-position: center top; transform: scaleX(-1); filter: blur(4px); }
     .page-hero::before { content: ''; position: absolute; inset: 0; z-index: -10; background: rgb(0 52 54 / 40%); }
     .page-hero-caption { @apply w-full pt-8 pb-8 md:pb-12; background: linear-gradient(180deg, rgb(0 52 54 / 0%), rgb(0 52 54 / 80%)); }
-    .page-hero-container { @apply relative mx-auto w-full max-w-7xl px-5 sm:px-8; }
+    .page-hero-container { @apply relative mx-auto max-w-7xl; width: calc(100% - 40px); }
     .page-hero-breadcrumb { @apply mb-2 flex items-center gap-1.25 text-base leading-6 font-normal text-white/60 md:text-lg md:leading-7; }
     .page-hero-breadcrumb a { @apply hover:text-white; }
     .page-hero-breadcrumb [aria-current] { @apply font-medium text-white; }
@@ -191,11 +190,12 @@
     .about-prose { @apply mt-4 space-y-2 text-base leading-6 font-normal text-body-copy; }
     .about-prose strong { @apply font-semibold text-brand-black; }
     .about-intro-section { @apply w-full bg-white px-5 py-12 sm:px-8 md:py-16 xl:px-20; }
-    .about-intro { @apply mx-auto grid w-full max-w-7xl items-end gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.73fr)] lg:gap-12; }
-    .about-intro-copy { min-width: 0; }
+    .about-intro { @apply mx-auto grid w-full max-w-7xl items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.73fr)] lg:gap-12; }
+    .about-intro-copy { display: flex; flex-direction: column; align-self: stretch; min-width: 0; }
     .about-intro .about-heading { @apply flex flex-wrap items-center gap-4; }
     .about-intro-icon { @apply size-8 shrink-0; }
     .about-gallery { @apply mt-4 grid grid-cols-3 gap-3; }
+    .about-intro-copy .about-gallery { margin-top: auto; padding-top: 16px; }
     .about-gallery img { @apply aspect-232/144 w-full rounded-lg object-cover; }
     .about-director { @apply relative overflow-hidden rounded-3xl; }
     .about-director > img { @apply aspect-520/477 w-full object-cover; }
@@ -203,11 +203,10 @@
     .about-values-background { position: absolute; z-index: -1; inset: 100px 0 0; overflow: hidden; background: #0b1b24; pointer-events: none; }
     .about-values-background img { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .04; }
     .about-values > .about-container { width: calc(100% - 40px); max-width: 1280px; padding: 0; }
-    .about-mission { @apply relative isolate grid items-center gap-6 overflow-hidden rounded-3xl p-6 md:grid-cols-[1fr_1fr] md:p-8; background: linear-gradient(110deg, #003436, #017b81); }
-    .about-mission::before { content: ''; position: absolute; inset: 0; z-index: -1; opacity: .2; background: repeating-radial-gradient(ellipse at 10% 50%, transparent 0 16px, #ffffff22 17px 18px, transparent 19px 30px); }
+    .about-mission { @apply relative isolate grid items-center gap-6 overflow-hidden rounded-3xl p-6 md:grid-cols-[1fr_1fr] md:p-8; background: #003436 url('../../public/assets/images/Frame 2147237464.png') center / cover no-repeat; }
     .about-mission-content { display: contents; }
     .about-mission-portrait { @apply hidden self-end xl:block; width: 277px; max-width: 100%; height: 309px; }
-    .about-mission-portrait img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; transform: scaleX(-1); }
+    .about-mission-portrait img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; }
     .about-mission-title, .about-mission-description { min-width: 0; }
     .about-mission .about-eyebrow { @apply text-sm leading-5 font-semibold text-white; }
     .about-mission .about-heading { @apply text-white; font-size: 32px; line-height: 38px; font-weight: 600; }
@@ -223,7 +222,7 @@
     .about-statistics-grid { @apply mx-auto grid w-full max-w-7xl grid-cols-2 gap-y-8 overflow-hidden rounded-3xl bg-slate-950 px-4 py-8 md:grid-cols-4 md:gap-y-0 md:px-0 md:py-10; background-image: var(--about-background, none); background-size: cover; background-position: center; }
     .about-statistics-grid > div { @apply relative px-2 text-center; }
     .about-statistics-grid > div:nth-child(odd)::before { content: ''; position: absolute; right: 0; top: 50%; width: 1px; height: 105px; transform: translateY(-50%); background: #d9d9d9; }
-    .about-statistics-grid > div:nth-child(odd)::after { content: ''; position: absolute; right: -7px; top: 50%; width: 14px; height: 14px; transform: translateY(-50%); border: 4px solid #a18b65; border-radius: 50%; background: white; }
+    .about-statistics-grid > div:nth-child(odd)::after { content: ''; position: absolute; right: -6px; top: 50%; width: 12px; height: 12px; transform: translateY(-50%); border-radius: 50%; background: white; box-shadow: 0 0 0 7px rgb(161 139 101 / 50%); }
     .about-statistic-number { @apply font-bebas text-5xl leading-18 font-normal text-white md:text-7xl md:leading-[109.78px]; }
     .about-statistic-number span { @apply ml-1 align-baseline text-inherit font-normal; }
     .about-statistic-label { @apply text-sm leading-6 font-medium tracking-normal text-white uppercase md:text-base; }
@@ -329,7 +328,7 @@
     .is-unavailable { @apply text-slate-500; }
     .header-actions { @apply flex shrink-0 items-center gap-3; }
     .header-hotline { @apply hidden items-center gap-3 sm:flex; color: #c61118; }
-    .hotline-copy { @apply flex flex-col items-end gap-0.5; }
+    .hotline-copy { @apply flex flex-col items-end gap-0.5; white-space: nowrap; }
     .hotline-copy small { @apply text-sm leading-5 font-normal text-slate-700; }
     .hotline-copy strong { @apply text-xl leading-7 font-bold; }
     .hotline-icon { @apply flex size-12 items-center justify-center rounded-full border; border-color: #c6111833; color: #a92021; }
@@ -400,6 +399,7 @@
 
 @media (min-width: 640px) {
     .header-logo-symbol { width: 64px; height: 64px; }
+    .page-hero-container { width: calc(100% - 64px); }
     .home-value-props { padding-inline: 32px; }
     .home-value-props-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 64px; }
     .home-value-prop:nth-child(odd)::after { content: ''; position: absolute; right: -32px; top: 50%; width: 1px; height: 40px; transform: translateY(-50%); background: rgb(0 0 0 / 7.84%); }
@@ -409,7 +409,7 @@
 
 @media (min-width: 768px) {
     .about-statistics-grid > div:not(:last-child)::before { content: ''; position: absolute; right: 0; top: 50%; width: 1px; height: 105px; transform: translateY(-50%); background: #d9d9d9; }
-    .about-statistics-grid > div:not(:last-child)::after { content: ''; position: absolute; right: -7px; top: 50%; width: 14px; height: 14px; transform: translateY(-50%); border: 4px solid #a18b65; border-radius: 50%; background: white; }
+    .about-statistics-grid > div:not(:last-child)::after { content: ''; position: absolute; right: -6px; top: 50%; width: 12px; height: 12px; transform: translateY(-50%); border-radius: 50%; background: white; box-shadow: 0 0 0 7px rgb(161 139 101 / 50%); }
 }
 
 @media (min-width: 640px) and (max-width: 1279px) {
@@ -441,7 +441,6 @@
     .header-logo-wordmark { width: 220px; height: auto; }
     .header-navigation { gap: 8px; }
     .header-link { padding-right: 4px; padding-left: 4px; }
-    .hotline-copy { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -457,6 +456,7 @@
 
 @media (min-width: 1280px) {
     .about-commitment-card:nth-child(n + 3)::after { top: -32px; }
+    .page-hero-container { width: calc(100% - 160px); }
     .home-value-props-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .home-value-prop:not(:last-child)::after { content: ''; position: absolute; right: -32px; top: 50%; width: 1px; height: 40px; transform: translateY(-50%); background: rgb(0 0 0 / 7.84%); }
     .home-hero-container { width: calc(100% - 160px); padding: 0; }
