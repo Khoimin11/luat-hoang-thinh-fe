@@ -89,11 +89,11 @@
     .home-hero-slide img { width: 100%; height: 100%; object-fit: cover; object-position: 65% center; }
     .home-hero-shade { position: absolute; inset: 0; z-index: -2; background: linear-gradient(90deg, #003436 0%, rgb(0 52 54 / 85%) 30%, rgb(0 52 54 / 0%) 71%); }
     .home-hero-container { width: calc(100% - 40px); max-width: 1280px; height: 100%; margin: 0 auto; display: flex; align-items: center; padding: 48px 0 100px; }
-    .home-hero-copy { width: 100%; max-width: 782px; }
-    .home-hero-eyebrow { @apply mb-4 font-bold uppercase; font-size: clamp(20px, 1.875vw, 36px); line-height: 1.3334; }
-    .home-hero h1 { @apply font-bold uppercase; font-size: clamp(28px, 2.4vw, 46px); line-height: 1.4; }
-    .home-hero-description { @apply mt-4 font-medium; font-size: clamp(16px, 1.25vw, 24px); line-height: 1.6667; }
-    .home-hero-actions { @apply mt-8 flex flex-wrap gap-4 xl:mt-12; }
+    .home-hero-copy { width: 100%; max-width: 920px; }
+    .home-hero-eyebrow { @apply mb-1 font-bold uppercase; font-size: clamp(20px, 2.083333vw, 40px); line-height: 1.5; }
+    .home-hero h1 { @apply font-bold uppercase; font-size: clamp(28px, 2.916667vw, 56px); line-height: 1.5; }
+    .home-hero-description { @apply mt-4 font-medium; max-width: 818px; font-size: clamp(16px, 1.25vw, 24px); line-height: 1.833333; }
+    .home-hero-actions { @apply mt-8 flex flex-wrap gap-4 xl:mt-[45px]; }
     .home-hero-actions a { @apply inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base leading-6 font-medium xl:px-8 xl:py-4 xl:text-lg xl:leading-7; }
     .home-hero-about { background: linear-gradient(180deg, #017b81, #43bac0); }
     .home-hero-contact { background: linear-gradient(180deg, #b92324, #8b1517); }
@@ -165,7 +165,7 @@
     .blog-card a:hover { color: #7e011f; }
 
     /* Trang Lĩnh vực hoạt động */
-    .practice-areas-hero .page-hero-image { left: -12px; width: calc(100% + 24px); height: calc(100% + 24px); min-height: 0; object-position: center; }
+    .practice-areas-hero .hero-slider-image { left: -12px; width: calc(100% + 24px); height: calc(100% + 24px); min-height: 0; object-position: center; }
     .practice-areas-section { @apply bg-white px-5 py-12 sm:px-8 md:py-16 xl:px-20; }
     .practice-areas-container { @apply mx-auto w-full max-w-7xl; }
     .practice-areas-intro { @apply font-sans text-lg leading-7 font-medium; color: #373d4e; }
@@ -175,15 +175,15 @@
     /* Trang Giới thiệu */
     .about-container { @apply mx-auto w-full max-w-7xl px-5 sm:px-8; }
     .about-section { @apply py-12 md:py-16; }
-    .page-hero { @apply relative isolate flex h-90 items-end overflow-hidden bg-[#003436] md:h-120 xl:h-162.5; }
-    .page-hero-image { position: absolute; top: -12px; left: -7.7%; z-index: -20; width: 111%; max-width: none; height: auto; min-height: calc(100% + 24px); object-fit: cover; object-position: center top; transform: scaleX(-1); filter: blur(4px); }
-    .page-hero::before { content: ''; position: absolute; inset: 0; z-index: -10; background: rgb(0 52 54 / 40%); }
-    .page-hero-caption { @apply w-full pt-8 pb-8 md:pb-12; background: linear-gradient(180deg, rgb(0 52 54 / 0%), rgb(0 52 54 / 80%)); }
-    .page-hero-container { @apply relative mx-auto max-w-7xl; width: calc(100% - 40px); }
-    .page-hero-breadcrumb { @apply mb-2 flex items-center gap-1.25 text-base leading-6 font-normal text-white/60 md:text-lg md:leading-7; }
-    .page-hero-breadcrumb a { @apply hover:text-white; }
-    .page-hero-breadcrumb [aria-current] { @apply font-medium text-white; }
-    .page-hero h1 { @apply text-3xl leading-10 font-medium text-white uppercase md:text-5xl md:leading-18; }
+    .hero-slider { @apply relative isolate flex h-90 items-end overflow-hidden bg-[#003436] md:h-120 xl:h-162.5; }
+    .hero-slider-image { position: absolute; top: -12px; left: -7.7%; z-index: -20; width: 111%; max-width: none; height: auto; min-height: calc(100% + 24px); object-fit: cover; object-position: center top; transform: scaleX(-1); filter: blur(4px); }
+    .hero-slider::before { content: ''; position: absolute; inset: 0; z-index: -10; background: rgb(0 52 54 / 40%); }
+    .hero-slider-caption { @apply w-full pt-8 pb-8 md:pb-12; background: linear-gradient(180deg, rgb(0 52 54 / 0%), rgb(0 52 54 / 80%)); }
+    .hero-slider-container { @apply relative mx-auto max-w-7xl; width: calc(100% - 40px); }
+    .hero-slider-breadcrumb { @apply mb-2 flex items-center gap-1.25 text-base leading-6 font-normal text-white/60 md:text-lg md:leading-7; }
+    .hero-slider-breadcrumb a { @apply hover:text-white; }
+    .hero-slider-breadcrumb [aria-current] { @apply font-medium text-white; }
+    .hero-slider h1 { @apply text-3xl leading-10 font-medium text-white uppercase md:text-5xl md:leading-18; }
     .about-eyebrow { @apply mb-2 text-sm leading-5 font-semibold tracking-normal text-cyan-700 uppercase; }
     .about-eyebrow::before { content: ''; display: block; width: 56px; height: 2px; margin-bottom: 12px; background: linear-gradient(90deg, #0e7490, #34d399); }
     .about-heading { @apply text-2xl leading-8 font-semibold text-brand-black uppercase md:text-3xl md:leading-10; }
@@ -394,9 +394,14 @@
     .footer-bottom { width: calc(100% + 160px); margin: 48px -80px 0; padding: 18px 0 17px; }
 }
 
+@media (max-width: 639px) {
+    .home-hero { height: auto; }
+    .home-hero-container { height: auto; min-height: 560px; padding: 48px 0; }
+}
+
 @media (min-width: 640px) {
     .header-logo-symbol { width: 64px; height: 64px; }
-    .page-hero-container { width: calc(100% - 64px); }
+    .hero-slider-container { width: calc(100% - 64px); }
     .home-value-props { padding-inline: 32px; }
     .home-value-props-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 64px; }
     .home-value-prop:nth-child(odd)::after { content: ''; position: absolute; right: -32px; top: 50%; width: 1px; height: 40px; transform: translateY(-50%); background: rgb(0 0 0 / 7.84%); }
@@ -453,11 +458,11 @@
 
 @media (min-width: 1280px) {
     .about-commitment-card:nth-child(n + 3)::after { top: -32px; }
-    .page-hero-container { width: calc(100% - 160px); }
+    .hero-slider-container { width: calc(100% - 160px); }
     .home-value-props-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .home-value-prop:not(:last-child)::after { content: ''; position: absolute; right: -32px; top: 50%; width: 1px; height: 40px; transform: translateY(-50%); background: rgb(0 0 0 / 7.84%); }
     .home-hero-container { width: calc(100% - 160px); padding: 0; }
-    .home-hero-copy { width: 61.1%; }
+    .home-hero-copy { width: 71.875%; }
     .about-contact-grid { grid-template-columns: minmax(0, 416px) minmax(0, 526px); justify-content: center; gap: 134px; }
     .about-contact { background-size: 100% 100%; }
     .about-contact-company, .about-consultation-form { min-height: 552px; }

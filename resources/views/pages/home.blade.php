@@ -6,10 +6,9 @@
   {{-- Section: HomeHero --}}
   @php
     $slides = [
-      'assets/images/037b4bf8995c09b049c9b8f47da607400c421d51.png',
-      'assets/images/037b4bf8995c09b049c9b8f47da607400c421d51.png',
-      'assets/images/037b4bf8995c09b049c9b8f47da607400c421d51.png',
-      'assets/images/037b4bf8995c09b049c9b8f47da607400c421d51.png',
+      'assets/images/home-hero-slider-1.png',
+      'assets/images/home-hero-slider-2.png',
+      'assets/images/home-hero-slider-3.png',
     ];
   @endphp
   
