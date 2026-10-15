@@ -1,4 +1,4 @@
-<footer class="site-footer" style="--footer-background: url('{{ asset('assets/images/Footer.png') }}')">
+<footer id="site-footer" class="site-footer" data-turbo-permanent style="--footer-background: url('{{ asset('assets/images/Footer.png') }}')">
     <div class="footer-container">
         <div class="footer-grid">
             <div class="footer-company">

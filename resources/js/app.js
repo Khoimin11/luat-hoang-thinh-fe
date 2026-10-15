@@ -1,13 +1,12 @@
+import '@hotwired/turbo';
 import { validateLienHe } from './lienhe-validation';
 import { initTeamSlider } from './team-slider';
 import { initHeaderMenu } from './header-menu';
 import { initHomeSlider } from './home-slider';
 
-document.querySelectorAll('[data-home-slider]').forEach(initHomeSlider);
 document.querySelectorAll('.site-header').forEach(initHeaderMenu);
-document.querySelectorAll('[data-team-carousel]').forEach(initTeamSlider);
 
-document.querySelectorAll('[data-consultation-form]').forEach((form) => {
+function initConsultationForm(form) {
   const fields = ['name', 'email', 'service', 'message'];
   const getPayload = () => Object.fromEntries(
     fields.map((name) => [name, form.elements.namedItem(name).value.trim()]),
@@ -45,4 +44,54 @@ document.querySelectorAll('[data-consultation-form]').forEach((form) => {
       bubbles: true,
     }));
   });
+}
+
+let currentMain;
+let sliderCleanups = [];
+
+function initPage() {
+  const main = document.querySelector('main');
+  if (!main || main === currentMain) return;
+  currentMain = main;
+
+  main.querySelectorAll('[data-home-slider]').forEach((slider) => {
+    const cleanup = initHomeSlider(slider);
+    if (cleanup) sliderCleanups.push(cleanup);
+  });
+  main.querySelectorAll('[data-team-carousel]').forEach((slider) => {
+    const cleanup = initTeamSlider(slider);
+    if (cleanup) sliderCleanups.push(cleanup);
+  });
+  main.querySelectorAll('[data-consultation-form]').forEach(initConsultationForm);
+
+  document.querySelectorAll('.header-navigation a.header-link').forEach((link) => {
+    const destination = new URL(link.href);
+    const active = !destination.hash && destination.pathname === location.pathname;
+    link.classList.toggle('is-active', active);
+    if (active) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
+  });
+}
+
+document.addEventListener('turbo:before-render', async (event) => {
+  // Keep the current page visible while the next hero image is decoded.
+  event.preventDefault();
+  const hero = event.detail.newBody.querySelector('.hero-slider-image, .home-hero-slide img');
+  if (hero) {
+    const image = new Image();
+    image.src = hero.src;
+    let timeout;
+    await Promise.race([
+      image.decode().catch(() => {}),
+      new Promise((resolve) => { timeout = setTimeout(resolve, 2000); }),
+    ]);
+    clearTimeout(timeout);
+  }
+  sliderCleanups.forEach((cleanup) => cleanup());
+  sliderCleanups = [];
+  currentMain = null;
+  event.detail.resume();
 });
+
+document.addEventListener('turbo:load', initPage);
+initPage();

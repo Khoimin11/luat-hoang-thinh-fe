@@ -67,7 +67,7 @@
 }
 
 @layer base {
-    html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+    html { scroll-behavior: smooth; scroll-padding-top: 6rem; scrollbar-gutter: stable; }
     body { @apply bg-white font-sans text-base leading-6 font-normal text-slate-700 antialiased; }
     a, button { -webkit-tap-highlight-color: transparent; }
     a, button { @apply transition-colors; }
@@ -93,7 +93,7 @@
     .home-hero-eyebrow { @apply mb-1 font-bold uppercase; font-size: clamp(20px, 2.083333vw, 40px); line-height: 1.5; }
     .home-hero h1 { @apply font-bold uppercase; font-size: clamp(28px, 2.916667vw, 56px); line-height: 1.5; }
     .home-hero-description { @apply mt-4 font-medium; max-width: 818px; font-size: clamp(16px, 1.25vw, 24px); line-height: 1.833333; }
-    .home-hero-actions { @apply mt-8 flex flex-wrap gap-4 xl:mt-[45px]; }
+    .home-hero-actions { @apply mt-8 flex flex-wrap gap-4 xl:mt-11.25; }
     .home-hero-actions a { @apply inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base leading-6 font-medium xl:px-8 xl:py-4 xl:text-lg xl:leading-7; }
     .home-hero-about { background: linear-gradient(180deg, #017b81, #43bac0); }
     .home-hero-contact { background: linear-gradient(180deg, #b92324, #8b1517); }

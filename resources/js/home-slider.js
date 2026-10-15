@@ -1,4 +1,6 @@
 export function initHomeSlider(slider) {
+  const controller = new AbortController();
+  const { signal } = controller;
   const track = slider.querySelector('[data-home-track]');
   const slides = [...track.querySelectorAll('[data-home-slide]')];
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -50,7 +52,14 @@ export function initHomeSlider(slider) {
   track.addEventListener('transitionend', (event) => {
     if (event.target === track && event.propertyName === 'transform') finish();
   });
-  document.addEventListener('visibilitychange', updateAutoplay);
-  reducedMotion.addEventListener('change', updateAutoplay);
+  document.addEventListener('visibilitychange', updateAutoplay, { signal });
+  reducedMotion.addEventListener('change', updateAutoplay, { signal });
   updateAutoplay();
+
+  return () => {
+    clearInterval(timer);
+    clearTimeout(fallback);
+    controller.abort();
+    clone.remove();
+  };
 }

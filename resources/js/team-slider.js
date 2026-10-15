@@ -1,4 +1,6 @@
 export function initTeamSlider(carousel) {
+  const controller = new AbortController();
+  const { signal } = controller;
   const track = carousel.querySelector('.about-team-grid');
   const viewport = carousel.querySelector('.about-team-viewport');
   const previous = carousel.querySelector('[data-team-prev]');
@@ -72,8 +74,14 @@ export function initTeamSlider(carousel) {
     move(event.key === 'ArrowRight' ? 1 : -1);
     updateAutoplay();
   });
-  document.addEventListener('visibilitychange', updateAutoplay);
-  reducedMotion.addEventListener('change', updateAutoplay);
-  window.addEventListener('resize', () => finishAnimation?.());
+  document.addEventListener('visibilitychange', updateAutoplay, { signal });
+  reducedMotion.addEventListener('change', updateAutoplay, { signal });
+  window.addEventListener('resize', () => finishAnimation?.(), { signal });
   updateAutoplay();
+
+  return () => {
+    clearInterval(timer);
+    finishAnimation?.();
+    controller.abort();
+  };
 }

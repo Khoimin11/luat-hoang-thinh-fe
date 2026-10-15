@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
+    <meta name="turbo-cache-control" content="no-cache">
 
     <title>@yield('title', 'Hoàng Thịnh Luật')</title>
 
+    <link rel="preload" href="{{ Vite::asset('public/assets/fonts/SVN-Poppins/SVN-Poppins-Medium.ttf') }}" as="font" type="font/ttf" crossorigin>
     {{ Vite::fonts('bebas-neue') }}
+    @php
+        Vite::useScriptTagAttributes(['data-turbo-track' => 'reload']);
+        Vite::useStyleTagAttributes(['data-turbo-track' => 'reload']);
+    @endphp
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>

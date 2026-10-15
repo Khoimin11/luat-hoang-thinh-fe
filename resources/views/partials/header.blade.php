@@ -1,4 +1,4 @@
-<header class="site-header">
+<header id="site-header" class="site-header" data-turbo-permanent>
     <div class="header-container">
         <a class="site-brand header-brand" href="{{ url('/') }}" aria-label="Hoàng Thịnh Luật — Trang chủ">
             <img class="header-logo-symbol" src="{{ asset('assets/images/8e9a8484357d66f0745965a71f43232ac28d7a89.png') }}" width="64" height="64" alt="">

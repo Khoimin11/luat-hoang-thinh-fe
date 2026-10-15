@@ -12,7 +12,7 @@
         </div>
       </address>
     </div>
-    <form class="about-consultation-form" method="post" novalidate aria-label="Form tư vấn" data-consultation-form>
+    <form class="about-consultation-form" method="post" novalidate aria-label="Form tư vấn" data-consultation-form data-turbo="false">
       <h3 class="sr-only">Trao đổi nhu cầu tư vấn</h3>
       <div class="about-form-row">
         <div>

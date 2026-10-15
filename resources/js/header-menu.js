@@ -49,6 +49,21 @@ export function initHeaderMenu(header) {
   menuToggle.addEventListener('click', () => {
     setNavigation(menuToggle.getAttribute('aria-expanded') !== 'true');
   });
+  navigation.addEventListener('click', (event) => {
+    const link = event.target.closest('a[href]');
+    if (!link || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey
+      || link.hasAttribute('download') || (link.target && link.target !== '_self')) return;
+
+    const destination = new URL(link.href);
+    const samePage = destination.origin === location.origin
+      && destination.pathname === location.pathname && destination.search === location.search;
+
+    // Placeholder links and the current page should not restart navigation.
+    if (link.getAttribute('href') === '#' || (samePage && !destination.hash)) {
+      event.preventDefault();
+    }
+    setNavigation(false);
+  });
   document.addEventListener('pointerdown', (event) => {
     if (!dropdown.contains(event.target)) setDropdown(false);
     if (!header.contains(event.target)) setNavigation(false);
