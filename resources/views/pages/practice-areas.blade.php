@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Lĩnh vực hoạt động | Hoàng Thịnh Luật')
+@section('title', 'Lĩnh vực hoạt động')
 
 @section('content')
   {{-- Section: PageHero --}}
