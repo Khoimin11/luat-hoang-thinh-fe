@@ -261,29 +261,28 @@
     .about-contact { @apply relative bg-stone-950 px-5 sm:px-8 xl:px-20; background-image: linear-gradient(180deg, rgb(7 23 45 / 0%) 60%, #07172d), var(--about-background, none); background-position: center; background-size: cover; }
     .about-contact-grid { @apply mx-auto grid w-full max-w-7xl items-center gap-10 md:grid-cols-2; }
     .about-contact-company { display: flex; flex-direction: column; justify-content: center; width: 100%; max-width: 416px; margin: 0 auto; }
-    .about-contact-logo { width: 120px; height: 120px; margin: 0 auto 24px; object-fit: contain; filter: grayscale(1) invert(1); mix-blend-mode: screen; }
+    .about-contact-logo { width: 120px; height: 120px; flex-shrink: 0; margin: 0 auto 24px; object-fit: contain; }
     .about-contact .about-eyebrow { @apply text-amber-100/80; }
-    .about-contact .about-heading { @apply text-center text-2xl font-semibold text-white; line-height: 29px; }
-    .about-contact-details { @apply mt-10 space-y-6 text-lg leading-7 font-normal text-white not-italic; }
-    .about-contact-details strong { @apply text-xl leading-7 font-bold; }
-    .about-contact-address { @apply font-sans text-lg leading-7 font-normal; }
-    .about-contact-details a { @apply font-normal; overflow-wrap: anywhere; }
-    .about-contact-details a:hover { @apply text-amber-200; }
-    .about-contact-details .about-contact-phone { @apply text-lg leading-7 font-normal; margin-top: 32px; }
-    .about-contact-phone + p { margin-top: 8px; }
-    .about-contact-phone + p strong { font: inherit; }
-    .about-consultation-form { @apply flex flex-col gap-6 rounded-3xl bg-white/10 p-8 backdrop-blur-sm; --consultation-field-background: #918b85; }
+    .about-contact .about-heading { @apply text-center text-2xl leading-7 font-semibold text-white; flex-shrink: 0; }
+    .about-contact-details { @apply mt-10 flex flex-col gap-6 text-lg leading-7 font-normal text-white not-italic; }
+    .about-contact-details strong { @apply mb-2 block text-xl leading-6 font-bold; }
+    .about-contact-address { @apply block font-sans text-lg leading-7 font-normal; }
+    .about-contact-value { @apply font-semibold; overflow-wrap: anywhere; }
+    .about-contact-label, .about-contact-separator { @apply font-medium; }
+    .about-contact-channels { @apply flex flex-col gap-2; }
+    .about-contact-channels p { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 4px; }
+    .about-consultation-form { @apply flex flex-col gap-6 rounded-3xl bg-white/10 p-8; --consultation-field-background: #918b85; }
     .about-form-row { @apply grid grid-cols-2 gap-6; }
     .about-form-row > div { min-width: 0; }
-    .about-consultation-form label { @apply mb-2 block text-sm leading-5 font-normal text-white; }
-    .about-consultation-form input, .about-consultation-form select, .about-consultation-form textarea { @apply w-full rounded-2xl border-0 px-4 py-3 font-sans text-base leading-6 font-normal text-white outline-offset-2 placeholder:text-white; background-color: var(--consultation-field-background); }
+    .about-consultation-form label { @apply mb-1.5 block text-sm leading-5 font-medium text-white; }
+    .about-consultation-form input, .about-consultation-form select, .about-consultation-form textarea { @apply w-full rounded-2xl border-0 px-4 py-3 font-sans text-base leading-6 font-normal text-white outline-offset-2; background-color: var(--consultation-field-background); }
     .about-consultation-form :is(input, textarea):is(:autofill, :-webkit-autofill) { box-shadow: inset 0 0 0 1000px var(--consultation-field-background); -webkit-text-fill-color: white; caret-color: white; }
-    .about-consultation-form ::placeholder { color: rgb(255 255 255 / 60%); opacity: 1; font-style: italic; }
+    .about-consultation-form ::placeholder { color: rgb(255 255 255 / 60%); opacity: 1; font-size: 16px; font-weight: 400; line-height: 24px; font-style: italic; }
     .about-consultation-form :disabled { opacity: 1; cursor: default; }
     .about-consultation-form input, .about-consultation-form select { height: 52px; }
     .about-consultation-form select { appearance: none; }
     .about-consultation-form select option { color: #373d4e; background: white; }
-    .about-consultation-form textarea { @apply block resize-y; min-height: 188px; }
+    .about-consultation-form textarea { @apply block resize-y; min-height: 194px; }
     .about-consultation-form button { @apply flex w-full items-center justify-center gap-3 rounded-full px-4 py-2 text-base leading-6 font-medium text-white; background: linear-gradient(180deg, #b92324, #8b1517); }
     .about-consultation-form button:hover:not(:disabled) { background: #8b1517; }
     .about-consultation-form [aria-invalid='true'] { outline: 2px solid #fda4af; }
@@ -350,30 +349,28 @@
     .footer-container { width: calc(100% - 40px); max-width: 1280px; margin: 0 auto; padding-top: 32px; }
     .footer-grid { @apply grid grid-cols-1 gap-x-12 gap-y-10 sm:grid-cols-2; }
     .footer-grid > * { min-width: 0; }
-    .site-footer .site-brand { @apply flex; width: 388px; max-width: 100%; gap: 5px; }
-    .footer-logo-symbol { width: 64px; height: 64px; flex-shrink: 0; object-fit: contain; }
-    .footer-logo-wordmark { width: calc(100% - 69px); max-width: 319px; height: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 1; }
-    .footer-logo-symbol { filter: grayscale(1) invert(1) brightness(2) contrast(2); mix-blend-mode: screen; opacity: 1; }
+    .site-footer .site-brand { @apply flex; width: 389px; max-width: 100%; gap: 5px; }
+    .footer-logo { width: 389px; max-width: 100%; height: auto; object-fit: contain; }
     .site-footer .brand-emblem { @apply border-white/60 text-white; }
     .site-footer .brand-emblem small, .site-footer .brand-wordmark { @apply text-white; }
     .site-footer .brand-wordmark small { @apply text-slate-300; }
     .footer-company-name { @apply mt-6 text-2xl leading-8 font-semibold uppercase; }
-    .footer-company-name strong { @apply block text-[32px] leading-10 font-semibold; }
+    .footer-company-name strong { @apply block text-3xl leading-10 font-semibold; }
     .footer-tagline { @apply mt-2 text-base leading-6 font-normal text-stone-200; }
     .footer-socials { @apply mt-6 flex items-center gap-4; }
     .footer-socials button { @apply flex size-8 items-center justify-center rounded-full border border-white/60 bg-transparent p-0; cursor: default; }
     .footer-socials img { width: 14px; height: 14px; }
-    .footer-heading { @apply text-base leading-6 font-semibold uppercase; }
-    .footer-links { @apply mt-6 flex list-none flex-col gap-4 p-0 text-sm leading-5 font-normal text-white/80; }
-    .footer-links li { @apply flex items-start gap-2; }
+    .footer-heading { @apply border-b border-white/20 pb-3 text-lg leading-7 font-semibold uppercase; }
+    .footer-links { @apply flex list-none flex-col gap-4 p-0 text-sm leading-5 font-normal text-stone-200; margin-top: 11px; }
+    .footer-links li { @apply flex items-start gap-1; }
     .footer-links li::before, .footer-address p::before { content: '›'; flex-shrink: 0; color: rgb(255 255 255 / 80%); }
-    .footer-links [aria-disabled='true'] { @apply text-white/80; }
-    .footer-address { @apply mt-6 flex flex-col gap-4 text-sm leading-5 font-normal text-white/80 not-italic; }
-    .footer-address p { position: relative; padding-left: 16px; overflow-wrap: anywhere; }
+    .footer-links [aria-disabled='true'] { @apply text-stone-200; }
+    .footer-address { @apply flex flex-col gap-4 text-sm leading-5 font-normal text-stone-200 not-italic; margin-top: 11px; }
+    .footer-address p { position: relative; padding-left: 8px; overflow-wrap: anywhere; }
     .footer-address p::before { position: absolute; left: 0; top: 0; }
     .footer-address p > span { @apply font-normal text-stone-200; }
     .site-footer a:hover { @apply text-amber-200; }
-    .footer-map { @apply mt-4 block overflow-hidden rounded-xl; }
+    .footer-map { @apply mt-3 block overflow-hidden rounded-xl; }
     .footer-map img { width: 100%; height: 132px; object-fit: cover; }
     .footer-map > svg { @apply size-8 shrink-0; }
     .footer-map > span { @apply text-sm; }
@@ -391,10 +388,10 @@
     .about-mission-title, .about-mission-description { padding: 0; }
     .about-mission .about-heading { white-space: nowrap; }
     .about-value-card { min-height: 267px; padding-top: 32px; padding-bottom: 32px; }
-    .footer-grid { grid-template-columns: minmax(0, 416fr) minmax(0, 164fr) minmax(0, 164fr) minmax(0, 392fr); }
+    .footer-grid { grid-template-columns: minmax(0, 388fr) minmax(0, 164fr) minmax(0, 164fr) minmax(0, 420fr); }
     .site-footer { min-height: 492px; background-size: 100% 100%; }
-    .footer-container { display: flex; flex-direction: column; min-height: 492px; }
-    .footer-bottom { margin-top: auto; }
+    .footer-container { display: flex; flex-direction: column; width: calc(100% - 160px); min-height: 492px; padding-top: 64px; }
+    .footer-bottom { width: calc(100% + 160px); margin: 48px -80px 0; padding: 18px 0 17px; }
 }
 
 @media (min-width: 640px) {
@@ -461,9 +458,10 @@
     .home-value-prop:not(:last-child)::after { content: ''; position: absolute; right: -32px; top: 50%; width: 1px; height: 40px; transform: translateY(-50%); background: rgb(0 0 0 / 7.84%); }
     .home-hero-container { width: calc(100% - 160px); padding: 0; }
     .home-hero-copy { width: 61.1%; }
-    .about-contact-grid { grid-template-columns: minmax(0, 620fr) minmax(0, 526fr); gap: 134px; }
+    .about-contact-grid { grid-template-columns: minmax(0, 416px) minmax(0, 526px); justify-content: center; gap: 134px; }
+    .about-contact { background-size: 100% 100%; }
     .about-contact-company, .about-consultation-form { min-height: 552px; }
-    .about-contact-company { width: 416px; max-width: 100%; height: 552px; box-sizing: border-box; padding: 40px 0; }
+    .about-contact-company { width: 416px; max-width: 100%; box-sizing: border-box; padding: 41px 0 39px; }
 }
 
 @media (min-width: 1024px) {
