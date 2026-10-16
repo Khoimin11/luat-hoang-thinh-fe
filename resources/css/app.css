@@ -214,6 +214,8 @@
 
     /* Trang Lĩnh vực hoạt động */
     .practice-areas-hero .hero-slider-image { left: -12px; width: calc(100% + 24px); height: calc(100% + 24px); min-height: 0; object-position: center; }
+    /* Section: NewsHero — ảnh cột đá phủ kín khung, giữ bố cục hero dùng chung. */
+    .news-hero .hero-slider-image { left: -12px; width: calc(100% + 24px); height: calc(100% + 24px); min-height: 0; object-position: center; }
     .practice-areas-section { @apply bg-white px-5 py-12 sm:px-8 md:py-16 xl:px-20; }
     .practice-areas-container { @apply mx-auto w-full max-w-7xl; }
     .practice-areas-intro { @apply font-sans text-lg leading-7 font-medium; color: #373d4e; }

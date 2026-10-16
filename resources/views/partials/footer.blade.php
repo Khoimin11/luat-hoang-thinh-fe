@@ -19,7 +19,7 @@
                     <li><a href="{{ url('/') }}">Trang chủ</a></li>
                     <li><a href="{{ route('about') }}">Giới thiệu</a></li>
                     <li><a href="{{ route('practice-areas') }}">Lĩnh vực hoạt động</a></li>
-                    <li><span aria-disabled="true">Tin tức</span></li>
+                    <li><a href="{{ route('news') }}">Tin tức</a></li>
                     <li><a href="#footer-contact">Liên hệ</a></li>
                 </ul>
             </nav>

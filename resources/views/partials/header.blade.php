@@ -12,7 +12,7 @@
                 <button id="practice-menu-trigger" class="header-practice-toggle header-link-dropdown" type="button" aria-label="Mở danh sách lĩnh vực hoạt động" aria-expanded="false" aria-controls="practice-menu" data-practice-trigger><img src="{{ asset('assets/icons/Icon.svg') }}" width="12" height="12" alt=""></button>
                 @include('partials.menu-dropdown')
             </div>
-            <span class="header-link is-unavailable" aria-disabled="true">Tin tức và Kiến thức pháp luật</span>
+            <a class="header-link {{ request()->routeIs('news') ? 'is-active' : '' }}" href="{{ route('news') }}" @if(request()->routeIs('news')) aria-current="page" @endif>Tin tức và Kiến thức pháp luật</a>
             <a class="header-link" href="#footer-contact">Liên hệ</a>
         </nav>
         <div class="header-actions">
