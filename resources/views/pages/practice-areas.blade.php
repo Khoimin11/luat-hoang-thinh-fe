@@ -4,7 +4,7 @@
 
 @section('content')
   {{-- Section: PageHero --}}
-  <x-hero-slider
+  <x-hero-page-1
     class="practice-areas-hero"
     title="Lĩnh vực hoạt động"
     :image="asset('assets/images/e85ea3880c386077ec8cf28bf8722c12a846f8f0.jpg')"

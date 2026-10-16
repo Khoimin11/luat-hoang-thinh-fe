@@ -213,9 +213,9 @@
     .blog-card a:hover { color: #7e011f; }
 
     /* Trang Lĩnh vực hoạt động */
-    .practice-areas-hero .hero-slider-image { left: -12px; width: calc(100% + 24px); height: calc(100% + 24px); min-height: 0; object-position: center; }
+    .practice-areas-hero .hero-page-1-image { left: -12px; width: calc(100% + 24px); height: calc(100% + 24px); min-height: 0; object-position: center; }
     /* Section: NewsHero — ảnh cột đá phủ kín khung, giữ bố cục hero dùng chung. */
-    .news-hero .hero-slider-image { left: -12px; width: calc(100% + 24px); height: calc(100% + 24px); min-height: 0; object-position: center; }
+    .news-hero .hero-page-1-image { left: -12px; width: calc(100% + 24px); height: calc(100% + 24px); min-height: 0; object-position: center; }
     .practice-areas-section { @apply bg-white px-5 py-12 sm:px-8 md:py-16 xl:px-20; }
     .practice-areas-container { @apply mx-auto w-full max-w-7xl; }
     .practice-areas-intro { @apply font-sans text-lg leading-7 font-medium; color: #373d4e; }
@@ -225,15 +225,15 @@
     /* Trang Giới thiệu */
     .about-container { @apply mx-auto w-full max-w-7xl px-5 sm:px-8; }
     .about-section { @apply py-12 md:py-16; }
-    .hero-slider { @apply relative isolate flex h-90 items-end overflow-hidden bg-[#003436] md:h-120 xl:h-162.5; }
-    .hero-slider-image { position: absolute; top: -12px; left: -7.7%; z-index: -20; width: 111%; max-width: none; height: auto; min-height: calc(100% + 24px); object-fit: cover; object-position: center top; transform: scaleX(-1); filter: blur(4px); }
-    .hero-slider::before { content: ''; position: absolute; inset: 0; z-index: -10; background: rgb(0 52 54 / 40%); }
-    .hero-slider-caption { @apply w-full pt-8 pb-8 md:pb-12; background: linear-gradient(180deg, rgb(0 52 54 / 0%), rgb(0 52 54 / 80%)); }
-    .hero-slider-container { @apply relative mx-auto max-w-7xl; width: calc(100% - 40px); }
-    .hero-slider-breadcrumb { @apply mb-2 flex items-center gap-1.25 text-base leading-6 font-normal text-white/60 md:text-lg md:leading-7; }
-    .hero-slider-breadcrumb a { @apply hover:text-white; }
-    .hero-slider-breadcrumb [aria-current] { @apply font-medium text-white; }
-    .hero-slider h1 { @apply text-3xl leading-10 font-medium text-white uppercase md:text-5xl md:leading-18; }
+    .hero-page-1 { @apply relative isolate flex h-90 items-end overflow-hidden bg-[#003436] md:h-120 xl:h-162.5; }
+    .hero-page-1-image { position: absolute; top: -12px; left: -7.7%; z-index: -20; width: 111%; max-width: none; height: auto; min-height: calc(100% + 24px); object-fit: cover; object-position: center top; transform: scaleX(-1); filter: blur(4px); }
+    .hero-page-1::before { content: ''; position: absolute; inset: 0; z-index: -10; background: rgb(0 52 54 / 40%); }
+    .hero-page-1-caption { @apply w-full pt-8 pb-8 md:pb-12; background: linear-gradient(180deg, rgb(0 52 54 / 0%), rgb(0 52 54 / 80%)); }
+    .hero-page-1-container { @apply relative mx-auto max-w-7xl; width: calc(100% - 40px); }
+    .hero-page-1-breadcrumb { @apply mb-2 flex items-center gap-1.25 text-base leading-6 font-normal text-white/60 md:text-lg md:leading-7; }
+    .hero-page-1-breadcrumb a { @apply hover:text-white; }
+    .hero-page-1-breadcrumb [aria-current] { @apply font-medium text-white; }
+    .hero-page-1 h1 { @apply text-3xl leading-10 font-medium text-white uppercase md:text-5xl md:leading-18; }
     .about-eyebrow { @apply mb-2 text-sm leading-5 font-semibold tracking-normal text-cyan-700 uppercase; }
     .about-eyebrow::before { content: ''; display: block; width: 56px; height: 2px; margin-bottom: 12px; background: linear-gradient(90deg, #0e7490, #34d399); }
     .about-heading { @apply text-2xl leading-8 font-semibold text-brand-black uppercase md:text-3xl md:leading-10; }
@@ -453,7 +453,7 @@
 
 @media (min-width: 640px) {
     .header-logo-symbol { width: 64px; height: 64px; }
-    .hero-slider-container { width: calc(100% - 64px); }
+    .hero-page-1-container { width: calc(100% - 64px); }
     .home-value-props { padding-inline: 32px; }
     .home-value-props-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 64px; }
     .home-value-prop:nth-child(odd)::after { content: ''; position: absolute; right: -32px; top: 50%; width: 1px; height: 40px; transform: translateY(-50%); background: rgb(0 0 0 / 7.84%); }
@@ -510,7 +510,7 @@
 
 @media (min-width: 1280px) {
     .about-commitment-card:nth-child(n + 3)::after { top: -32px; }
-    .hero-slider-container { width: calc(100% - 160px); }
+    .hero-page-1-container { width: calc(100% - 160px); }
     .home-value-props-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .home-value-prop:not(:last-child)::after { content: ''; position: absolute; right: -32px; top: 50%; width: 1px; height: 40px; transform: translateY(-50%); background: rgb(0 0 0 / 7.84%); }
     .home-hero-container { width: calc(100% - 160px); padding: 0; }

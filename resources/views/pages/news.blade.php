@@ -4,7 +4,7 @@
 
 @section('content')
   {{-- Section: Hero --}}
-  <x-hero-slider
+  <x-hero-page-1
     class="news-hero"
     title="Tin tức và Kiến thức pháp luật"
     heading-id="news-title"

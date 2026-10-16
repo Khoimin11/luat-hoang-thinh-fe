@@ -2,7 +2,7 @@
   'title',
   'image' => asset('assets/images/5367853b7c3df6fd8b4ff25acce6c36f968c8e4c.jpg'),
   'breadcrumbs' => null,
-  'headingId' => 'hero-slider-title',
+  'headingId' => 'hero-page-1-title',
 ])
 
 @php
@@ -12,12 +12,12 @@
   ];
 @endphp
 
-<section {{ $attributes->class(['hero-slider']) }} aria-labelledby="{{ $headingId }}">
-  <img class="hero-slider-image" src="{{ $image }}" alt="" fetchpriority="high">
-  <div class="hero-slider-caption">
-    <div class="hero-slider-container">
+<section {{ $attributes->class(['hero-page-1']) }} aria-labelledby="{{ $headingId }}">
+  <img class="hero-page-1-image" src="{{ $image }}" alt="" fetchpriority="high">
+  <div class="hero-page-1-caption">
+    <div class="hero-page-1-container">
       @if (count($breadcrumbs))
-        <nav class="hero-slider-breadcrumb" aria-label="Đường dẫn trang">
+        <nav class="hero-page-1-breadcrumb" aria-label="Đường dẫn trang">
           @foreach ($breadcrumbs as $breadcrumb)
             @unless ($loop->first)<span aria-hidden="true">/</span>@endunless
             @if ($loop->last)

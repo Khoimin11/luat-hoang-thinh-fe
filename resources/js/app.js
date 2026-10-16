@@ -77,7 +77,7 @@ function initPage() {
 document.addEventListener('turbo:before-render', async (event) => {
   // Keep the current page visible while the next hero image is decoded.
   event.preventDefault();
-  const hero = event.detail.newBody.querySelector('.hero-slider-image, .home-hero-slide img');
+  const hero = event.detail.newBody.querySelector('.hero-page-1-image, .home-hero-slide img');
   if (hero) {
     const image = new Image();
     image.src = hero.src;

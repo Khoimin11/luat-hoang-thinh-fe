@@ -4,7 +4,7 @@
 
 @section('content')
   {{-- Section: Hero --}}
-  <x-hero-slider
+  <x-hero-page-1
     title="Luật đất đai, nhà ở, bất động sản, xây dựng"
     heading-id="practice-area-title"
     :breadcrumbs="[

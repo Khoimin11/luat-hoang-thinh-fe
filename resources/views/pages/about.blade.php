@@ -3,7 +3,7 @@
 @section('title', 'Giới thiệu')
 
 @section('content')
-  <x-hero-slider title="Giới thiệu" heading-id="about-title" />
+  <x-hero-page-1 title="Giới thiệu" heading-id="about-title" />
 
   <section class="about-intro-section" aria-labelledby="intro-title">
     <div class="about-intro">
