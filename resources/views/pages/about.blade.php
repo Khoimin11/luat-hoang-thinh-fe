@@ -84,7 +84,7 @@
           <p class="about-eyebrow">Nhân sự</p>
           <h2 id="team-title" class="about-heading">Đội ngũ chủ chốt <img src="{{ asset('assets/icons/2970777 1.svg') }}" alt="" width="32" height="32"></h2>
         </div>
-        <x-view-more />
+        <x-view-more :href="route('team')" />
       </div>
       <div class="about-team-slider">
         <div class="about-team-viewport" tabindex="0" role="region" aria-label="Slider đội ngũ chủ chốt">
