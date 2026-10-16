@@ -90,7 +90,12 @@
         <div class="about-team-viewport" tabindex="0" role="region" aria-label="Slider đội ngũ chủ chốt">
           <div id="about-team-cards" class="about-team-grid">
             @foreach ([['ce93f17476f55c367e115332e23772954305e2bc.png', 'Giám đốc', 'Ông Phan Minh Hoàng'], ['cc4af13c0db17499cb4a14cc049a6f6ea2eabad0.png', 'Luật sư cộng sự', 'Bà Lê Thị Hồng'], ['12e6fce3db1ec81356ec1712864ccb945d4f3d50.png', 'Luật sư cộng sự', 'Ông Phạm Văn Dũng'], ['e414eb6291fc180212b12f6f7933207d4cd4cdfb.png', 'Luật sư cộng sự', 'Ông Hoàng Trung Nam']] as [$photo, $role, $name])
-              <article class="about-team-card"><div class="about-team-photo"><img src="{{ asset('assets/images/'.$photo) }}" alt="{{ $name }}" loading="lazy"></div><div class="about-team-caption"><p>{{ $role }}</p><h3>{{ $name }}</h3></div></article>
+              @include('partials.profile', [
+                'photo' => asset('assets/images/'.$photo),
+                'role' => $role,
+                'name' => $name,
+                'class' => 'about-team-card',
+              ])
             @endforeach
           </div>
         </div>
