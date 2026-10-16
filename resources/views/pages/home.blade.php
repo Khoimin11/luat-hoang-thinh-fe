@@ -82,6 +82,7 @@
             ['Ảnh lĩnh vực.png', 'Biểu tượng lĩnh vực.svg', 'Luật sư Sở hữu trí tuệ', 'Nhãn hiệu - Bản quyền - Sáng chế'],
           ] as [$image, $icon, $title, $description])
             <x-practice-area-card
+              :href="route('practice-areas.land')"
               :image="asset('assets/images/'.$image)"
               :icon="asset('assets/icons/'.$icon)"
               :title="$title"
@@ -89,7 +90,7 @@
             />
           @endforeach
         </div>
-        <aside class="home-practice-reasons" aria-labelledby="home-practice-reasons-title" style="--practice-background: url('{{ asset('assets/images/39437635f1daec47983a81bfb09828b281b59497.png') }}')">
+        <aside class="home-practice-reasons" aria-labelledby="home-practice-reasons-title" style="--practice-background: url('{{ asset('assets/images/home-practice-reason-bg-img.png') }}')">
           <p class="home-practice-reasons-eyebrow">Vì sao chọn</p>
           <h3 id="home-practice-reasons-title">Hoàng Thịnh Luật?</h3>
           <ul>

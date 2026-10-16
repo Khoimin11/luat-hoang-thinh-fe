@@ -28,6 +28,7 @@
           ['Ảnh lĩnh vực.png', 'Biểu tượng lĩnh vực.svg', 'Luật sư Sở hữu trí tuệ', 'Nhãn hiệu - Bản quyền - Sáng chế'],
         ] as [$image, $icon, $title, $description])
           <x-practice-area-card
+            :href="route('practice-areas.land')"
             :image="asset('assets/images/'.$image)"
             :icon="asset('assets/icons/'.$icon)"
             :title="$title"

@@ -66,7 +66,8 @@ function initPage() {
 
   document.querySelectorAll('.header-navigation a.header-link').forEach((link) => {
     const destination = new URL(link.href);
-    const active = !destination.hash && destination.pathname === location.pathname;
+    const active = !destination.hash && (destination.pathname === location.pathname
+      || (destination.pathname !== '/' && location.pathname.startsWith(`${destination.pathname}/`)));
     link.classList.toggle('is-active', active);
     if (active) link.setAttribute('aria-current', 'page');
     else link.removeAttribute('aria-current');

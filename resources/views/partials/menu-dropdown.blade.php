@@ -9,7 +9,7 @@
         <h2 id="practice-group-{{ $loop->index }}">{{ $heading }}</h2>
         <ul>
           @foreach ($items as $item)
-            <li><a class="header-practice-item" href="#">{{ $item }}</a></li>
+            <li><a class="header-practice-item" href="{{ $item === 'Đất đai - Bất động sản' ? route('practice-areas.land') : '#' }}">{{ $item }}</a></li>
           @endforeach
         </ul>
       </section>

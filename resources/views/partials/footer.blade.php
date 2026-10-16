@@ -6,7 +6,7 @@
                     <img class="footer-logo" src="{{ asset('assets/images/footer-logo.png') }}" alt="Hoàng Thịnh Luật" width="389" height="64" loading="lazy">
                 </a>
                 <p class="footer-company-name">Công ty Luật TNHH MTV<strong>Hoàng Thịnh Luật</strong></p>
-                <p class="footer-tagline">Pháp lý tối đa – Quyền lợi đảm bảo</p>
+                <p class="footer-tagline">Pháp lý tối đa - Quyền lợi đảm bảo</p>
                 <div class="footer-socials" aria-label="Mạng xã hội">
                     <button type="button" disabled aria-label="Facebook"><img src="{{ asset('assets/icons/Frame-1.svg') }}" alt="" width="14" height="14"></button>
                     <button type="button" disabled aria-label="LinkedIn"><img src="{{ asset('assets/icons/linkedin.svg') }}" alt="" width="14" height="14"></button>
