@@ -1,0 +1,86 @@
+[
+  {
+    "photo": "luat-su-1.png",
+    "role": "Giám đốc điều hành",
+    "name": "Luật sư Nguyễn Văn Hoàng",
+    "experience": "15 năm kinh nghiệm",
+    "specialties": "Đất đai, BĐS, Xây dựng"
+  },
+  {
+    "photo": "luat-su-2.png",
+    "role": "Phó Giám đốc",
+    "name": "Luật sư Trần Thị Hải",
+    "experience": "12 năm kinh nghiệm",
+    "specialties": "Doanh nghiệp, Đầu tư"
+  },
+  {
+    "photo": "luat-su-3.png",
+    "role": "Luật sư thành viên",
+    "name": "Luật sư Lê Minh Đức",
+    "experience": "10 năm kinh nghiệm",
+    "specialties": "Dân sự, Hợp đồng"
+  },
+  {
+    "photo": "luat-su-4.png",
+    "role": "Luật sư thành viên",
+    "name": "Luật sư Phạm Thị Hồng",
+    "experience": "8 năm kinh nghiệm",
+    "specialties": "Hôn nhân, Gia đình"
+  },
+  {
+    "photo": "luat-su-5.png",
+    "role": "Luật sư thành viên",
+    "name": "Luật sư Đỗ Văn Nam",
+    "experience": "9 năm kinh nghiệm",
+    "specialties": "Hình sự, Tố tụng"
+  },
+  {
+    "photo": "luat-su-6.png",
+    "role": "Chuyên viên pháp lý",
+    "name": "Luật sư Nguyễn Thị Lan",
+    "experience": "5 năm kinh nghiệm",
+    "specialties": "Hồ sơ pháp lý, Hợp đồng"
+  },
+  {
+    "photo": "luat-su-7.png",
+    "role": "Luật sư thành viên",
+    "name": "Luật sư Bùi Thu Hà",
+    "experience": "11 năm kinh nghiệm",
+    "specialties": "Thừa kế, Di chúc"
+  },
+  {
+    "photo": "luat-su-8.png",
+    "role": "Luật sư thành viên",
+    "name": "Luật sư Vũ Quang Huy",
+    "experience": "13 năm kinh nghiệm",
+    "specialties": "Doanh nghiệp, Thuế"
+  },
+  {
+    "photo": "luat-su-9.png",
+    "role": "Chuyên viên pháp lý",
+    "name": "Luật sư Đặng Ngọc Anh",
+    "experience": "4 năm kinh nghiệm",
+    "specialties": "Nhãn hiệu, Bản quyền"
+  },
+  {
+    "photo": "luat-su-10.png",
+    "role": "Luật sư thành viên",
+    "name": "Luật sư Trịnh Minh Khang",
+    "experience": "7 năm kinh nghiệm",
+    "specialties": "Lao động, Bảo hiểm"
+  },
+  {
+    "photo": "luat-su-11.png",
+    "role": "Luật sư thành viên",
+    "name": "Luật sư Hồ Thanh Trúc",
+    "experience": "10 năm kinh nghiệm",
+    "specialties": "Hành chính, Đất đai"
+  },
+  {
+    "photo": "luat-su-12.png",
+    "role": "Chuyên viên pháp lý",
+    "name": "Luật sư Lương Đức Thành",
+    "experience": "6 năm kinh nghiệm",
+    "specialties": "Pháp lý doanh nghiệp"
+  }
+]
