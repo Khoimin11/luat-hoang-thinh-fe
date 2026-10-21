@@ -230,7 +230,7 @@
     <div class="home-news-container">
       <div class="home-news-header">
         <h2 id="article-related-title">Bài viết liên quan <img src="{{ asset('assets/icons/2970777 1.svg') }}" alt="" width="32" height="32" loading="lazy"></h2>
-        <x-view-more :href="route('news')" />
+        <x-view-more-button :href="route('news')" />
       </div>
       <div class="article-related-carousel">
         <div class="home-news-grid">

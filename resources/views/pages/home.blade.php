@@ -65,7 +65,7 @@
           <p class="home-practice-eyebrow">Dịch Vụ Pháp Lý</p>
           <h2 id="home-practice-title">Lĩnh vực hoạt động nổi bật <img src="{{ asset('assets/icons/2970777 1.svg') }}" alt="" width="32" height="32" loading="lazy"></h2>
         </div>
-        <x-view-more :href="route('practice-areas')" />
+        <x-view-more-button :href="route('practice-areas')" />
       </div>
       <div class="home-practice-layout">
         <div class="home-practice-grid">
@@ -117,7 +117,7 @@
           <p class="home-news-eyebrow">Tin tức & Bài viết</p>
           <h2 id="home-news-title">Cập nhật pháp luật, đồng hành cùng bạn <img src="{{ asset('assets/icons/2970777 1.svg') }}" alt="" width="32" height="32" loading="lazy"></h2>
         </div>
-        <x-view-more :href="route('news')" />
+        <x-view-more-button :href="route('news')" />
       </div>
       <div class="home-news-grid">
         @foreach ([

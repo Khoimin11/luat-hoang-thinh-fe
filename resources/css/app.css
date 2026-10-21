@@ -234,10 +234,11 @@
     .home-practice-eyebrow::before, .home-news-eyebrow::before { content: ''; display: block; width: 56px; height: 2px; margin-bottom: 12px; background: linear-gradient(90deg, #003436, #017b81); }
     .home-practice-header h2, .home-news-header h2 { @apply flex flex-wrap items-center gap-6 font-sans text-2xl leading-8 font-semibold uppercase md:text-3xl md:leading-10; color: #002123; }
     .home-practice-header h2 img, .home-news-header h2 img { width: 32px; height: 32px; flex-shrink: 0; }
-    .view-more { @apply inline-flex shrink-0 items-center justify-center gap-2 rounded-2xl px-4 py-2 font-sans text-base leading-6 font-medium; color: #a92021; border: 1px solid #a92021; background: rgb(126 1 31 / 5%); }
+    /* ViewMore: hover/focus dùng gradient đỏ, chữ và mũi tên trắng. */
+    .view-more { @apply inline-flex shrink-0 items-center justify-center gap-2 rounded-2xl px-4 py-2 font-sans text-base leading-6 font-medium; color: #a92021; border: 1px solid #a92021; background: rgb(126 1 31 / 5%); transition: color 200ms ease, border-color 200ms ease; }
     .view-more svg { flex-shrink: 0; }
     .view-more[aria-disabled='true'] { cursor: default; }
-    .view-more[href]:hover { background: rgb(126 1 31 / 10%); }
+    .view-more:not([aria-disabled='true']):is(:hover, :focus-visible) { color: #fff; border-color: transparent; background: linear-gradient(180deg, #b92324, #8b1517); }
     .home-practice-layout { @apply mt-10 grid items-start gap-10; }
     .home-practice-grid { @apply grid gap-5 sm:grid-cols-2; }
     .practice-area-card { @apply relative overflow-hidden rounded-3xl; border: 1px solid var(--color-brand-stroke); background: #fcfcfc; }
