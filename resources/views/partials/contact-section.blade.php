@@ -12,6 +12,6 @@
         </div>
       </address>
     </div>
-    <x-consultation-form />
+    <x-forms.consultation-form />
   </div>
 </section>

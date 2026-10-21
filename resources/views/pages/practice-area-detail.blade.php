@@ -4,7 +4,7 @@
 
 @section('content')
   {{-- Section: Hero --}}
-  <x-hero-page-1
+  <x-heroes.hero-page-1
     title="Luật đất đai, nhà ở, bất động sản, xây dựng"
     heading-id="practice-area-title"
     :breadcrumbs="[
@@ -32,7 +32,7 @@
         <h2 id="practice-posts-title" class="practice-detail-heading">Bài viết</h2>
         <div class="practice-detail-posts">
           @foreach ($posts as $post)
-            <x-blog-card
+            <x-cards.blog-card
               :image="asset('assets/images/'.$post['image'])"
               :image-alt="$post['title']"
               :title="$post['title']"
@@ -44,7 +44,7 @@
         </div>
 
         {{-- Section: Pagination --}}
-        <x-pagination :current-page="1" :last-page="12" />
+        <x-navigation.pagination :current-page="1" :last-page="12" />
       </div>
 
       {{-- Section: Sidebar --}}

@@ -6,7 +6,7 @@
   {{-- Header và footer dùng chung từ layouts.app. --}}
 
   {{-- Section: Hero --}}
-  <x-hero-page-2
+  <x-heroes.hero-page-2
     title="Đội ngũ luật sư"
     heading-id="team-title"
     :breadcrumbs="[
@@ -45,15 +45,15 @@
   <section class="team-list-section" aria-label="Danh sách luật sư">
     <div class="team-list-grid">
       @foreach ($profiles as $profile)
-        @include('partials.profile', [
-          'photo' => asset('assets/images/'.$profile['photo']),
-          'role' => $profile['role'],
-          'name' => $profile['name'],
-          'experience' => $profile['experience'] ?? null,
-          'specialties' => $profile['specialties'] ?? null,
-          'socialLinks' => $profile['socialLinks'] ?? [],
-          'class' => 'team-list-card',
-        ])
+        <x-cards.profile-card
+          :photo="asset('assets/images/'.$profile['photo'])"
+          :role="$profile['role']"
+          :name="$profile['name']"
+          :experience="$profile['experience'] ?? null"
+          :specialties="$profile['specialties'] ?? null"
+          :social-links="$profile['socialLinks'] ?? []"
+          class="team-list-card"
+        />
       @endforeach
     </div>
   </section>

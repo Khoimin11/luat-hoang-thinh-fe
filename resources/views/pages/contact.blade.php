@@ -6,7 +6,7 @@
   {{-- Header và footer dùng chung từ layouts.app. --}}
 
   {{-- Section: Hero --}}
-  <x-hero-page-2
+  <x-heroes.hero-page-2
     title="Liên hệ hỗ trợ"
     heading-id="contact-title"
     :breadcrumbs="[
@@ -64,7 +64,7 @@
         <img class="contact-message-portrait" src="{{ asset('assets/images/94dd2de76160785f126a286fb2f1b3a3b1a1b5bb.png') }}" alt="Đội ngũ luật sư Hoàng Thịnh Luật" width="1181" height="1332" loading="lazy">
       </div>
 
-      <x-consultation-form variant="light" />
+      <x-forms.consultation-form variant="light" />
     </div>
   </section>
 @endsection

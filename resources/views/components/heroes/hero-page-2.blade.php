@@ -6,7 +6,7 @@
 ])
 
 {{-- Hero kiểu 2 dùng chung tiêu đề và breadcrumb của hero-page-1. --}}
-<x-hero-page-1
+<x-heroes.hero-page-1
   :title="$title"
   :image="$image"
   :breadcrumbs="$breadcrumbs"

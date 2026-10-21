@@ -4,7 +4,7 @@
 
 @section('content')
   {{-- Section: PageHero --}}
-  <x-hero-page-1
+  <x-heroes.hero-page-1
     class="practice-areas-hero"
     title="Lĩnh vực hoạt động"
     :image="asset('assets/images/e85ea3880c386077ec8cf28bf8722c12a846f8f0.jpg')"
@@ -27,7 +27,7 @@
           ['Ảnh lĩnh vực-1.png', 'Biểu tượng lĩnh vực.svg', 'Luật sư Thuế', 'Tư vấn thuế - Giải quyết tranh chấp'],
           ['Ảnh lĩnh vực.png', 'Biểu tượng lĩnh vực.svg', 'Luật sư Sở hữu trí tuệ', 'Nhãn hiệu - Bản quyền - Sáng chế'],
         ] as [$image, $icon, $title, $description])
-          <x-practice-area-card
+          <x-cards.practice-area-card
             :href="route('practice-areas.land')"
             :image="asset('assets/images/'.$image)"
             :icon="asset('assets/icons/'.$icon)"

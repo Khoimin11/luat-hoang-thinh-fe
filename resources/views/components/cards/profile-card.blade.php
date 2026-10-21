@@ -1,6 +1,14 @@
-{{-- Section: Profile --}}
-{{-- Dữ liệu: $photo, $role, $name; tùy chọn: $class, $experience, $specialties, $socialLinks. --}}
-<article @class(['profile', $class ?? '']) tabindex="0" aria-label="{{ $name }}">
+@props([
+  'photo',
+  'role',
+  'name',
+  'experience' => null,
+  'specialties' => null,
+  'socialLinks' => [],
+])
+
+{{-- Section: ProfileCard --}}
+<article {{ $attributes->class(['profile']) }} tabindex="0" aria-label="{{ $name }}">
   <div class="profile-photo">
     <img src="{{ $photo }}" alt="{{ $name }}" loading="lazy">
   </div>

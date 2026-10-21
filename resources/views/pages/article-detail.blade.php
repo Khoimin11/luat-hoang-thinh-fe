@@ -230,7 +230,7 @@
     <div class="home-news-container">
       <div class="home-news-header">
         <h2 id="article-related-title">Bài viết liên quan <img src="{{ asset('assets/icons/2970777 1.svg') }}" alt="" width="32" height="32" loading="lazy"></h2>
-        <x-view-more-button :href="route('news')" />
+        <x-buttons.view-more-button :href="route('news')" />
       </div>
       <div class="article-related-carousel">
         <div class="home-news-grid">
@@ -240,7 +240,7 @@
             ['Image-1.png', 'Tư vấn ly hôn đơn phương: Quy trình, hồ sơ và chi phí chi tiết', 'Cập nhật quy định mới nhất giúp bạn giải quyết nhanh chóng, tối ưu hóa quyền lợi.'],
             ['Image-2.png', 'Doanh nghiệp cần lưu ý gì khi thay đổi người đại diện pháp luật?', 'Những quy định quan trọng về thủ tục cần thực hiện đúng theo quy định hiện hành.'],
           ] as [$image, $title, $description])
-            <x-blog-card
+            <x-cards.blog-card
               :image="asset('assets/images/'.$image)"
               :title="$title"
               :description="$description"

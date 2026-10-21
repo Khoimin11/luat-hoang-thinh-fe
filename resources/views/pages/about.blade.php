@@ -3,7 +3,7 @@
 @section('title', 'Giới thiệu')
 
 @section('content')
-  <x-hero-page-1 title="Giới thiệu" heading-id="about-title" />
+  <x-heroes.hero-page-1 title="Giới thiệu" heading-id="about-title" />
 
   <section class="about-intro-section" aria-labelledby="intro-title">
     <div class="about-intro">
@@ -84,7 +84,7 @@
           <p class="about-eyebrow">Nhân sự</p>
           <h2 id="team-title" class="about-heading">Đội ngũ chủ chốt <img src="{{ asset('assets/icons/2970777 1.svg') }}" alt="" width="32" height="32"></h2>
         </div>
-        <x-view-more-button :href="route('team')" />
+        <x-buttons.view-more-button :href="route('team')" />
       </div>
       <div class="about-team-slider">
         <div class="about-team-viewport" tabindex="0" role="region" aria-label="Slider đội ngũ chủ chốt">
@@ -96,14 +96,14 @@
               ['about-luat-su-3.png', 'Luật sư cộng sự', 'Ông Phạm Văn Dũng', '10 năm kinh nghiệm', 'Doanh nghiệp, Hợp đồng'],
               ['about-luat-su-4.png', 'Luật sư cộng sự', 'Ông Hoàng Trung Nam', '8 năm kinh nghiệm', 'Hình sự, Lao động'],
             ] as [$photo, $role, $name, $experience, $specialties])
-              @include('partials.profile', [
-                'photo' => asset('assets/images/'.$photo),
-                'role' => $role,
-                'name' => $name,
-                'experience' => $experience,
-                'specialties' => $specialties,
-                'class' => 'about-team-card',
-              ])
+              <x-cards.profile-card
+                :photo="asset('assets/images/'.$photo)"
+                :role="$role"
+                :name="$name"
+                :experience="$experience"
+                :specialties="$specialties"
+                class="about-team-card"
+              />
             @endforeach
           </div>
         </div>

@@ -65,7 +65,7 @@
           <p class="home-practice-eyebrow">Dịch Vụ Pháp Lý</p>
           <h2 id="home-practice-title">Lĩnh vực hoạt động nổi bật <img src="{{ asset('assets/icons/2970777 1.svg') }}" alt="" width="32" height="32" loading="lazy"></h2>
         </div>
-        <x-view-more-button :href="route('practice-areas')" />
+        <x-buttons.view-more-button :href="route('practice-areas')" />
       </div>
       <div class="home-practice-layout">
         <div class="home-practice-grid">
@@ -81,7 +81,7 @@
             ['Ảnh lĩnh vực-1.png', 'Biểu tượng lĩnh vực.svg', 'Luật sư Thuế', 'Tư vấn thuế - Giải quyết tranh chấp'],
             ['Ảnh lĩnh vực.png', 'Biểu tượng lĩnh vực.svg', 'Luật sư Sở hữu trí tuệ', 'Nhãn hiệu - Bản quyền - Sáng chế'],
           ] as [$image, $icon, $title, $description])
-            <x-practice-area-card
+            <x-cards.practice-area-card
               :href="route('practice-areas.land')"
               :image="asset('assets/images/'.$image)"
               :icon="asset('assets/icons/'.$icon)"
@@ -117,7 +117,7 @@
           <p class="home-news-eyebrow">Tin tức & Bài viết</p>
           <h2 id="home-news-title">Cập nhật pháp luật, đồng hành cùng bạn <img src="{{ asset('assets/icons/2970777 1.svg') }}" alt="" width="32" height="32" loading="lazy"></h2>
         </div>
-        <x-view-more-button :href="route('news')" />
+        <x-buttons.view-more-button :href="route('news')" />
       </div>
       <div class="home-news-grid">
         @foreach ([
@@ -126,7 +126,7 @@
           ['Image-1.png', 'Tư vấn ly hôn đơn phương: Quy trình, hồ sơ và chi phí chi tiết', 'Cập nhật quy định mới nhất giúp bạn giải quyết nhanh chóng, tối ưu hóa quyền lợi.'],
           ['Image-2.png', 'Doanh nghiệp cần lưu ý gì khi thay đổi người đại diện pháp luật?', 'Những quy định quan trọng về thủ tục cần thực hiện đúng theo quy định hiện hành.'],
         ] as [$image, $title, $description])
-          <x-blog-card
+          <x-cards.blog-card
             :image="asset('assets/images/'.$image)"
             :title="$title"
             :description="$description"

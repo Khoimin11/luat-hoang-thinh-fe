@@ -4,7 +4,7 @@
 
 @section('content')
   {{-- Section: Hero --}}
-  <x-hero-page-1
+  <x-heroes.hero-page-1
     class="news-hero"
     title="Tin tức và Kiến thức pháp luật"
     heading-id="news-title"
@@ -35,7 +35,7 @@
         <h2 id="news-posts-title" class="practice-detail-heading">Bài viết</h2>
         <div class="practice-detail-posts">
           @foreach ($posts as $post)
-            <x-blog-card
+            <x-cards.blog-card
               :image="asset('assets/images/'.$post['image'])"
               :image-alt="$post['title']"
               :title="$post['title']"
@@ -47,7 +47,7 @@
         </div>
 
         {{-- Section: Pagination --}}
-        <x-pagination :current-page="1" :last-page="12" />
+        <x-navigation.pagination :current-page="1" :last-page="12" />
       </div>
 
       {{-- Section: Sidebar --}}
