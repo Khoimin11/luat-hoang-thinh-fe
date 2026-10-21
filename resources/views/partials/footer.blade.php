@@ -20,7 +20,7 @@
                     <li><a href="{{ route('about') }}">Giới thiệu</a></li>
                     <li><a href="{{ route('practice-areas') }}">Lĩnh vực hoạt động</a></li>
                     <li><a href="{{ route('news') }}">Tin tức</a></li>
-                    <li><a href="#footer-contact">Liên hệ</a></li>
+                    <li><a href="{{ route('contact') }}">Liên hệ</a></li>
                 </ul>
             </nav>
             <nav class="footer-column" aria-labelledby="legal-links-title">

@@ -13,7 +13,7 @@
                 @include('partials.menu-dropdown')
             </div>
             <a class="header-link {{ request()->routeIs('news') ? 'is-active' : '' }}" href="{{ route('news') }}" @if(request()->routeIs('news')) aria-current="page" @endif>Tin tức và Kiến thức pháp luật</a>
-            <a class="header-link" href="#footer-contact">Liên hệ</a>
+            <a class="header-link {{ request()->routeIs('contact') ? 'is-active' : '' }}" href="{{ route('contact') }}" @if(request()->routeIs('contact')) aria-current="page" @endif>Liên hệ</a>
         </nav>
         <div class="header-actions">
             <a class="header-hotline" href="" aria-label="Tư vấn miễn phí: 0913 849 072">

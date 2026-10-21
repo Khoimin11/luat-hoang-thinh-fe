@@ -347,6 +347,29 @@
     .about-team-next { right: -32px; }
     .about-team-arrow img { width: 100%; height: 100%; }
     .about-team-arrow:disabled { cursor: default; opacity: .55; }
+    /* Section: ContactInformation — trang Liên hệ, thông tin công ty và bản đồ. */
+    .contact-info-section { @apply bg-white px-5 pt-12 pb-20 sm:px-10; }
+    .contact-info-layout { @apply mx-auto grid w-full max-w-7xl items-start gap-10 lg:grid-cols-[minmax(0,416fr)_minmax(0,674fr)] lg:gap-12; }
+    .contact-info-company { @apply min-w-0 font-sans text-lg leading-7 font-normal text-brand-black; }
+    .contact-info-logo { @apply mb-6 size-30 object-contain; }
+    .contact-info-title { @apply text-2xl leading-7 font-semibold uppercase; }
+    .contact-info-details { @apply mt-6 not-italic; }
+    .contact-info-addresses { @apply flex flex-col gap-4; }
+    .contact-info-addresses strong, .contact-info-hours h3 { @apply mb-2 block text-xl leading-6 font-bold; color: #7e011f; }
+    .contact-info-addresses p > span { @apply block; }
+    .contact-info-channels { @apply mt-6 flex flex-col gap-2; }
+    .contact-info-channels p { @apply flex flex-wrap items-baseline gap-x-1; }
+    .contact-info-value { @apply font-semibold; color: #7e011f; overflow-wrap: anywhere; }
+    .contact-info-label { @apply font-medium; }
+    .contact-info-hours { @apply mt-4; }
+    .contact-info-hours p { @apply flex flex-wrap gap-x-2; }
+    .contact-info-socials { @apply mt-6 flex items-center gap-3; }
+    .contact-info-socials button { @apply flex size-12 items-center justify-center rounded-full border border-brand-stroke bg-white p-0; }
+    .contact-info-socials button:disabled { opacity: 1; cursor: default; }
+    .contact-info-socials img { @apply size-6 object-contain; }
+    .contact-info-map { @apply min-w-0 overflow-hidden rounded-3xl; }
+    .contact-info-map img { @apply block h-auto w-full; aspect-ratio: 674 / 564; object-fit: cover; }
+
     .about-contact { @apply relative bg-stone-950 px-5 sm:px-8 xl:px-20; background-image: linear-gradient(180deg, rgb(7 23 45 / 0%) 60%, #07172d), var(--about-background, none); background-position: center; background-size: cover; }
     .about-contact-grid { @apply mx-auto grid w-full max-w-7xl items-center gap-10 md:grid-cols-2; }
     .about-contact-company { display: flex; flex-direction: column; justify-content: center; width: 100%; max-width: 416px; margin: 0 auto; }
@@ -377,6 +400,33 @@
     .about-consultation-form [aria-invalid='true'] { outline: 2px solid #fda4af; }
     .about-form-error { @apply mt-2 text-sm leading-5 text-rose-200; }
     .about-form-note { @apply mt-3 text-xs leading-5 text-white/65; }
+
+    /* Section: ContactMessage — giới thiệu bên trái, form sáng dùng chung bên phải. */
+    .contact-message-section { @apply px-5 pt-16 sm:px-8 xl:px-20; background: linear-gradient(180deg, #ffffff, #e5f2f2); }
+    .contact-message-layout { @apply mx-auto grid w-full max-w-7xl items-start gap-10 lg:grid-cols-[minmax(0,528fr)_minmax(0,672fr)] lg:gap-20; }
+    .contact-message-intro { @apply flex min-w-0 flex-col gap-6; }
+    .contact-message-copy h2 { @apply text-3xl leading-10 font-bold text-brand-black md:text-4xl; }
+    .contact-message-copy p { @apply mt-3 text-base leading-6 font-normal text-body-copy; }
+    .contact-message-portrait { @apply block w-full; aspect-ratio: 528 / 508; object-fit: cover; object-position: center top; }
+
+    /* Desktop: hai cột cùng bắt đầu, ảnh chạm đáy section, form cách footer 64px. */
+    @media (min-width: 1024px) {
+        .contact-message-layout { align-items: stretch; }
+        .contact-message-intro { min-height: 0; }
+        .contact-message-portrait { flex: 1 1 0px; height: 0; min-height: 0; aspect-ratio: auto; }
+        .contact-message-layout > .consultation-form--light { align-self: start; margin-bottom: 64px; }
+    }
+
+    /* Variant: light — giữ nguyên class cấu trúc, ID, tên trường và JavaScript của form cũ. */
+    .about-consultation-form.consultation-form--light { @apply min-w-0 bg-white; --consultation-field-background: #fcfcfc; }
+    .about-consultation-form.consultation-form--light label { @apply text-brand-black; }
+    .about-consultation-form.consultation-form--light :is(input, select, textarea) { @apply text-brand-black; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 8%); }
+    .about-consultation-form.consultation-form--light ::placeholder { color: rgb(0 33 35 / 60%); }
+    .about-consultation-form.consultation-form--light :is(input, textarea):is(:autofill, :-webkit-autofill) { box-shadow: inset 0 0 0 1px rgb(0 0 0 / 8%), inset 0 0 0 1000px var(--consultation-field-background); -webkit-text-fill-color: #002123; caret-color: #002123; }
+    .about-consultation-form.consultation-form--light button { @apply h-14 rounded-2xl border border-brand-red text-brand-red; background: #f9f3f3; }
+    .about-consultation-form.consultation-form--light button:hover:not(:disabled) { background: #f4e5e5; }
+    .about-consultation-form.consultation-form--light .about-form-error { @apply text-brand-red; }
+    .about-consultation-form.consultation-form--light [aria-invalid='true'] { outline-color: #b91c1c; }
 
     /* Header */
     .site-header { @apply relative z-50 w-full border-b border-brand-stroke bg-white; }
@@ -514,6 +564,7 @@
 }
 
 @media (min-width: 1536px) {
+    .contact-info-layout { gap: 190px; }
     .header-container { flex-wrap: nowrap; padding: 24px 64px; }
     .brand-emblem { width: 64px; height: 64px; font-size: 30px; }
     .header-navigation { display: flex; order: initial; flex: 1; width: auto; flex-direction: row; align-items: center; justify-content: flex-end; gap: 16px; border: 0; padding: 0; margin: 0; }
