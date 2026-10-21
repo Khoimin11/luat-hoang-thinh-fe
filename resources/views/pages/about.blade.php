@@ -91,10 +91,10 @@
           <div id="about-team-cards" class="about-team-grid">
             {{-- Kinh nghiệm và chuyên môn bên dưới là dữ liệu mẫu để xem trước giao diện hover. --}}
             @foreach ([
-              ['ce93f17476f55c367e115332e23772954305e2bc.png', 'Giám đốc', 'Ông Phan Minh Hoàng', '15 năm kinh nghiệm', 'Đất đai, BĐS, Xây dựng'],
-              ['cc4af13c0db17499cb4a14cc049a6f6ea2eabad0.png', 'Luật sư cộng sự', 'Bà Lê Thị Hồng', '12 năm kinh nghiệm', 'Dân sự, Hôn nhân gia đình'],
-              ['12e6fce3db1ec81356ec1712864ccb945d4f3d50.png', 'Luật sư cộng sự', 'Ông Phạm Văn Dũng', '10 năm kinh nghiệm', 'Doanh nghiệp, Hợp đồng'],
-              ['e414eb6291fc180212b12f6f7933207d4cd4cdfb.png', 'Luật sư cộng sự', 'Ông Hoàng Trung Nam', '8 năm kinh nghiệm', 'Hình sự, Lao động'],
+              ['about-luat-su-1.png', 'Giám đốc', 'Ông Phan Minh Hoàng', '15 năm kinh nghiệm', 'Đất đai, BĐS, Xây dựng'],
+              ['about-luat-su-2.png', 'Luật sư cộng sự', 'Bà Lê Thị Hồng', '12 năm kinh nghiệm', 'Dân sự, Hôn nhân gia đình'],
+              ['about-luat-su-3.png', 'Luật sư cộng sự', 'Ông Phạm Văn Dũng', '10 năm kinh nghiệm', 'Doanh nghiệp, Hợp đồng'],
+              ['about-luat-su-4.png', 'Luật sư cộng sự', 'Ông Hoàng Trung Nam', '8 năm kinh nghiệm', 'Hình sự, Lao động'],
             ] as [$photo, $role, $name, $experience, $specialties])
               @include('partials.profile', [
                 'photo' => asset('assets/images/'.$photo),

@@ -1,8 +1,8 @@
 <header id="site-header" class="site-header" data-turbo-permanent>
     <div class="header-container">
         <a class="site-brand header-brand" href="{{ url('/') }}" aria-label="Hoàng Thịnh Luật — Trang chủ">
-            <img class="header-logo-symbol" src="{{ asset('assets/images/8e9a8484357d66f0745965a71f43232ac28d7a89.png') }}" width="64" height="64" alt="">
-            <img class="header-logo-wordmark" src="{{ asset('assets/images/a8e7c209-2869-4b36-9c2d-6f158a3b9680 2.png') }}" width="260" height="38" alt="Hoàng Thịnh Luật — Law toward perfection">
+            <img class="header-logo-symbol" src="{{ asset('assets/images/logo-symbol.png') }}" width="64" height="64" alt="">
+            <img class="header-logo-wordmark" src="{{ asset('assets/images/logo-wordmark.png') }}" width="260" height="38" alt="Hoàng Thịnh Luật — Law toward perfection">
         </a>
         <nav id="main-navigation" class="header-navigation" aria-label="Điều hướng chính">
             <a class="header-link {{ request()->is('/') ? 'is-active' : '' }}" href="{{ url('/') }}" @if(request()->is('/')) aria-current="page" @endif>Trang chủ</a>
