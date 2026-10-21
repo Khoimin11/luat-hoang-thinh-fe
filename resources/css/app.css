@@ -1,6 +1,65 @@
 @import 'tailwindcss';
 /* Trang chi tiết lĩnh vực: bài viết, sidebar và phân trang */
 @layer components {
+    /* Section: ArticleBreadcrumb — nền đen 4%, khung 1280px, padding dọc 16px. */
+    .article-breadcrumb { @apply py-4; background: rgb(0 0 0 / 4%); }
+    .article-breadcrumb ol { @apply mx-auto flex w-full max-w-7xl list-none flex-wrap items-center gap-1.25 p-0 font-sans text-sm leading-5 font-normal text-brand-black; }
+    .article-breadcrumb li { min-width: 0; overflow-wrap: anywhere; }
+    .article-breadcrumb li:not([aria-current]) { opacity: .6; }
+    .article-breadcrumb a:hover { @apply text-brand-red; }
+
+    /* Section: Article — khung chung cho tiêu đề, nội dung và sidebar. */
+    .article-section { @apply bg-white pt-12 pb-8; }
+
+    /* Trang bài viết: lề khung 1280px nằm ở padding section, thống nhất với Figma. */
+    .article-breadcrumb, .article-section, .home-news.article-related { padding-inline: max(20px, calc((100% - 1280px) / 2)); }
+    @media (min-width: 640px) {
+        .article-breadcrumb, .article-section, .home-news.article-related { padding-inline: max(32px, calc((100% - 1280px) / 2)); }
+    }
+    @media (min-width: 1280px) {
+        .article-breadcrumb, .article-section, .home-news.article-related { padding-inline: max(80px, calc((100% - 1280px) / 2)); }
+    }
+    .article-container { @apply mx-auto flex w-full max-w-7xl flex-col gap-12; }
+
+    /* ArticleHeader: tiêu đề và hàng ngày đăng/chia sẻ. */
+    .article-heading { @apply flex min-w-0 flex-col gap-4; }
+    .article-heading h1 { @apply border-b border-black/5 pb-4 font-sans text-3xl leading-10 font-semibold text-brand-black uppercase; }
+    .article-heading-meta { @apply flex flex-wrap items-center justify-between gap-4 font-sans text-sm leading-5 font-medium; }
+    .article-heading-date { @apply inline-flex items-center gap-1 text-body-copy; }
+    .article-heading-date svg { @apply shrink-0; }
+    .article-heading-share { @apply flex items-center gap-2 text-brand-black; }
+    .article-heading-share button { @apply flex size-8 shrink-0 items-center justify-center rounded-full bg-neutral-50; box-shadow: 0 2.91px 5.82px rgb(0 0 0 / 4%), inset 0 0 0 .73px rgb(0 0 0 / 10%); }
+    .article-heading-share img { @apply block size-4; }
+
+    /* ArticleBody: nằm trong section có padding trực tiếp, sidebar rộng 300px. */
+    .article-body-layout { @apply grid min-w-0 items-start gap-10 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-16; }
+    .article-body-content { @apply min-w-0; }
+    .article-sidebar { @apply flex min-w-0 flex-col gap-6; }
+
+    /* ArticleTableOfContents: nền #F9F9F9, viền đen 8%, padding 16px. */
+    .article-toc { @apply rounded-2xl border p-4 text-brand-black; background: #f9f9f9; border-color: rgb(0 0 0 / 8%); }
+    .article-toc-header { @apply mb-4 flex items-center justify-between gap-4; }
+    .article-toc-header h2 { @apply text-lg leading-6.75 font-bold tracking-tight; font-family: 'Manrope', sans-serif; }
+    .article-toc-header img { @apply block size-8 shrink-0; }
+    .article-toc-list { @apply m-0 list-decimal space-y-2 pl-6 font-sans text-base leading-6 font-normal; }
+    .article-toc-sublist { @apply mt-2 list-none space-y-2 p-0; }
+
+    /* ArticleContent: body 16/24 regular, khoảng cách giữa các khối 24px. */
+    .article-prose { @apply mt-6 flex min-w-0 flex-col gap-6 font-sans text-base leading-6 font-normal text-body-copy; }
+    .article-prose p { @apply m-0 text-justify; }
+    .article-prose .article-prose-intro { @apply sm:px-6; }
+    .article-prose h2 { @apply m-0 text-2xl leading-9 font-semibold text-brand-black; }
+    .article-prose h3 { @apply m-0 text-xl leading-7 font-semibold text-brand-black; }
+    .article-prose ul { @apply m-0 list-disc space-y-2 pl-5; }
+    .article-prose-image { @apply block w-full rounded-4xl object-cover; aspect-ratio: 916 / 500; }
+    .article-table-scroll { @apply max-w-full overflow-x-auto rounded-2xl border border-black/10; }
+    .article-prose table { @apply w-full min-w-160 border-collapse text-left; }
+    .article-prose th, .article-prose td { @apply border-b border-black/10 px-4 py-3 align-top; }
+    .article-prose th { @apply font-medium tracking-tight text-brand-black; font-family: 'Manrope', sans-serif; background: #f9f9f9; }
+    .article-prose th:first-child { width: 33%; }
+    .article-prose th:nth-child(2) { width: 20%; }
+    .article-prose tbody tr:last-child td { border-bottom: 0; }
+
     /* Section: PracticeAreaContent */
     .practice-detail { @apply bg-white px-5 py-12 sm:px-8 md:py-16 xl:px-20; }
     .practice-detail-layout { @apply mx-auto grid w-full max-w-7xl items-start gap-10 lg:grid-cols-[minmax(0,1fr)_300px]; }
@@ -46,6 +105,15 @@
     .pagination-arrow { @apply text-2xl leading-none; }
     .pagination-arrow:disabled:not(.pagination-next) { background: #f5f5f5; }
     .pagination-next { color: #b92324; }
+}
+
+/* Font Manrope cho tiêu đề mục lục bài viết theo thiết kế. */
+@font-face {
+    font-family: 'Manrope';
+    src: url('../../public/assets/fonts/Manrope/Manrope-variable.ttf') format('truetype');
+    font-weight: 200 800;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -196,6 +264,14 @@
     .home-news-container { @apply mx-auto w-full max-w-7xl; }
     .home-news-header > div { min-width: 0; }
     .home-news-grid { @apply mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4; }
+
+    /* Section: RelatedArticles — dùng lại thẻ trang chủ, hai nút chỉ hiển thị giao diện. */
+    .home-news.article-related { @apply pt-12 pb-8; }
+    .article-related-carousel { @apply relative; }
+    .article-related-arrow { @apply absolute top-1/2 z-10 size-10 -translate-y-1/2 border-0 bg-transparent p-0 sm:size-12 xl:size-14; cursor: default; }
+    .article-related-prev { @apply left-0 -translate-x-1/2 xl:-left-15 xl:translate-x-0; }
+    .article-related-next { @apply right-0 translate-x-1/2 xl:-right-15 xl:translate-x-0; }
+    .article-related-arrow img { @apply block size-full; }
     .blog-card { @apply flex min-w-0 cursor-pointer flex-col gap-3 overflow-hidden rounded-3xl p-2; border: 1px solid rgb(0 0 0 / 5%); background: #fcfcfc; }
     .blog-card-image { @apply relative overflow-hidden rounded-2xl; }
     /* Hover toàn bộ thẻ: ảnh zoom nhẹ trong khung, tiêu đề chuyển đỏ. */

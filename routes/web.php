@@ -12,6 +12,8 @@ Route::view('/linh-vuc-hoat-dong/luat-dat-dai', 'pages.practice-area-detail')->n
 
 Route::view('/tin-tuc-va-kien-thuc-phap-luat', 'pages.news')->name('news');
 
+Route::view('/bai-viet-chi-tiet', 'pages.article-detail')->name('article-detail');
+
 Route::view('/doi-ngu-luat-su', 'pages.team')->name('team');
 
 Route::view('/lien-he', 'pages.contact')->name('contact');

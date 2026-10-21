@@ -7,18 +7,16 @@
   'imageAlt' => '',
 ])
 
+@if ($href)
+<a href="{{ $href }}" {{ $attributes->class(['blog-card']) }}>
+@else
 <article {{ $attributes->class(['blog-card']) }}>
+@endif
   <div class="blog-card-image">
     <img src="{{ $image }}" alt="{{ $imageAlt }}" width="292" height="200" loading="lazy">
   </div>
   <div class="blog-card-body">
-    <h3>
-      @if ($href)
-        <a href="{{ $href }}">{{ $title }}</a>
-      @else
-        {{ $title }}
-      @endif
-    </h3>
+    <h3>{{ $title }}</h3>
     @if ($description)
       <p class="blog-card-description">{{ $description }}</p>
     @endif
@@ -30,10 +28,14 @@
         </span>
       @endif
       @if ($href)
-        <a class="blog-card-detail" href="{{ $href }}">Xem chi tiết <span aria-hidden="true"></span><img src="{{ asset('assets/icons/Vector.svg') }}" alt="" width="8" height="15" loading="lazy"></a>
+        <span class="blog-card-detail">Xem chi tiết <span aria-hidden="true"></span><img src="{{ asset('assets/icons/Vector.svg') }}" alt="" width="8" height="15" loading="lazy"></span>
       @else
         <button class="blog-card-detail" type="button" aria-disabled="true">Xem chi tiết <span aria-hidden="true"></span><img src="{{ asset('assets/icons/Vector.svg') }}" alt="" width="8" height="15" loading="lazy"></button>
       @endif
     </div>
   </div>
+@if ($href)
+</a>
+@else
 </article>
+@endif
