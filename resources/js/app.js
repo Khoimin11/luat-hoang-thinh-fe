@@ -8,6 +8,9 @@ document.querySelectorAll('.site-header').forEach(initHeaderMenu);
 
 function initConsultationForm(form) {
   const fields = ['name', 'email', 'service', 'message'];
+  const button = form.querySelector('button[type="submit"]');
+  const buttonLabel = button.querySelector('[data-submit-label]');
+  const idleLabel = buttonLabel.textContent;
   const getPayload = () => Object.fromEntries(
     fields.map((name) => [name, form.elements.namedItem(name).value.trim()]),
   );
@@ -25,8 +28,9 @@ function initConsultationForm(form) {
     }
   };
 
-  form.addEventListener('submit', (event) => {
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
+    if (button.disabled) return;
 
     const payload = getPayload();
     const errors = validateLienHe(payload);
@@ -38,11 +42,43 @@ function initConsultationForm(form) {
       return;
     }
 
-    // Gắn lời gọi API tại đây khi BE cung cấp endpoint.
-    form.dispatchEvent(new CustomEvent('consultation:submit', {
-      detail: payload,
-      bubbles: true,
-    }));
+    button.disabled = true;
+    buttonLabel.textContent = 'Đang gửi…';
+    form.setAttribute('aria-busy', 'true');
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+      const result = await response.json();
+
+      if (response.status === 422) {
+        fields.forEach((name) => showError(name, result.errors?.[name]?.[0] ?? ''));
+        const invalidField = fields.find((name) => result.errors?.[name]?.length);
+        showToast('Vui lòng kiểm tra lại thông tin đã nhập.', 'error');
+        if (invalidField) form.elements.namedItem(invalidField).focus();
+        return;
+      }
+
+      if (!response.ok) {
+        showToast('Chưa gửi được lời nhắn. Vui lòng thử lại.', 'error');
+        return;
+      }
+
+      form.reset();
+      showToast('Gửi lời nhắn thành công.', 'success');
+    } catch {
+      showToast('Không thể gửi lời nhắn. Vui lòng thử lại.', 'error');
+    } finally {
+      button.disabled = false;
+      buttonLabel.textContent = idleLabel;
+      form.removeAttribute('aria-busy');
+    }
   });
 }
 
@@ -96,3 +132,31 @@ document.addEventListener('turbo:before-render', async (event) => {
 
 document.addEventListener('turbo:load', initPage);
 initPage();
+
+// Thông báo góc phải: tự ẩn sau 3 giây.
+function showToast(message, type = 'success') {
+  const region = document.querySelector('[data-toast-region]');
+  if (!region) return;
+
+  const toast = document.createElement('div');
+  toast.className = 'site-toast';
+  toast.dataset.type = type;
+  toast.setAttribute('role', type === 'error' ? 'alert' : 'status');
+
+  const icon = document.createElement('span');
+  icon.className = 'site-toast-icon';
+  icon.setAttribute('aria-hidden', 'true');
+  icon.textContent = type === 'success' ? '✓' : '!';
+
+  const text = document.createElement('span');
+  text.className = 'site-toast-message';
+  text.textContent = message;
+
+  toast.append(icon, text);
+  region.append(toast);
+
+  setTimeout(() => {
+    toast.classList.add('is-closing');
+    setTimeout(() => toast.remove(), 200);
+  }, 3000);
+}

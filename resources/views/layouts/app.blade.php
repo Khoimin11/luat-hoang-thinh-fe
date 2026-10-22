@@ -26,5 +26,10 @@
 
     @include('partials.footer')
 
+    {{-- pop-up thông báo ở góc phải dùng chung --}}
+    <div id="site-toast-region"
+         class="site-toast-region"
+         data-toast-region data-turbo-permanent></div>
+
 </body>
 </html>

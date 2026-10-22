@@ -476,7 +476,28 @@
     .about-consultation-form button:hover:not(:disabled) { background: #8b1517; }
     .about-consultation-form [aria-invalid='true'] { outline: 2px solid #fda4af; }
     .about-form-error { @apply mt-2 text-sm leading-5 text-rose-200; }
-    .about-form-note { @apply mt-3 text-xs leading-5 text-white/65; }
+    /* Toast: pop-up thông báo góc phải. */
+    .site-toast-region { position: fixed; top: 100px; right: 40px; z-index: 10000; display: flex; flex-direction: column; gap: 12px; width: 400px; max-width: calc(100% - 32px); pointer-events: none; }
+    .site-toast { @apply flex items-center gap-3 rounded-lg p-4 text-base leading-6 font-semibold; min-height: 64px; border-left: 8px solid var(--toast-color); color: #242424; background: var(--toast-background); box-shadow: 0 4px 16px rgb(0 0 0 / 12%); pointer-events: auto; animation: toast-enter 350ms ease-out; }
+    .site-toast[data-type='success'] { --toast-color: #16a34a; --toast-background: #f0fdf4; }
+    .site-toast[data-type='error'] { --toast-color: #dc2626; --toast-background: #fef2f2; }
+    .site-toast-icon { @apply flex size-6 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white; background: var(--toast-color); }
+    .site-toast-message { @apply min-w-0 flex-1; overflow-wrap: anywhere; }
+    .site-toast.is-closing { animation: toast-exit 200ms ease-in forwards; }
+    @media (max-width: 639px) {
+        .site-toast-region { top: 16px; right: 16px; }
+    }
+    @keyframes toast-enter {
+        0% { opacity: 0; transform: translateX(110%); }
+        65% { opacity: 1; transform: translateX(-8px); }
+        100% { transform: translateX(0); }
+    }
+    @keyframes toast-exit {
+        to { opacity: 0; transform: translateX(110%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .site-toast, .site-toast.is-closing { animation: none; }
+    }
 
     /* Section: ContactMessage — giới thiệu bên trái, form sáng dùng chung bên phải. */
     .contact-message-section { @apply px-5 pt-16 sm:px-8 xl:px-20; background: linear-gradient(180deg, #ffffff, #e5f2f2); }
