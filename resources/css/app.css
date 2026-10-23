@@ -527,7 +527,7 @@
     .about-consultation-form.consultation-form--light [aria-invalid='true'] { outline-color: #b91c1c; }
 
     /* Header */
-    .site-header { @apply relative z-50 w-full border-b border-brand-stroke bg-white; }
+    .site-header { @apply sticky top-0 z-50 w-full border-b border-brand-stroke bg-white; }
     .header-container { @apply mx-auto flex w-full max-w-480 flex-wrap items-center justify-between gap-x-5 gap-y-0 px-4 py-4 sm:px-8; }
     .site-brand { @apply inline-flex min-w-0 shrink-0 items-center gap-2.5; }
     .header-brand { gap: 6px; }

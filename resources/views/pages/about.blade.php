@@ -55,7 +55,7 @@
   </section>
 
   <section class="about-statistics" aria-label="Hoàng Thịnh Luật qua những con số">
-    <div class="about-statistics-grid" style="--about-background: url('{{ asset('assets/images/39437635f1daec47983a81bfb09828b281b59497.png') }}')">
+    <div class="about-statistics-grid" style="--about-background: url('{{ asset('assets/images/about-statistics-bg.png') }}')">
       @foreach ([['500', 'Vụ việc đã tư vấn'], ['200', 'Khách hàng tin tưởng'], ['10', 'Luật sư & chuyên gia'], ['15', 'Năm kinh nghiệm']] as [$number, $label])
         <div><p class="about-statistic-number">{{ $number }}<span>+</span></p><p class="about-statistic-label">{{ $label }}</p></div>
       @endforeach
