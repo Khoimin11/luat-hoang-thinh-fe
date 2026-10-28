@@ -226,8 +226,11 @@
     .home-value-prop h2 { @apply font-sans text-base leading-6 font-bold; color: #192a37; }
     .home-value-prop p { @apply mt-0.5 font-sans text-xs leading-4 font-medium; color: #6b7280; }
 
-    /* PracticeAreas trang chủ */
-    .home-practice { @apply px-5 py-12 sm:px-8 md:py-20; background: #f5f8fa; }
+    /* PracticeAreas trang chủ: padding trực tiếp, khung 1320px, lề 300px tại 1920px. */
+    .home-practice { @apply py-12 md:py-20; padding-inline: max(20px, calc((100% - 1320px) / 2)); background: #f5f8fa; }
+    @media (min-width: 640px) {
+        .home-practice { padding-inline: max(32px, calc((100% - 1320px) / 2)); }
+    }
     .home-practice-container { width: 100%; max-width: 1320px; margin: 0 auto; }
     .home-practice-header, .home-news-header { @apply flex flex-wrap items-end justify-between gap-6; }
     .home-practice-eyebrow, .home-news-eyebrow { @apply mb-2 font-sans text-sm leading-5 font-semibold; color: #017b81; }
@@ -533,6 +536,7 @@
     .header-right { display: contents; }
     .site-brand { @apply inline-flex min-w-0 shrink-0 items-center gap-2.5; }
     .header-brand { gap: 6px; }
+    .header-brand:focus-visible { outline: none; }
     .header-logo-symbol { width: 48px; height: 48px; object-fit: contain; }
     .header-logo-wordmark { width: 160px; height: auto; object-fit: contain; }
     .brand-emblem { @apply flex size-12 shrink-0 flex-col items-center justify-center rounded-full border border-brand-red font-serif text-2xl leading-none font-bold text-brand-teal; }
