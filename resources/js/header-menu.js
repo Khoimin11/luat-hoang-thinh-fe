@@ -4,10 +4,24 @@ export function initHeaderMenu(header) {
   const dropdown = header.querySelector('[data-practice-dropdown]');
   const trigger = header.querySelector('[data-practice-trigger]');
   const panel = header.querySelector('[data-practice-panel]');
+  const backdrop = header.querySelector('[data-menu-backdrop]');
   const desktop = window.matchMedia('(min-width: 1536px)');
   const hover = window.matchMedia('(hover: hover)');
   let closeTimer;
   let openedByHover = false;
+
+  // Panel cuộn trong phần màn hình còn lại bên dưới hàng logo.
+  const updateHeaderHeight = () => {
+    const height = Math.ceil(header.getBoundingClientRect().height);
+    const viewportHeight = window.visualViewport?.height ?? window.innerHeight;
+    header.style.setProperty('--header-height', `${height}px`);
+    header.style.setProperty('--menu-max-height', `${Math.max(0, Math.floor(viewportHeight - height))}px`);
+  };
+  const headerObserver = new ResizeObserver(updateHeaderHeight);
+  headerObserver.observe(header);
+  window.addEventListener('resize', updateHeaderHeight);
+  window.visualViewport?.addEventListener('resize', updateHeaderHeight);
+  updateHeaderHeight();
 
   const setDropdown = (open, fromHover = false) => {
     clearTimeout(closeTimer);
@@ -17,10 +31,22 @@ export function initHeaderMenu(header) {
   };
 
   const setNavigation = (open) => {
+    open = open && !desktop.matches;
+    if (open) updateHeaderHeight();
     navigation.classList.toggle('is-open', open);
     menuToggle.setAttribute('aria-expanded', String(open));
-    if (!open) setDropdown(false);
+    menuToggle.setAttribute('aria-label', open ? 'Đóng menu' : 'Mở menu');
+    backdrop.hidden = !open;
+    document.documentElement.classList.toggle('has-mobile-menu', open);
+    if (open) navigation.scrollTop = 0;
+    if (!open) {
+      setDropdown(false);
+      navigation.scrollTop = 0;
+    }
   };
+
+  backdrop.addEventListener('click', () => setNavigation(false));
+  document.addEventListener('turbo:before-render', () => setNavigation(false));
 
   trigger.addEventListener('click', () => {
     setDropdown(panel.hidden || openedByHover);
@@ -38,7 +64,7 @@ export function initHeaderMenu(header) {
   panel.addEventListener('mouseenter', () => clearTimeout(closeTimer));
   panel.addEventListener('mouseleave', scheduleClose);
   dropdown.addEventListener('focusout', (event) => {
-    if (!dropdown.contains(event.relatedTarget)) setDropdown(false);
+    if (desktop.matches && !dropdown.contains(event.relatedTarget)) setDropdown(false);
   });
   trigger.addEventListener('keydown', (event) => {
     if (event.key !== 'ArrowDown') return;
@@ -65,7 +91,8 @@ export function initHeaderMenu(header) {
     setNavigation(false);
   });
   document.addEventListener('pointerdown', (event) => {
-    if (!dropdown.contains(event.target)) setDropdown(false);
+    // Mobile: kéo ở vùng đệm hoặc thanh cuộn không được đóng dropdown.
+    if (desktop.matches && !dropdown.contains(event.target)) setDropdown(false);
     if (!header.contains(event.target)) setNavigation(false);
   });
   header.addEventListener('keydown', (event) => {

@@ -1,5 +1,6 @@
 <footer id="site-footer" class="site-footer" data-turbo-permanent style="--footer-background: url('{{ asset('assets/images/Footer.png') }}')">
-    <div class="footer-container">
+    {{-- Frame 1: thông tin công ty, các nhóm liên kết và thông tin liên hệ. --}}
+    <div class="footer-main">
         <div class="footer-grid">
             <div class="footer-company">
                 <a class="site-brand" href="{{ url('/') }}" aria-label="Hoàng Thịnh Luật — Trang chủ">
@@ -13,7 +14,7 @@
                     <button type="button" disabled aria-label="Instagram"><img src="{{ asset('assets/icons/Frame-2.svg') }}" alt="" width="14" height="14"></button>
                 </div>
             </div>
-            <nav class="footer-column" aria-labelledby="quick-links-title">
+            <nav class="footer-column footer-quick-links" aria-labelledby="quick-links-title">
                 <h2 id="quick-links-title" class="footer-heading">Liên kết nhanh</h2>
                 <ul class="footer-links">
                     <li><a href="{{ url('/') }}">Trang chủ</a></li>
@@ -23,7 +24,7 @@
                     <li><a href="{{ route('contact') }}">Liên hệ</a></li>
                 </ul>
             </nav>
-            <nav class="footer-column" aria-labelledby="legal-links-title">
+            <nav class="footer-column footer-legal-links" aria-labelledby="legal-links-title">
                 <h2 id="legal-links-title" class="footer-heading">Liên kết pháp lý</h2>
                 <ul class="footer-links">
                     <li><a href="#" target="_blank" rel="noopener noreferrer">TAND Tối cao<span class="sr-only"> (mở tab mới)</span></a></li>
@@ -44,11 +45,20 @@
                     <p><span>Văn phòng:</span> 1124 Lạc Long Quân, P. Tân Hòa, TP.HCM</p>
                     <p><span>Số điện thoại:</span> <a href="tel:0913849072">0913.849.072</a></p>
                 </address>
-                <a class="footer-map" href="https://www.google.com/maps/search/?api=1&amp;query={{ rawurlencode('1124 Lạc Long Quân, TP.HCM') }}" target="_blank" rel="noopener noreferrer" aria-label="Xem vị trí văn phòng trên Google Maps (mở tab mới)">
-                    <img src="{{ asset('assets/images/41391b1d4bf75bc96f6bf419ac4b7ffb13eaa85e.png') }}" alt="Bản đồ khu vực văn phòng Hoàng Thịnh Luật" width="1398" height="605" loading="lazy">
-                </a>
             </section>
+            <div class="footer-map">
+                <iframe
+                    src="https://www.google.com/maps?q={{ rawurlencode('1124 Lạc Long Quân, TP.HCM, Việt Nam') }}&amp;hl=vi&amp;z=16&amp;output=embed"
+                    title="Google Maps: Văn phòng Hoàng Thịnh Luật tại 1124 Lạc Long Quân, TP.HCM"
+                    width="420"
+                    height="132"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                ></iframe>
+            </div>
         </div>
-        <div class="footer-bottom"><p>Copyright {{ date('Y') }} © Thiết kế website IMS</p></div>
     </div>
+    {{-- Frame 2: bản quyền. --}}
+    <div class="footer-bottom"><p>Copyright {{ date('Y') }} © Thiết kế website IMS</p></div>
 </footer>
