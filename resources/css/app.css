@@ -323,11 +323,11 @@
     .blog-card a:hover { color: #7e011f; }
 
     /* Trang Lĩnh vực hoạt động */
-    .practice-areas-hero .hero-page-1-image { left: -12px; width: calc(100% + 24px); height: calc(100% + 24px); min-height: 0; object-position: center; }
-    /* Section: NewsHero — ảnh cột đá phủ kín khung, giữ bố cục hero dùng chung. */
-    .news-hero .hero-page-1-image { left: -12px; width: calc(100% + 24px); height: calc(100% + 24px); min-height: 0; object-position: center; }
-    .practice-areas-section { @apply bg-white px-5 py-12 sm:px-8 md:py-16 xl:px-20; }
-    .practice-areas-container { @apply mx-auto w-full max-w-7xl; }
+    /* Lĩnh vực: padding trực tiếp trên section, lòng 1280px tại khung 1920px. */
+    .practice-areas-section { @apply bg-white py-12 md:py-16; padding-inline: max(20px, calc((100% - 1280px) / 2)); }
+    @media (min-width: 640px) {
+        .practice-areas-section { padding-inline: max(32px, calc((100% - 1280px) / 2)); }
+    }
     .practice-areas-intro { @apply font-sans text-lg leading-7 font-medium; color: #373d4e; }
     .practice-areas-grid { @apply mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3; }
     .practice-areas-grid .practice-area-card-image { aspect-ratio: 413 / 150; }
@@ -336,13 +336,14 @@
     .about-container { @apply mx-auto w-full max-w-7xl px-5 sm:px-8; }
     .about-section { @apply py-12 md:py-16; }
     .hero-page-1 { @apply relative isolate flex h-90 items-end overflow-hidden bg-[#003436] md:h-120 xl:h-162.5; }
-    .hero-page-1-image { position: absolute; top: -12px; left: -7.7%; z-index: -20; width: 111%; max-width: none; height: auto; min-height: calc(100% + 24px); object-fit: cover; object-position: center top; transform: scaleX(-1); filter: blur(4px); }
-    .hero-page-1::before { content: ''; position: absolute; inset: 0; z-index: -10; background: rgb(0 52 54 / 40%); }
-    /* Hero Giới thiệu dùng ảnh thiết kế hoàn chỉnh, giữ chiều ảnh và độ sắc nét. */
-    .about-hero .hero-page-1-image { inset: 0; width: 100%; height: 100%; min-height: 0; object-fit: cover; object-position: center; transform: none; filter: none; }
-    .about-hero::before { display: none; }
-    /* Caption: padding trực tiếp, gradient 0–90%, blur nền 16px và gap nội dung 8px. */
-    .hero-page-1-caption { @apply relative flex w-full flex-col items-start gap-2 px-5 pt-8 pb-8 md:pb-12; background: linear-gradient(180deg, rgb(0 52 54 / 0%) 0%, rgb(0 52 54 / 90%) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    /* Hero dùng chung: ảnh rõ, không lật/phóng lớn; gradient và blur nằm ở caption. */
+    .hero-page-1-image { position: absolute; inset: 0; z-index: -20; width: 100%; max-width: none; height: 100%; min-height: 0; object-fit: cover; object-position: center; }
+    /* Caption: lớp blur hiện dần để mép trên mềm, gradient #003436 từ 0% đến 90%. */
+    .hero-page-1-caption { @apply relative flex w-full flex-col items-start gap-2 px-5 pt-8 pb-8 md:pb-12; }
+    .hero-page-1-caption::before, .hero-page-1-caption::after { content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+    .hero-page-1-caption::before { backdrop-filter: blur(16px); mask-image: linear-gradient(180deg, transparent 0%, #000 65%); }
+    .hero-page-1-caption::after { background: linear-gradient(180deg, rgb(0 52 54 / 0%) 0%, rgb(0 52 54 / 90%) 100%); }
+    .hero-page-1-caption > * { position: relative; z-index: 1; }
     .hero-page-1-breadcrumb { @apply flex flex-wrap items-center gap-1.25 font-sans text-base leading-6 font-normal text-white/60 md:text-lg md:leading-7; }
     .hero-page-1-breadcrumb a { @apply hover:text-white; }
     .hero-page-1-breadcrumb [aria-current] { @apply font-medium text-white; }
@@ -775,6 +776,8 @@
 
 /* Khi đủ khung 1280px: thẻ 416 × 325px, lòng trong 368 × 277px. */
 @media (min-width: 1536px) {
+    /* Thẻ trang Lĩnh vực giữ kích thước nguyên khi đủ khung nội dung 1280px. */
+    .practice-areas-grid { grid-template-columns: repeat(3, 413px); justify-content: space-between; }
     /* Ảnh giám đốc đúng kích thước Figma, không chia cột theo tỷ lệ gây pixel lẻ. */
     .about-intro { grid-template-columns: minmax(0, 1fr) 520px; }
     .about-director { width: 520px; height: 527px; }
@@ -786,20 +789,20 @@
     .about-mission .about-eyebrow::before { height: 0; outline: 1px solid white; background: transparent; }
 }
 
-/* Hero Giới thiệu: tablet giữ trọn ảnh, điện thoại ưu tiên tượng công lý và caption gọn. */
+/* Hero kiểu 1 dùng chung: tablet giữ tỷ lệ ảnh, điện thoại dùng caption gọn. */
 @media (min-width: 640px) and (max-width: 1279px) {
-    .about-hero { height: auto; aspect-ratio: 1920 / 650; }
-    .about-hero .hero-page-1-caption { padding: 24px 32px; }
-    .about-hero .hero-page-1-breadcrumb { font-size: 14px; line-height: 22px; }
-    .about-hero h1 { font-size: 36px; line-height: 48px; }
+    .hero-page-1:not(.hero-page-2) { height: auto; aspect-ratio: 1920 / 650; }
+    .hero-page-1:not(.hero-page-2) .hero-page-1-caption { padding: 24px 32px; }
+    .hero-page-1:not(.hero-page-2) .hero-page-1-breadcrumb { font-size: 14px; line-height: 22px; }
+    .hero-page-1:not(.hero-page-2) h1 { font-size: 36px; line-height: 48px; }
 }
 
 @media (max-width: 639px) {
-    .about-hero { height: 320px; }
-    .about-hero .hero-page-1-image { object-position: right center; }
-    .about-hero .hero-page-1-caption { padding: 44px 20px 24px; gap: 8px; }
-    .about-hero .hero-page-1-breadcrumb { font-size: 13px; line-height: 20px; }
-    .about-hero h1 { font-size: 28px; line-height: 36px; }
+    .hero-page-1:not(.hero-page-2) { height: 320px; }
+    .hero-page-1:not(.hero-page-2) .hero-page-1-image { object-position: right center; }
+    .hero-page-1:not(.hero-page-2) .hero-page-1-caption { padding: 44px 20px 24px; gap: 8px; }
+    .hero-page-1:not(.hero-page-2) .hero-page-1-breadcrumb { font-size: 13px; line-height: 20px; }
+    .hero-page-1:not(.hero-page-2) h1 { font-size: 28px; line-height: 36px; }
 }
 
 /* Tầm nhìn & Sứ mệnh mobile: banner và thẻ gọn, giữ đủ nội dung không cắt chữ. */
@@ -997,6 +1000,11 @@
 }
 
 @media (min-width: 1024px) {
+    .practice-areas-grid .practice-area-card { height: 252px; }
+    .practice-areas-grid .practice-area-card-image { height: 150px; aspect-ratio: auto; }
+    .practice-areas-grid .practice-area-card-body { height: 100px; min-height: 0; padding-block: 12px; }
+    .practice-areas-grid .practice-area-card h3 { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
+    .practice-areas-grid .practice-area-card p { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .about-team-card { width: calc((100% - 72px) / 4); }
     .home-practice-layout { grid-template-columns: minmax(0, 800fr) minmax(0, 480fr); }
 }

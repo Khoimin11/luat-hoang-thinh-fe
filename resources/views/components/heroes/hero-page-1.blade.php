@@ -1,7 +1,7 @@
 @props([
   'title',
-  'image' => asset('assets/images'),
-    'breadcrumbs' => null,
+  'image' => asset('assets/images/5367853b7c3df6fd8b4ff25acce6c36f968c8e4c.jpg'),
+  'breadcrumbs' => null,
   'headingId' => 'hero-page-1-title',
 ])
 
