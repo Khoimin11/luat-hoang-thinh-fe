@@ -23,7 +23,8 @@
 
     /* ArticleHeader: tiêu đề và hàng ngày đăng/chia sẻ. */
     .article-heading { @apply flex min-w-0 flex-col gap-4; }
-    .article-heading h1 { @apply border-b border-black/5 pb-4 font-sans text-3xl leading-10 font-semibold text-brand-black uppercase; }
+    /* Một dòng tiêu đề: 38 + padding 16 + viền 1 + gap 16 + meta 32 = 103px. */
+    .article-heading h1 { @apply border-b border-black/5 pb-4 font-sans text-3xl leading-9.5 font-semibold text-brand-black uppercase; }
     .article-heading-meta { @apply flex flex-wrap items-center justify-between gap-4 font-sans text-sm leading-5 font-medium; }
     .article-heading-date { @apply inline-flex items-center gap-1 text-body-copy; }
     .article-heading-date svg { @apply shrink-0; }
@@ -42,7 +43,7 @@
     .article-toc-header h2 { @apply text-lg leading-6.75 font-bold tracking-tight; font-family: 'Manrope', sans-serif; }
     .article-toc-header img { @apply block size-8 shrink-0; }
     .article-toc-list { @apply m-0 list-decimal space-y-2 pl-6 font-sans text-base leading-6 font-normal; }
-    .article-toc-sublist { @apply mt-2 list-none space-y-2 p-0; }
+    .article-toc-sublist { @apply mt-2 list-none space-y-1 p-0; }
 
     /* ArticleContent: body 16/24 regular, khoảng cách giữa các khối 24px. */
     .article-prose { @apply mt-6 flex min-w-0 flex-col gap-6 font-sans text-base leading-6 font-normal text-body-copy; }
