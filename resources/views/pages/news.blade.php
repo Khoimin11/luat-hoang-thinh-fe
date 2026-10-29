@@ -1,14 +1,18 @@
 @extends('layouts.app')
 
-@section('title', 'Tin tức và Kiến thức pháp luật')
+@section('title', 'Kiến thức pháp lý')
 
 @section('content')
   {{-- Section: Hero --}}
   <x-heroes.hero-page-1
     class="news-hero"
-    title="Tin tức và Kiến thức pháp luật"
+    title="Kiến thức pháp lý"
     heading-id="news-title"
-    :image="asset('assets/images/hero-tin-tuc.jpg')"
+    :image="asset('assets/images/hero-img-news.png')"
+    :breadcrumbs="[
+      ['label' => 'Trang chủ', 'url' => route('home')],
+      ['label' => 'Tin tức và Kiến thức pháp luật'],
+    ]"
   />
 
   @php

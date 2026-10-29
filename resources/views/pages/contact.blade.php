@@ -6,9 +6,10 @@
   {{-- Header và footer dùng chung từ layouts.app. --}}
 
   {{-- Section: Hero --}}
-  <x-heroes.hero-page-2
-    title="Liên hệ hỗ trợ"
+  <x-heroes.hero-page-1
+    title="Liên hệ"
     heading-id="contact-title"
+    :image="asset('assets/images/hero-img-contact.png')"
     :breadcrumbs="[
       ['label' => 'Trang chủ', 'url' => route('home')],
       ['label' => 'Liên hệ'],
@@ -28,14 +29,15 @@
             <p><strong>Văn phòng:</strong><span>1124 Lạc Long Quân, P. Tân Hòa, TP.HCM</span></p>
           </div>
           <div class="contact-info-channels">
-            <p>SĐT: <span class="contact-info-value">0913.849.072</span> <span class="contact-info-label">|</span> <span class="contact-info-label">Zalo:</span> <span class="contact-info-value">0913.849.072</span></p>
+            <p>Hotline/Zalo: <span class="contact-info-value">0913.849.072</span></p>
             <p>Email: <span class="contact-info-value">hoangthinhluat.lawfirm@gmail.com</span></p>
           </div>
         </address>
 
         <div class="contact-info-hours">
           <h3>Giờ làm việc</h3>
-          <p>Thứ 2 - Thứ 6: <span>8:00 - 17:30</span></p>
+          <p>Thứ 2 - Thứ 7: <span>8:00 - 17:30</span></p>
+          <p class="contact-info-hours-note">(Hỗ trợ ngoài giờ theo hẹn trước)</p>
         </div>
 
         {{-- Section: ContactSocials — bổ sung liên kết khi có URL chính thức. --}}
@@ -47,24 +49,30 @@
       </div>
 
       {{-- Section: ContactMap --}}
-      <a class="contact-info-map" href="https://www.google.com/maps/search/?api=1&amp;query={{ rawurlencode('1124 Lạc Long Quân, TP.HCM') }}" target="_blank" rel="noopener noreferrer" aria-label="Xem vị trí văn phòng trên Google Maps (mở tab mới)">
-        <img src="{{ asset('assets/images/location-large.png') }}" alt="Bản đồ vị trí Hoàng Thịnh Luật tại khu vực Trần Văn Quang, Lạc Long Quân, TP.HCM" width="674" height="564" loading="lazy">
-      </a>
+      <div class="contact-info-map">
+        <iframe
+          src="https://www.google.com/maps?q={{ rawurlencode('1124 Lạc Long Quân, TP.HCM, Việt Nam') }}&amp;hl=vi&amp;z=16&amp;output=embed"
+          title="Google Maps: Văn phòng Hoàng Thịnh Luật tại 1124 Lạc Long Quân, TP.HCM"
+          width="674"
+          height="564"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
     </div>
   </section>
 
   {{-- Section: ContactForm --}}
   <section class="contact-message-section" aria-labelledby="contact-message-title">
-    <div class="contact-message-layout">
-      <div class="contact-message-intro">
-        <div class="contact-message-copy">
-          <h2 id="contact-message-title">Để lại lời nhắn cho chúng tôi</h2>
-          <p>Đăng ký nhận bản tin để cập nhật hàng tháng các kết quả, kinh nghiệm thực tiễn và hướng dẫn kỹ thuật mới nhất từ</p>
-        </div>
-        <img class="contact-message-portrait" src="{{ asset('assets/images/94dd2de76160785f126a286fb2f1b3a3b1a1b5bb.png') }}" alt="Đội ngũ luật sư Hoàng Thịnh Luật" width="1181" height="1332" loading="lazy">
+    <div class="contact-message-intro">
+      <div class="contact-message-copy">
+        <h2 id="contact-message-title">Gửi yêu cầu tư vấn</h2>
+        <p>Vui lòng điền đầy đủ thông tin bên phải, chúng tôi sẽ liên hệ lại trong thời gian sớm nhất.</p>
       </div>
-
-      <x-forms.consultation-form variant="light" />
+      <img class="contact-message-portrait" src="{{ asset('assets/images/94dd2de76160785f126a286fb2f1b3a3b1a1b5bb.png') }}" alt="Đội ngũ luật sư Hoàng Thịnh Luật" width="1181" height="1332" loading="lazy">
     </div>
+
+    <x-forms.consultation-form variant="light" />
   </section>
 @endsection

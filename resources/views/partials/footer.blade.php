@@ -4,7 +4,7 @@
         <div class="footer-grid">
             <div class="footer-company">
                 <a class="site-brand" href="{{ url('/') }}" aria-label="Hoàng Thịnh Luật — Trang chủ">
-                    <img class="footer-logo" src="{{ asset('assets/images/footer-logo.png') }}" alt="Hoàng Thịnh Luật" width="389" height="64" loading="lazy">
+                    <img class="footer-logo" src="{{ asset('assets/images/logo-symbol.png') }}" alt="Hoàng Thịnh Luật" width="96" height="96" loading="lazy">
                 </a>
                 <p class="footer-company-name">Công ty Luật TNHH MTV<strong>Hoàng Thịnh Luật</strong></p>
                 <p class="footer-tagline">Pháp lý tối đa - Quyền lợi đảm bảo</p>

@@ -487,25 +487,26 @@
     /* Section: ContactInformation — trang Liên hệ, thông tin công ty và bản đồ. */
     .contact-info-section { @apply bg-white px-5 pt-12 pb-20 sm:px-10; }
     .contact-info-layout { @apply mx-auto grid w-full max-w-7xl items-start gap-10 lg:grid-cols-[minmax(0,416fr)_minmax(0,674fr)] lg:gap-12; }
-    .contact-info-company { @apply min-w-0 font-sans text-lg leading-7 font-normal text-brand-black; }
+    .contact-info-company { @apply min-w-0 font-sans text-lg leading-6.75 font-normal text-brand-black; }
     .contact-info-logo { @apply mb-6 size-30 object-contain; }
     .contact-info-title { @apply text-2xl leading-7 font-semibold uppercase; }
     .contact-info-details { @apply mt-6 not-italic; }
     .contact-info-addresses { @apply flex flex-col gap-4; }
     .contact-info-addresses strong, .contact-info-hours h3 { @apply mb-2 block text-xl leading-6 font-bold; color: #7e011f; }
     .contact-info-addresses p > span { @apply block; }
-    .contact-info-channels { @apply mt-6 flex flex-col gap-2; }
+    .contact-info-channels { @apply mt-4 flex flex-col gap-2; }
     .contact-info-channels p { @apply flex flex-wrap items-baseline gap-x-1; }
     .contact-info-value { @apply font-semibold; color: #7e011f; overflow-wrap: anywhere; }
     .contact-info-label { @apply font-medium; }
     .contact-info-hours { @apply mt-4; }
     .contact-info-hours p { @apply flex flex-wrap gap-x-2; }
-    .contact-info-socials { @apply mt-6 flex items-center gap-3; }
+    .contact-info-hours .contact-info-hours-note { @apply mt-2 text-sm leading-5 font-normal; opacity: .8; }
+    .contact-info-socials { @apply mt-8 flex items-center gap-3; }
     .contact-info-socials button { @apply flex size-12 items-center justify-center rounded-full border border-brand-stroke bg-white p-0; }
     .contact-info-socials button:disabled { opacity: 1; cursor: default; }
     .contact-info-socials img { @apply size-6 object-contain; }
-    .contact-info-map { @apply min-w-0 overflow-hidden rounded-3xl; }
-    .contact-info-map img { @apply block h-auto w-full; aspect-ratio: 674 / 564; object-fit: cover; }
+    .contact-info-map { @apply block min-w-0 overflow-hidden rounded-3xl; aspect-ratio: 674 / 564; }
+    .contact-info-map iframe { display: block; width: 100%; height: 100%; border: 0; }
 
     .about-contact { @apply relative bg-stone-950 px-5 sm:px-8 xl:px-20; background-image: linear-gradient(180deg, rgb(7 23 45 / 0%) 60%, #07172d), var(--about-background, none); background-position: center; background-size: cover; }
     .about-contact-grid { @apply mx-auto grid w-full max-w-7xl items-center gap-10 md:grid-cols-2; }
@@ -561,8 +562,10 @@
     }
 
     /* Section: ContactMessage — giới thiệu bên trái, form sáng dùng chung bên phải. */
-    .contact-message-section { @apply px-5 pt-16 sm:px-8 xl:px-20; background: linear-gradient(180deg, #ffffff, #e5f2f2); }
-    .contact-message-layout { @apply mx-auto grid w-full max-w-7xl items-start gap-10 lg:grid-cols-[minmax(0,528fr)_minmax(0,672fr)] lg:gap-20; }
+    .contact-message-section { @apply grid items-start gap-10 pt-16 lg:grid-cols-[minmax(0,528fr)_minmax(0,672fr)] lg:gap-20; padding-inline: max(20px, calc((100% - 1280px) / 2)); background: linear-gradient(180deg, #ffffff, #e5f2f2); }
+    @media (min-width: 640px) {
+        .contact-message-section { padding-inline: max(32px, calc((100% - 1280px) / 2)); }
+    }
     .contact-message-intro { @apply flex min-w-0 flex-col gap-6; }
     .contact-message-copy h2 { @apply text-3xl leading-10 font-bold text-brand-black md:text-4xl; }
     .contact-message-copy p { @apply mt-3 text-base leading-6 font-normal text-body-copy; }
@@ -570,10 +573,10 @@
 
     /* Desktop: hai cột cùng bắt đầu, ảnh chạm đáy section, form cách footer 64px. */
     @media (min-width: 1024px) {
-        .contact-message-layout { align-items: stretch; }
+        .contact-message-section { align-items: stretch; }
         .contact-message-intro { min-height: 0; }
         .contact-message-portrait { flex: 1 1 0px; height: 0; min-height: 0; aspect-ratio: auto; }
-        .contact-message-layout > .consultation-form--light { align-self: start; margin-bottom: 64px; }
+        .contact-message-section > .consultation-form--light { align-self: start; margin-bottom: 64px; }
     }
 
     /* Variant: light — giữ nguyên class cấu trúc, ID, tên trường và JavaScript của form cũ. */
@@ -679,6 +682,7 @@
         .header-navigation::-webkit-scrollbar { display: none; }
         .header-navigation > * { flex-shrink: 0; }
         .header-navigation > .header-link { @apply block rounded-lg px-2.5 py-2 text-sm leading-5; }
+        .header-navigation > .header-link-dropdown { display: flex; align-items: center; justify-content: space-between; }
         .header-practice > a { @apply flex-1 px-2.5 py-2 text-sm leading-5; }
         .header-practice-toggle { width: 36px; height: 36px; }
         .header-practice-panel { @apply my-1 rounded-xl border-0; background: #f8fafb; }
@@ -702,8 +706,8 @@
     .footer-legal-links { grid-area: legal; }
     #footer-contact { grid-area: contact; }
     .footer-grid > * { min-width: 0; }
-    .site-footer .site-brand { @apply flex; width: 389px; max-width: 100%; gap: 5px; }
-    .footer-logo { width: 389px; max-width: 100%; height: auto; object-fit: contain; }
+    .site-footer .site-brand { @apply flex; width: 96px; max-width: 100%; gap: 5px; }
+    .footer-logo { width: 96px; max-width: 100%; height: 96px; object-fit: contain; }
     .site-footer .brand-emblem { @apply border-white/60 text-white; }
     .site-footer .brand-emblem small, .site-footer .brand-wordmark { @apply text-white; }
     .site-footer .brand-wordmark small { @apply text-slate-300; }
@@ -736,8 +740,8 @@
         .footer-main { margin-top: 24px; margin-bottom: 24px; }
         .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: 'company company' 'map map' 'quick legal' 'contact contact'; column-gap: 16px; row-gap: 12px; }
         .footer-company { text-align: center; }
-        .site-footer .site-brand { width: 240px; margin-inline: auto; }
-        .footer-logo { width: 240px; }
+        .site-footer .site-brand { width: 72px; margin-inline: auto; }
+        .footer-logo { width: 72px; height: 72px; }
         .footer-company-name { margin-top: 12px; font-size: 14px; line-height: 20px; }
         .footer-company-name strong { font-size: 20px; line-height: 28px; }
         .footer-tagline { margin-top: 4px; font-size: 11px; line-height: 18px; }
@@ -861,6 +865,14 @@
     .about-commitment-image { display: none; }
 }
 
+/* Liên hệ mobile: logo ở giữa, dùng bản đồ footer, bỏ ảnh minh họa để form dễ tiếp cận. */
+@media (max-width: 767px) {
+    .contact-info-section { padding: 32px 20px 24px; }
+    .contact-info-logo { margin-inline: auto; }
+    .contact-info-map, .contact-message-portrait { display: none; }
+    .contact-message-section { padding-block: 24px; gap: 24px; }
+}
+
 /* Tư vấn mobile: thông tin gọn, trường nhập 16px và nút bấm cao ít nhất 48px. */
 @media (max-width: 767px) {
     .about-contact { padding: 24px 20px; }
@@ -925,7 +937,7 @@
 }
 
 @media (min-width: 1536px) {
-    .contact-info-layout { gap: 190px; }
+    .contact-info-layout { gap: 190px; min-height: 621px; }
     .header-container { flex-wrap: nowrap; column-gap: 0; padding: 24px 64px; }
     .header-right { display: flex; flex: 1; min-width: 0; align-items: center; justify-content: flex-end; gap: 20px; }
     .brand-emblem { width: 64px; height: 64px; font-size: 30px; }
@@ -933,7 +945,10 @@
     .header-link { padding: 4px 8px; white-space: nowrap; }
     .header-actions { gap: 16px; }
     .menu-toggle { display: none; }
-    .header-practice { flex-wrap: nowrap; }
+    /* Một cụm menu: padding 4px/8px, chữ và icon cách 8px, lòng cao 24px. */
+    .header-practice { flex-wrap: nowrap; flex-shrink: 0; width: 190px; gap: 8px; padding: 4px 8px; }
+    .header-practice > a { padding: 0; }
+    .header-practice-toggle { width: 12px; height: 24px; padding: 0; }
     .header-practice-panel { position: absolute; top: var(--header-height, calc(100% + 1px)); left: 0; right: 0; border-radius: 0 0 48px 48px; }
     .header-practice-grid { width: calc(100% - 64px); min-height: 372px; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; padding: 48px 0; }
 }
