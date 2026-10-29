@@ -9,6 +9,9 @@
     <title>@yield('title', 'Hoàng Thịnh Luật')</title>
 
     <link rel="preload" href="{{ Vite::asset('public/assets/fonts/SVN-Poppins/SVN-Poppins-Medium.ttf') }}" as="font" type="font/ttf" crossorigin>
+    @if (request()->routeIs('home'))
+        <link rel="preload" href="{{ Vite::asset('public/assets/fonts/UTM Times/UTMTimesBold.ttf') }}" as="font" type="font/ttf" crossorigin>
+    @endif
     {{ Vite::fonts('bebas-neue') }}
     @php
         Vite::useScriptTagAttributes(['data-turbo-track' => 'reload']);

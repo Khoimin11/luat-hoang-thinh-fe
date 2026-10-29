@@ -3,6 +3,7 @@ import { validateLienHe } from './lienhe-validation';
 import { initTeamSlider } from './team-slider';
 import { initHeaderMenu } from './header-menu';
 import { initHomeSlider } from './home-slider';
+import { initValuePropsCarousel } from './value-props-carousel';
 
 document.querySelectorAll('.site-header').forEach(initHeaderMenu);
 
@@ -96,6 +97,10 @@ function initPage() {
   });
   main.querySelectorAll('[data-team-carousel]').forEach((slider) => {
     const cleanup = initTeamSlider(slider);
+    if (cleanup) sliderCleanups.push(cleanup);
+  });
+  main.querySelectorAll('[data-value-props-carousel]').forEach((track) => {
+    const cleanup = initValuePropsCarousel(track);
     if (cleanup) sliderCleanups.push(cleanup);
   });
   main.querySelectorAll('[data-consultation-form]').forEach(initConsultationForm);

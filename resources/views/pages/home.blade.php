@@ -25,37 +25,31 @@
     <div class="home-hero-shade" aria-hidden="true"></div>
     <div class="home-hero-container">
       <div class="home-hero-copy">
-        <p class="home-hero-eyebrow">Công ty Luật Hoàng Thịnh Luật</p>
-        <h1 id="home-hero-title">Vững pháp lý, vững niềm tin<br>Pháp lý chuyên sâu<br>Bảo vệ quyền lợi vững chắc</h1>
-        <p class="home-hero-description">Với đội ngũ luật sư giàu kinh nghiệm, tận tâm và chuyên nghiệp, Hoàng Thịnh Luật cam kết mang đến giải pháp pháp lý tối ưu, đồng hành cùng Quý khách hàng trên mọi hành trình.</p>
+        <div class="home-hero-brand">
+          <p class="home-hero-eyebrow">Công ty Luật</p>
+          <h1 id="home-hero-title">Hoàng Thịnh Luật</h1>
+          <p class="home-hero-tagline">Vững pháp lý - vững niềm tin</p>
+        </div>
+        <p class="home-hero-description">Pháp lý chuyên sâu - Bảo vệ tối đa quyền và lợi ích của khách hàng</p>
         <div class="home-hero-actions">
-          <a class="home-hero-about" href="{{ route('about') }}">Về chúng tôi</a>
-          <a class="home-hero-contact" href="{{ route('about') }}#tu-van">Nhận tư vấn pháp lý</a>
+          <a class="home-hero-booking" href="{{ route('contact') }}#contact-message-title">Đặt lịch tư vấn</a>
+          <a class="home-hero-contact" href="tel:0913849072">Gọi ngay luật sư tư vấn: 0913.849.072</a>
         </div>
       </div>
     </div>
   </section>
 
-  {{-- Section: ValuePropsBar --}}
-  <section class="home-value-props" aria-label="Lợi ích khi đồng hành cùng Hoàng Thịnh Luật">
-    <ul class="home-value-props-list">
+  {{-- Section: ValuePropsImages --}}
+  <section class="home-value-images" aria-label="Giá trị đồng hành của Hoàng Thịnh Luật">
+    <div class="home-value-images-grid" data-value-props-carousel>
       @foreach ([
-        ['check-circle.svg', 'Tư vấn chính xác', 'Dựa trên quy định pháp luật mới nhất'],
-        ['users.svg', 'Đội ngũ luật sư giỏi', 'Giàu kinh nghiệm, thực chiến'],
-        ['clock.svg', 'Phản hồi nhanh chóng', 'Tận tâm, trách nhiệm, hiệu quả'],
-        ['shield.svg', 'Đồng hành lâu dài', 'Vì lợi ích bền vững của khách hàng'],
-      ] as [$icon, $title, $description])
-        <li class="home-value-prop">
-          <span class="home-value-prop-icon {{ $loop->last ? 'home-value-prop-icon-navy' : '' }}" aria-hidden="true">
-            <img src="{{ asset('assets/icons/'.$icon) }}" alt="" width="24" height="24" loading="lazy">
-          </span>
-          <div class="home-value-prop-copy">
-            <h2>{{ $title }}</h2>
-            <p>{{ $description }}</p>
-          </div>
-        </li>
+        ['value-props-1.png', 'Pháp lý chuyên sâu — Bảo vệ tối đa quyền và lợi ích hợp pháp của khách hàng'],
+        ['value-props-2.png', 'Điểm tựa pháp lý tin cậy của khách hàng'],
+        ['value-props-3.png', 'Đồng hành với khách hàng kiến tạo giá trị bền vững'],
+      ] as [$image, $description])
+        <img src="{{ asset('assets/images/'.$image) }}" alt="{{ $description }}" width="1448" height="1086" loading="lazy">
       @endforeach
-    </ul>
+    </div>
   </section>
   {{-- Section: PracticeAreas --}}
   <section class="home-practice" aria-labelledby="home-practice-title">

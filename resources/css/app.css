@@ -107,6 +107,23 @@
     .pagination-next { color: #b92324; }
 }
 
+/* Font UTM Times cho nhận diện thương hiệu và hero trang chủ. */
+@font-face {
+    font-family: 'UTM Times';
+    src: url('../../public/assets/fonts/UTM Times/UTM Times.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'UTM Times';
+    src: url('../../public/assets/fonts/UTM Times/UTMTimesBold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* Font Manrope cho tiêu đề mục lục bài viết theo thiết kế. */
 @font-face {
     font-family: 'Manrope';
@@ -197,34 +214,33 @@
     .section-space { @apply py-12 md:py-16; }
     .skip-link { @apply fixed top-3 left-3 z-100 -translate-y-20 bg-white px-4 py-3 text-sm text-teal-900 focus:translate-y-0; }
 
-    /* Slide đầu trang chủ */
+    /* HomeHero: nhận diện UTM Times, khoảng cách các khối 32px, hai nút tư vấn. */
     .home-hero { position: relative; isolation: isolate; overflow: hidden; min-height: 560px; height: clamp(560px, 46.875vw, 900px); background: #003436; color: white; }
     .home-hero-viewport { position: absolute; inset: 0; z-index: -3; overflow: hidden; }
     .home-hero-track { display: flex; width: 100%; height: 100%; }
     .home-hero-slide { flex: 0 0 100%; min-width: 0; height: 100%; }
     .home-hero-slide img { width: 100%; height: 100%; object-fit: cover; object-position: 65% center; }
-    .home-hero-shade { position: absolute; inset: 0; z-index: -2; background: linear-gradient(90deg, #003436 0%, rgb(0 52 54 / 85%) 30%, rgb(0 52 54 / 0%) 71%); }
-    .home-hero-container { width: calc(100% - 40px); max-width: 1280px; height: 100%; margin: 0 auto; display: flex; align-items: center; padding: 48px 0 100px; }
-    .home-hero-copy { width: 100%; max-width: 920px; }
-    .home-hero-eyebrow { @apply mb-1 font-bold uppercase; font-size: clamp(20px, 2.083333vw, 40px); line-height: 1.5; }
-    .home-hero h1 { @apply font-bold uppercase; font-size: clamp(28px, 2.916667vw, 56px); line-height: 1.5; }
-    .home-hero-description { @apply mt-4 font-medium; max-width: 818px; font-size: clamp(16px, 1.25vw, 24px); line-height: 1.833333; }
-    .home-hero-actions { @apply mt-8 flex flex-wrap gap-4 xl:mt-11.25; }
-    .home-hero-actions a { @apply inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base leading-6 font-medium xl:px-8 xl:py-4 xl:text-lg xl:leading-7; }
-    .home-hero-about { background: linear-gradient(180deg, #017b81, #43bac0); }
-    .home-hero-contact { background: linear-gradient(180deg, #b92324, #8b1517); }
+    .home-hero-shade { position: absolute; inset: 0; z-index: -2; background: linear-gradient(90deg, rgb(3 25 50 / 95%) 0%, rgb(3 25 50 / 85%) 32%, rgb(3 25 50 / 0%) 72%); }
+    .home-hero-container { width: calc(100% - 40px); max-width: 1280px; height: 100%; margin: 0 auto; display: flex; align-items: center; padding: 48px 0; }
+    .home-hero-copy { display: flex; flex-direction: column; gap: 32px; width: 100%; max-width: 865px; }
+    .home-hero-brand { display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 784px; font-family: var(--font-utm-times); font-weight: 700; text-transform: uppercase; }
+    .home-hero-eyebrow { font-size: clamp(28px, 2.5vw, 48px); line-height: 1.2; }
+    .home-hero h1 { font-size: clamp(34px, 3.125vw, 60px); line-height: 1.4; color: #f59e0b; }
+    .home-hero-tagline { font-size: clamp(24px, 2.5vw, 48px); line-height: 1.2; color: #f59e0b; }
+    .home-hero-description { @apply font-sans font-medium uppercase; font-size: clamp(16px, 1.875vw, 36px); line-height: 1.5; }
+    .home-hero-actions { @apply flex flex-wrap items-center gap-4; }
+    .home-hero-actions a { @apply inline-flex items-center justify-center rounded-2xl px-6 py-3 text-center text-base leading-6 font-medium xl:px-8 xl:py-4 xl:text-lg xl:leading-7; }
+    .home-hero-booking { color: #002123; background: linear-gradient(90deg, #f59e0b, #fde68a, #f59e0b); backdrop-filter: blur(9.95px); }
+    .home-hero-contact { color: #fff; background: linear-gradient(180deg, #b91c1c, #7f1d1d); }
     .home-hero-actions a:hover { filter: brightness(1.1); }
 
-    /* ValuePropsBar trang chủ */
-    .home-value-props { padding: 32px 20px; background: #fff; border-block: 1px solid rgb(0 0 0 / 7.84%); }
-    .home-value-props-list { display: grid; gap: 24px; width: 100%; max-width: 1344px; margin: 0 auto; padding: 0; list-style: none; }
-    .home-value-prop { position: relative; display: flex; align-items: center; gap: 16px; min-width: 0; }
-    .home-value-prop-icon { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%; background: #e5f2f2; }
-    .home-value-prop-icon-navy { background: rgb(5 39 105 / 7.06%); }
-    .home-value-prop-icon img { width: 24px; height: 24px; }
-    .home-value-prop-copy { min-width: 0; }
-    .home-value-prop h2 { @apply font-sans text-base leading-6 font-bold; color: #192a37; }
-    .home-value-prop p { @apply mt-0.5 font-sans text-xs leading-4 font-medium; color: #6b7280; }
+    /* ValuePropsImages: thay thanh lợi ích bằng 3 ảnh, padding dọc 32px, khung 1320px. */
+    .home-value-images { padding-block: 32px; padding-inline: max(20px, calc((100% - 1320px) / 2)); background: #fff; }
+    .home-value-images-grid { @apply grid gap-5 md:grid-cols-3 xl:gap-15; }
+    .home-value-images-grid img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; border-radius: 16px; }
+    @media (min-width: 640px) {
+        .home-value-images { padding-inline: max(32px, calc((100% - 1320px) / 2)); }
+    }
 
     /* PracticeAreas trang chủ: padding trực tiếp, khung 1320px, lề 300px tại 1920px. */
     .home-practice { @apply py-12 md:py-20; padding-inline: max(20px, calc((100% - 1320px) / 2)); background: #f5f8fa; }
@@ -719,17 +735,29 @@
     .footer-main { margin-top: 64px; }
 }
 
-@media (max-width: 639px) {
-    .home-hero { height: auto; }
-    .home-hero-container { height: auto; min-height: 560px; padding: 48px 0; }
+/* Trang chủ mobile: ảnh giá trị cuộn ngang, hero gọn và hai nút xếp theo cột. */
+@media (max-width: 767px) {
+    .home-value-images { padding-block: 20px; }
+    .home-value-images-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: min(82%, 300px); gap: 12px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .home-value-images-grid::-webkit-scrollbar { display: none; }
+    .home-value-images-grid img { scroll-snap-align: start; }
+    .home-hero { height: auto; min-height: 420px; }
+    .home-hero-container { height: auto; min-height: 420px; justify-content: center; padding: 32px 0; }
+    .home-hero-copy { max-width: 440px; gap: 20px; text-align: center; }
+    .home-hero-brand { gap: 8px; }
+    .home-hero-eyebrow { font-size: clamp(22px, 6vw, 28px); }
+    .home-hero h1 { font-size: clamp(28px, 8vw, 36px); line-height: 1.2; }
+    .home-hero-tagline { font-size: clamp(17px, 5vw, 24px); line-height: 1.4; }
+    .home-hero-description { max-width: 360px; margin-inline: auto; font-size: 14px; line-height: 24px; text-wrap: balance; }
+    .home-hero-actions { display: grid; width: 100%; max-width: 360px; margin-inline: auto; gap: 12px; }
+    .home-hero-actions a { width: 100%; min-height: 48px; padding: 12px; font-size: 14px; line-height: 22px; border-radius: 12px; }
+    .home-hero-slide img { object-position: 72% center; }
+    .home-hero-shade { background: linear-gradient(180deg, rgb(3 25 50 / 78%), rgb(3 25 50 / 88%)); }
 }
 
 @media (min-width: 640px) {
     .header-logo-symbol { width: 64px; height: 64px; }
     .hero-page-1-container { width: calc(100% - 64px); }
-    .home-value-props { padding-inline: 32px; }
-    .home-value-props-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 64px; }
-    .home-value-prop:nth-child(odd)::after { content: ''; position: absolute; right: -32px; top: 50%; width: 1px; height: 40px; transform: translateY(-50%); background: rgb(0 0 0 / 7.84%); }
     .home-hero-container { width: calc(100% - 64px); }
     .header-logo-wordmark { width: 260px; height: 38px; }
 }
@@ -806,10 +834,8 @@
 @media (min-width: 1280px) {
     .about-commitment-card:nth-child(n + 3)::after { top: -32px; }
     .hero-page-1-container { width: calc(100% - 160px); }
-    .home-value-props-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .home-value-prop:not(:last-child)::after { content: ''; position: absolute; right: -32px; top: 50%; width: 1px; height: 40px; transform: translateY(-50%); background: rgb(0 0 0 / 7.84%); }
     .home-hero-container { width: calc(100% - 160px); padding: 0; }
-    .home-hero-copy { width: 71.875%; }
+    .home-hero-copy { width: 67.578125%; }
     .about-contact-grid { grid-template-columns: minmax(0, 416px) minmax(0, 526px); justify-content: center; gap: 134px; }
     .about-contact { background-size: 100% 100%; }
     .about-contact-company, .about-consultation-form { min-height: 552px; }
