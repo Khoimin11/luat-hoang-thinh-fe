@@ -107,6 +107,15 @@
     .pagination-next { color: #b92324; }
 }
 
+/* Plus Jakarta Sans cho tiêu đề các thẻ định hướng phát triển. */
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('../../public/assets/fonts/Plus-Jakarta-Sans/PlusJakartaSans-variable.ttf') format('truetype');
+    font-weight: 200 800;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* Font UTM Times cho nhận diện thương hiệu và hero trang chủ. */
 @font-face {
     font-family: 'UTM Times';
@@ -329,9 +338,12 @@
     .hero-page-1 { @apply relative isolate flex h-90 items-end overflow-hidden bg-[#003436] md:h-120 xl:h-162.5; }
     .hero-page-1-image { position: absolute; top: -12px; left: -7.7%; z-index: -20; width: 111%; max-width: none; height: auto; min-height: calc(100% + 24px); object-fit: cover; object-position: center top; transform: scaleX(-1); filter: blur(4px); }
     .hero-page-1::before { content: ''; position: absolute; inset: 0; z-index: -10; background: rgb(0 52 54 / 40%); }
-    .hero-page-1-caption { @apply w-full pt-8 pb-8 md:pb-12; background: linear-gradient(180deg, rgb(0 52 54 / 0%), rgb(0 52 54 / 80%)); }
-    .hero-page-1-container { @apply relative mx-auto max-w-7xl; width: calc(100% - 40px); }
-    .hero-page-1-breadcrumb { @apply mb-2 flex items-center gap-1.25 text-base leading-6 font-normal text-white/60 md:text-lg md:leading-7; }
+    /* Hero Giới thiệu dùng ảnh thiết kế hoàn chỉnh, giữ chiều ảnh và độ sắc nét. */
+    .about-hero .hero-page-1-image { inset: 0; width: 100%; height: 100%; min-height: 0; object-fit: cover; object-position: center; transform: none; filter: none; }
+    .about-hero::before { display: none; }
+    /* Caption: padding trực tiếp, gradient 0–90%, blur nền 16px và gap nội dung 8px. */
+    .hero-page-1-caption { @apply relative flex w-full flex-col items-start gap-2 px-5 pt-8 pb-8 md:pb-12; background: linear-gradient(180deg, rgb(0 52 54 / 0%) 0%, rgb(0 52 54 / 90%) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .hero-page-1-breadcrumb { @apply flex flex-wrap items-center gap-1.25 font-sans text-base leading-6 font-normal text-white/60 md:text-lg md:leading-7; }
     .hero-page-1-breadcrumb a { @apply hover:text-white; }
     .hero-page-1-breadcrumb [aria-current] { @apply font-medium text-white; }
     .hero-page-1 h1 { @apply text-3xl leading-10 font-medium text-white uppercase md:text-5xl md:leading-18; }
@@ -346,15 +358,16 @@
     .about-prose { @apply mt-4 space-y-2 text-base leading-6 font-normal text-body-copy; }
     .about-prose strong { @apply font-semibold text-brand-black; }
     .about-intro-section { @apply w-full bg-white px-5 py-12 sm:px-8 md:py-16 xl:px-20; }
-    .about-intro { @apply mx-auto grid w-full max-w-7xl items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.73fr)] lg:gap-12; }
+    .about-intro { @apply mx-auto grid w-full max-w-7xl items-start gap-8 lg:grid-cols-[minmax(0,712fr)_minmax(0,520fr)] lg:gap-12; }
     .about-intro-copy { display: flex; flex-direction: column; align-self: stretch; min-width: 0; }
     .about-intro .about-heading { @apply flex flex-wrap items-center gap-4; }
     .about-intro-icon { @apply size-8 shrink-0; }
+    .about-intro-lead { @apply font-sans text-lg leading-7 font-bold text-brand-black; }
     .about-gallery { @apply mt-4 grid grid-cols-3 gap-3; }
     .about-intro-copy .about-gallery { margin-top: auto; padding-top: 16px; }
     .about-gallery img { @apply aspect-232/144 w-full rounded-lg object-cover; }
     .about-director { @apply relative overflow-hidden rounded-3xl; }
-    .about-director > img { @apply aspect-520/477 w-full object-cover; }
+    .about-director > img { display: block; width: 100%; height: auto; aspect-ratio: 520 / 527; object-fit: cover; }
     .about-values { @apply relative isolate pb-12 md:pb-16; background: white; }
     .about-values-background { position: absolute; z-index: -1; inset: 100px 0 0; overflow: hidden; background: #0b1b24; pointer-events: none; }
     .about-values-background img { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .04; }
@@ -364,33 +377,53 @@
     .about-mission-portrait { @apply hidden self-end xl:block; width: 277px; max-width: 100%; height: 309px; }
     .about-mission-portrait img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; }
     .about-mission-title, .about-mission-description { min-width: 0; }
-    .about-mission .about-eyebrow { @apply text-sm leading-5 font-semibold text-white; }
-    .about-mission .about-heading { @apply text-white; font-size: 32px; line-height: 38px; font-weight: 600; }
-    .about-mission .about-eyebrow::before { height: 1px; margin-bottom: 16px; background: white; }
-    .about-motto { @apply text-xl leading-6 font-bold text-white; }
-    .about-mission-copy { @apply mt-2.75 text-base leading-6 font-normal text-white; }
+    /* Banner định hướng: gap tiêu đề 16px, gap nội dung 20px, hai cột chữ cách 24px. */
+    .about-mission-title { display: flex; flex-direction: column; gap: 16px; }
+    .about-mission-description { display: flex; flex-direction: column; gap: 20px; }
+    .about-mission .about-eyebrow { @apply font-sans text-sm leading-5 font-semibold text-white; margin-bottom: 0; }
+    .about-mission .about-heading { @apply font-sans text-white; font-size: 30px; line-height: 40px; font-weight: 600; }
+    .about-mission .about-eyebrow::before { height: 2px; margin-bottom: 16px; background: white; }
+    .about-motto { @apply font-sans text-xl leading-6 font-bold text-white; }
+    .about-mission-copy { @apply font-sans text-base leading-6 font-normal text-white; }
     .about-value-grid { @apply mt-6 grid gap-4 md:mt-10 md:grid-cols-3; }
-    .about-value-card { @apply flex flex-col items-center rounded-3xl bg-white px-6 py-8 text-center md:px-6 md:py-9; }
-    .about-value-card img { @apply mx-auto mb-6 size-12 object-contain; }
+    .about-value-card { @apply flex min-w-0 flex-col items-center gap-6 rounded-3xl bg-white p-6 text-center; }
+    .about-value-card img { @apply mx-auto size-14 object-contain; }
     .about-value-card h3 { @apply font-jakarta text-2xl leading-8 font-bold text-brand-black; }
-    .about-value-card p { @apply mt-6 text-base leading-6 font-normal text-body-copy; }
+    .about-value-card p { @apply font-sans text-base leading-6 font-normal text-body-copy; }
+    .about-core-values { @apply flex w-full flex-col gap-2 text-left font-sans text-sm leading-5 font-normal text-brand-black; }
+    .about-core-values li { @apply flex items-start gap-3; }
+    .about-core-values li > span { @apply flex size-5 shrink-0 items-center justify-center rounded-full bg-brand-black text-xs leading-none text-white; }
+    .about-core-values li > div { min-width: 0; }
     .about-statistics { @apply bg-white px-5 py-8 sm:px-8 xl:px-20; }
-    .about-statistics-grid { @apply mx-auto grid w-full max-w-7xl grid-cols-2 gap-y-8 overflow-hidden rounded-3xl bg-slate-950 px-4 py-8 md:grid-cols-4 md:gap-y-0 md:px-0 md:py-10; background-image: var(--about-background, none); background-size: cover; background-position: center; }
-    .about-statistics-grid > div { @apply relative px-2 text-center; }
-    .about-statistics-grid > div:nth-child(odd)::before { content: ''; position: absolute; right: 0; top: 50%; width: 1px; height: 105px; transform: translateY(-50%); background: #d9d9d9; }
-    .about-statistics-grid > div:nth-child(odd)::after { content: ''; position: absolute; right: -6px; top: 50%; width: 12px; height: 12px; transform: translateY(-50%); border-radius: 50%; background: white; box-shadow: 0 0 0 7px rgb(161 139 101 / 50%); }
+    /* Thống kê: khung tối đa 1280px, padding dọc 40px; cột số liệu tối đa 256px. */
+    .about-statistics-grid { @apply mx-auto grid w-full max-w-7xl grid-cols-2 gap-y-8 overflow-hidden rounded-3xl bg-slate-950 px-4 py-8 md:flex md:items-center md:justify-between md:gap-y-0 md:px-0 md:py-10; background-image: var(--about-background, none); background-size: cover; background-position: center; }
+    .about-statistic-item { min-width: 0; text-align: center; }
+    .about-statistic-separator { display: none; }
+    @media (min-width: 768px) {
+        .about-statistics-grid { min-height: 214px; }
+        .about-statistic-item { flex: 0 1 256px; }
+        .about-statistic-separator { position: relative; display: flex; align-items: center; justify-content: center; flex: 0 0 12px; height: 112px; }
+        .about-statistic-separator::before { content: ''; position: absolute; inset-block: 0; width: 1px; background: #d4d4d8; }
+        .about-statistic-separator::after { content: ''; position: relative; width: 12px; height: 12px; border-radius: 50%; background: white; box-shadow: 0 0 0 7px rgb(207 161 92 / 40%); }
+    }
     .about-statistic-number { @apply font-bebas text-5xl leading-18 font-normal text-white md:text-7xl md:leading-[109.78px]; }
-    .about-statistic-number span { @apply ml-1 align-baseline text-inherit font-normal; }
+    .about-statistic-number span { @apply align-baseline text-inherit font-normal; }
     .about-statistic-label { @apply text-sm leading-6 font-medium tracking-normal text-white uppercase md:text-base; }
-    .about-commitments-section { @apply bg-white px-5 py-12 sm:px-8 md:py-16 xl:px-20; }
-    .about-commitments { @apply mx-auto grid w-full max-w-7xl items-start gap-8 lg:grid-cols-[2fr_1fr] xl:gap-20; }
-    .about-commitments .about-eyebrow { @apply text-sm leading-5 font-semibold; width: fit-content; background: linear-gradient(90deg, #017b81, #003436); background-clip: text; -webkit-background-clip: text; color: transparent; }
-    .about-commitments .about-eyebrow::before { display: block; background: linear-gradient(90deg, #003436, #017b81); }
-    .about-commitment-grid { @apply mt-8 grid gap-x-8 gap-y-8 sm:grid-cols-2 xl:mt-16 xl:gap-y-16; }
-    .about-commitment-card { @apply relative flex items-start gap-4; min-height: 142px; }
-    .about-commitment-card > span { @apply flex size-16 shrink-0 items-center justify-center rounded-full; background: rgb(169 32 33 / 5%); }
+    /* Cam kết: section trực tiếp quản lý grid và padding; lòng rộng 1280px tại khung 1920px. */
+    .about-commitments-section { @apply grid items-start gap-8 bg-white py-12 md:py-16 lg:grid-cols-[2fr_1fr] xl:gap-20; padding-inline: max(20px, calc((100% - 1280px) / 2)); }
+    @media (min-width: 640px) {
+        .about-commitments-section { padding-inline: max(32px, calc((100% - 1280px) / 2)); }
+    }
+    .about-commitments-section .about-eyebrow { @apply text-sm leading-5 font-semibold; width: fit-content; background: linear-gradient(90deg, #017b81, #003436); background-clip: text; -webkit-background-clip: text; color: transparent; }
+    .about-commitments-section .about-eyebrow::before { display: block; background: linear-gradient(90deg, #003436, #017b81); }
+    /* Cam kết: icon 56px, gap icon–chữ 16px; hàng cách đường phân cách 32px mỗi phía. */
+    .about-commitment-grid { @apply mt-8 grid gap-x-12 gap-y-8 sm:grid-cols-2 sm:gap-y-16 xl:mt-16; }
+    .about-commitment-card { @apply relative flex min-w-0 items-start gap-4; }
+    .about-commitment-card > div { min-width: 0; }
+    .about-commitment-card:last-child { min-height: 64px; align-items: center; }
+    .about-commitment-card > span { @apply flex size-14 shrink-0 items-center justify-center rounded-full; background: rgb(169 32 33 / 5%); }
     .about-commitment-card > span img { width: 32px; height: 32px; }
-    .about-commitment-card h3 { @apply text-xl leading-7 font-semibold text-brand-black; }
+    .about-commitment-card h3 { @apply font-sans text-xl leading-8 font-semibold text-brand-black; }
     .about-commitment-card p { @apply mt-2 text-base leading-6 font-normal text-body-copy; }
     .about-commitment-image { @apply overflow-hidden rounded-3xl bg-[#d9d9d9]; }
     .about-commitment-image img { @apply w-full object-cover object-center; aspect-ratio: 400 / 530; }
@@ -723,26 +756,105 @@
 }
 
 @media (min-width: 1280px) {
-    /* At 1920px: background 534px high, cards 179px from its top and 88px from its bottom. */
+    /* Desktop: lớp nền cao cố định 534px; section vẫn giãn để chứa đủ nội dung. */
     .about-values { padding-bottom: 88px; }
-    .about-values-background { top: 181px; }
+    .about-values-background { top: 181px; bottom: auto; height: 534px; }
     .about-values > .about-container { width: calc(100% - 160px); }
-    .about-mission { grid-template-columns: minmax(0, 298fr) minmax(0, 894fr); gap: 0; min-height: 320px; padding: 0 64px 0 24px; }
-    .about-mission-content { display: grid; grid-template-columns: max-content minmax(0, 1fr); align-items: start; gap: 24px; padding: 32px 0; }
+    .about-mission { grid-template-columns: 277px minmax(0, 1fr); gap: 0; min-height: 309px; padding: 0 64px 0 24px; }
+    .about-mission-portrait { width: 277px; height: 309px; }
+    /* Giữ vị trí ba thẻ so với lớp nền sau khi banner giảm 11px chiều cao. */
+    .about-value-grid { margin-top: 51px; }
+    .about-mission-content { display: grid; grid-template-columns: max-content minmax(0, 1fr); align-items: start; gap: 24px; padding: 0; }
     .about-mission-title, .about-mission-description { padding: 0; }
     .about-mission .about-heading { white-space: nowrap; }
-    .about-value-card { min-height: 267px; padding-top: 32px; padding-bottom: 32px; }
     .footer-grid { grid-template-columns: minmax(0, 388fr) minmax(0, 164fr) minmax(0, 164fr) minmax(0, 420fr); grid-template-areas: 'company quick legal contact' 'company quick legal map'; row-gap: 12px; }
     .site-footer { min-height: 492px; background-size: 100% 100%; }
     .footer-main, .footer-bottom { padding-inline: max(80px, calc((100% - 1280px) / 2)); }
     .footer-main { margin-top: 64px; }
 }
 
+/* Khi đủ khung 1280px: thẻ 416 × 325px, lòng trong 368 × 277px. */
+@media (min-width: 1536px) {
+    /* Ảnh giám đốc đúng kích thước Figma, không chia cột theo tỷ lệ gây pixel lẻ. */
+    .about-intro { grid-template-columns: minmax(0, 1fr) 520px; }
+    .about-director { width: 520px; height: 527px; }
+    .about-director > img { width: 520px; height: 527px; }
+    .about-value-card { height: 325px; }
+    .about-mission { column-gap: 21px; }
+    .about-mission-content { grid-template-columns: minmax(0, 1fr) 533px; }
+    /* Đường kẻ là nét vẽ không chiếm chiều cao, khớp khối tiêu đề cao 92px. */
+    .about-mission .about-eyebrow::before { height: 0; outline: 1px solid white; background: transparent; }
+}
+
+/* Hero Giới thiệu: tablet giữ trọn ảnh, điện thoại ưu tiên tượng công lý và caption gọn. */
+@media (min-width: 640px) and (max-width: 1279px) {
+    .about-hero { height: auto; aspect-ratio: 1920 / 650; }
+    .about-hero .hero-page-1-caption { padding: 24px 32px; }
+    .about-hero .hero-page-1-breadcrumb { font-size: 14px; line-height: 22px; }
+    .about-hero h1 { font-size: 36px; line-height: 48px; }
+}
+
+@media (max-width: 639px) {
+    .about-hero { height: 320px; }
+    .about-hero .hero-page-1-image { object-position: right center; }
+    .about-hero .hero-page-1-caption { padding: 44px 20px 24px; gap: 8px; }
+    .about-hero .hero-page-1-breadcrumb { font-size: 13px; line-height: 20px; }
+    .about-hero h1 { font-size: 28px; line-height: 36px; }
+}
+
+/* Tầm nhìn & Sứ mệnh mobile: banner và thẻ gọn, giữ đủ nội dung không cắt chữ. */
+@media (max-width: 767px) {
+    .about-values { padding-bottom: 24px; }
+    .about-values-background { top: 72px; }
+    .about-mission { padding: 20px; gap: 16px; border-radius: 20px; }
+    .about-mission-title { gap: 8px; }
+    .about-mission-description { gap: 12px; }
+    .about-mission .about-eyebrow { font-size: 12px; line-height: 18px; }
+    .about-mission .about-eyebrow::before { width: 40px; margin-bottom: 8px; }
+    .about-mission .about-heading { font-size: 22px; line-height: 30px; }
+    .about-motto { font-size: 16px; line-height: 24px; }
+    .about-mission-copy { font-size: 14px; line-height: 22px; }
+    .about-value-grid { margin-top: 16px; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: calc(100% - 56px); gap: 12px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .about-value-grid::-webkit-scrollbar { display: none; }
+    .about-value-card { display: grid; grid-template-columns: 40px minmax(0, 1fr); align-items: center; align-content: start; gap: 12px; padding: 16px; border-radius: 16px; text-align: left; scroll-snap-align: center; }
+    /* Thẻ giữa nổi bật, các thẻ bên cạnh thu nhỏ và giảm độ đậm. */
+    .about-value-grid { padding-block: 12px; }
+    .about-value-grid.is-carousel-ready .about-value-card { opacity: .5; transform: translateY(6px) scale(.96); filter: saturate(.65); transition: transform 300ms ease, opacity 300ms ease, filter 300ms ease, box-shadow 300ms ease; }
+    .about-value-grid.is-carousel-ready .about-value-card.is-active { opacity: 1; transform: translateY(0) scale(1); filter: none; box-shadow: 0 6px 12px rgb(0 0 0 / 20%); }
+    .about-value-card img { width: 40px; height: 40px; }
+    .about-value-card h3 { font-size: 20px; line-height: 28px; }
+    .about-value-card p, .about-core-values { grid-column: 1 / -1; }
+    .about-value-card p { font-size: 14px; line-height: 22px; }
+    .about-core-values li { gap: 8px; }
+    .about-core-values li > span { width: 18px; height: 18px; margin-top: 1px; }
+}
+
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+    .about-value-grid.is-carousel-ready .about-value-card { transition: none; }
+}
+
+/* Cam kết mobile: bốn mục đầu chia hai cột, hỗ trợ toàn quốc ở hàng cuối; ẩn ảnh. */
+@media (max-width: 767px) {
+    .about-commitments-section { padding-block: 32px; gap: 0; }
+    .about-commitments-section .about-eyebrow { font-size: 12px; line-height: 18px; }
+    .about-commitments-section .about-eyebrow::before { width: 40px; margin-bottom: 8px; }
+    .about-commitments-section .about-heading { font-size: 22px; line-height: 30px; }
+    .about-commitment-grid { margin-top: 24px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; }
+    .about-commitment-card { flex-direction: column; gap: 8px; }
+    .about-commitment-card > span { width: 40px; height: 40px; }
+    .about-commitment-card > span img { width: 24px; height: 24px; }
+    .about-commitment-card h3 { font-size: 16px; line-height: 24px; }
+    .about-commitment-card p { margin-top: 4px; font-size: 13px; line-height: 20px; }
+    .about-commitment-card:last-child { grid-column: 1 / -1; min-height: 0; flex-direction: row; align-items: flex-start; gap: 12px; }
+    .about-commitment-card::before, .about-commitment-card::after { display: none; }
+    .about-commitment-image { display: none; }
+}
+
 /* Tư vấn mobile: thông tin gọn, trường nhập 16px và nút bấm cao ít nhất 48px. */
 @media (max-width: 767px) {
     .about-contact { padding: 24px 20px; }
     .about-contact-grid { gap: 20px; }
-    .about-contact-company { min-height: 0; }
+    .about-contact-company { display: none; }
     .about-contact-logo { width: 56px; height: 56px; margin-bottom: 12px; }
     .about-contact .about-heading { font-size: 18px; line-height: 24px; }
     .about-contact-details { margin-top: 16px; gap: 12px; font-size: 14px; line-height: 22px; }
@@ -785,14 +897,12 @@
 
 @media (min-width: 640px) {
     .header-logo-symbol { width: 64px; height: 64px; }
-    .hero-page-1-container { width: calc(100% - 64px); }
+    .hero-page-1-caption { padding-inline: 32px; }
     .home-hero-container { width: calc(100% - 64px); }
     .header-logo-wordmark { width: 260px; height: 38px; }
 }
 
 @media (min-width: 768px) {
-    .about-statistics-grid > div:not(:last-child)::before { content: ''; position: absolute; right: 0; top: 50%; width: 1px; height: 105px; transform: translateY(-50%); background: #d9d9d9; }
-    .about-statistics-grid > div:not(:last-child)::after { content: ''; position: absolute; right: -6px; top: 50%; width: 12px; height: 12px; transform: translateY(-50%); border-radius: 50%; background: white; box-shadow: 0 0 0 7px rgb(161 139 101 / 50%); }
 }
 
 @media (min-width: 640px) and (max-width: 1279px) {
@@ -854,20 +964,20 @@
 }
 
 @media (min-width: 640px) {
-    .about-commitment-card:nth-child(odd)::before { content: ''; position: absolute; top: 0; bottom: 0; right: -16px; width: 1px; background: rgb(0 0 0 / 8%); }
+    .about-commitment-card:nth-child(odd):not(:last-child)::before { content: ''; position: absolute; top: 0; bottom: 0; right: -24px; width: 1px; background: rgb(0 0 0 / 10%); }
+    .about-commitment-card:last-child { grid-column: 1 / -1; }
     .about-team-card { width: calc((100% - 24px) / 2); }
-    .about-commitment-card:nth-child(n + 3)::after { content: ''; position: absolute; top: -16px; left: 0; right: 0; height: 1px; background: rgb(0 0 0 / 8%); }
+    .about-commitment-card:nth-child(n + 3)::after { content: ''; position: absolute; top: -32px; left: 0; right: 0; height: 1px; background: rgb(0 0 0 / 10%); }
 }
 
 @media (min-width: 1280px) {
-    .about-commitment-card:nth-child(n + 3)::after { top: -32px; }
     /* Thẻ lĩnh vực trang chủ: ảnh 130px + nội dung 100px + viền 2px = 232px. */
     .home-practice-grid .practice-area-card { height: 232px; }
     .home-practice-grid .practice-area-card-image { height: 130px; aspect-ratio: auto; }
     .home-practice-grid .practice-area-card-body { height: 100px; min-height: 0; padding-block: 12px; }
     .home-practice-grid .practice-area-card h3 { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
     .home-practice-grid .practice-area-card p { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .hero-page-1-container { width: calc(100% - 160px); }
+    .hero-page-1-caption { padding: 112px max(80px, calc((100% - 1280px) / 2)) 48px; }
     .home-hero { display: flex; align-items: center; }
     .home-hero-container { width: min(865px, calc((100% - 160px) * 0.67578125)); max-width: none; height: auto; margin: 0; margin-inline-start: max(80px, calc((100% - 1280px) / 2)); padding: 0; }
     .home-hero-copy { width: 100%; }

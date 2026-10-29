@@ -100,7 +100,7 @@ function initPage() {
     if (cleanup) sliderCleanups.push(cleanup);
   });
   main.querySelectorAll('[data-value-props-carousel]').forEach((track) => {
-    const cleanup = initValuePropsCarousel(track);
+    const cleanup = initValuePropsCarousel(track, { autoplay: Number(track.dataset.autoplay) || 0 });
     if (cleanup) sliderCleanups.push(cleanup);
   });
   main.querySelectorAll('[data-consultation-form]').forEach(initConsultationForm);

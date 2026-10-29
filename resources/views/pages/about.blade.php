@@ -3,7 +3,12 @@
 @section('title', 'Giới thiệu')
 
 @section('content')
-  <x-heroes.hero-page-1 title="Giới thiệu" heading-id="about-title" />
+  <x-heroes.hero-page-1
+    class="about-hero"
+    title="Giới thiệu"
+    heading-id="about-title"
+    :image="asset('assets/images/hero-img-about.png')"
+  />
 
   <section class="about-intro-section" aria-labelledby="intro-title">
     <div class="about-intro">
@@ -11,9 +16,9 @@
         <p class="about-eyebrow">Giới thiệu</p>
         <h2 id="intro-title" class="about-heading">Về Hoàng Thịnh Luật <img class="about-intro-icon" src="{{ asset('assets/icons/2970777 1.svg') }}" alt="" width="32" height="32"></h2>
         <div class="about-prose">
-          <p>Được sáng lập và điều hành bởi Luật sư Phan Minh Hoàng, Hoàng Thịnh Luật hoạt động hợp pháp tại Việt Nam từ năm 2016, cung cấp các dịch vụ tư vấn và hỗ trợ pháp lý chuyên nghiệp cho cá nhân, doanh nghiệp.</p>
-          <p>Với <strong>hơn 15 năm kinh nghiệm</strong>, đội ngũ luật sư đã xây dựng uy tín trong nhiều lĩnh vực như dân sự, doanh nghiệp, đất đai, bất động sản, xây dựng, hôn nhân gia đình, lao động, hành chính và hình sự.</p>
-          <p>Hoàng Thịnh Luật đồng hành cùng khách hàng để bảo vệ quyền lợi hợp pháp, kiểm soát rủi ro và tìm kiếm giải pháp phù hợp trong từng vụ việc.</p>
+          <h3 class="about-intro-lead">Cung cấp dịch vụ pháp lý chuyên sâu, toàn diện và hiệu quả</h3>
+          <p>Công ty Luật Hoàng Thịnh Luật là tổ chức hành nghề luật sư, cung cấp dịch vụ pháp lý chuyên sâu và toàn diện cho cá nhân, hộ gia đình, doanh nghiệp và tổ chức trong nước. Chúng tôi hoạt động với phương châm “Uy tín – Tận tâm – Hiệu quả”, lấy lợi ích hợp pháp của khách hàng làm trung tâm, đồng hành cùng khách hàng trong mọi vấn đề pháp lý.</p>
+          <p>Với phương pháp làm việc chuyên nghiệp, am hiểu pháp luật và thực tiễn, chúng tôi mang đến các giải pháp pháp lý khả thi, an toàn và hiệu quả, góp phần bảo vệ quyền và lợi ích hợp pháp của khách hàng, cũng như đóng góp vào sự thượng tôn pháp luật và phát triển bền vững của xã hội.</p>
         </div>
         <div class="about-gallery">
           <img src="{{ asset('assets/images/bf15882e7c8fc4f93b1e2405a79f6ce300e132e1.png') }}" alt="Buổi làm việc và trao đổi hồ sơ pháp lý" loading="lazy" width="1280" height="720">
@@ -22,7 +27,7 @@
         </div>
       </div>
       <figure class="about-director">
-        <img src="{{ asset('assets/images/73508e5cb8f084868252a4c447e44321946ab5dc.png') }}" alt="Luật sư Phan Minh Hoàng tại văn phòng" width="580" height="540" loading="lazy">
+        <img src="{{ asset('assets/images/73508e5cb8f084868252a4c447e44321946ab5dc.png') }}" alt="Luật sư Phan Minh Hoàng tại văn phòng" width="520" height="527" loading="lazy">
         <figcaption class="sr-only">Luật sư Phan Minh Hoàng, Giám đốc Hoàng Thịnh Luật</figcaption>
       </figure>
     </div>
@@ -46,9 +51,30 @@
           </div>
         </div>
       </div>
-      <div class="about-value-grid">
-        @foreach ([['96e7ca763f531ff08fdcbd200aee17ec4947a023.png', 'Tầm nhìn', 'Trở thành đơn vị pháp lý uy tín, chuyên nghiệp và đáng tin cậy, đồng hành lâu dài cùng cá nhân và doanh nghiệp.'], ['2e9995587392e7c528a4aed51e58846b9d51d785.png', 'Sứ mệnh', 'Cung cấp giải pháp pháp lý hiệu quả, minh bạch và phù hợp, góp phần bảo vệ tối đa quyền và lợi ích hợp pháp của khách hàng.'], ['9bd1e8d5d72f2d664274e8093cfe27a57fc5faa4.png', 'Giá trị cốt lõi', 'Lấy Chuyên nghiệp – Tận tâm – Hiệu quả – Bảo mật làm nền tảng trong mọi hoạt động và mối quan hệ với khách hàng.']] as [$icon, $title, $description])
-          <article class="about-value-card"><img src="{{ asset('assets/images/'.$icon) }}" alt="" loading="lazy" width="1024" height="1024"><h3>{{ $title }}</h3><p>{{ $description }}</p></article>
+      <div class="about-value-grid" data-value-props-carousel data-autoplay="4000" data-highlight-active role="region" aria-label="Tầm nhìn, Sứ mệnh và Giá trị cốt lõi" aria-roledescription="carousel" tabindex="0">
+        @foreach ([
+          ['96e7ca763f531ff08fdcbd200aee17ec4947a023.png', 'Tầm nhìn', 'Trở thành công ty luật hàng đầu tại Việt Nam, được khách hàng tin tưởng và lựa chọn trong các vấn đề pháp lý phức tạp, đồng hành cùng sự phát triển bền vững của khách hàng và xã hội.'],
+          ['2e9995587392e7c528a4aed51e58846b9d51d785.png', 'Sứ mệnh', 'Cung cấp dịch vụ pháp lý chuyên nghiệp, hiệu quả, góp phần bảo vệ quyền và lợi ích hợp pháp của khách hàng, thúc đẩy công bằng và thượng tôn pháp luật.'],
+          ['9bd1e8d5d72f2d664274e8093cfe27a57fc5faa4.png', 'Giá trị cốt lõi', null],
+        ] as [$icon, $title, $description])
+          <article class="about-value-card">
+            <img src="{{ asset('assets/images/'.$icon) }}" alt="" loading="lazy" width="1024" height="1024">
+            <h3>{{ $title }}</h3>
+            @if ($description)
+              <p>{{ $description }}</p>
+            @else
+              <ul class="about-core-values">
+                @foreach ([
+                  'Uy tín: Đặt lợi ích khách hàng lên hàng đầu',
+                  'Tận tâm: Lắng nghe và đồng hành trong từng vụ việc',
+                  'Hiệu quả: Giải pháp pháp lý tối ưu, khả thi',
+                  'Trách nhiệm: Bảo mật thông tin, tuân thủ đạo đức nghề nghiệp',
+                ] as $value)
+                  <li><span aria-hidden="true">✓</span><div>{{ $value }}</div></li>
+                @endforeach
+              </ul>
+            @endif
+          </article>
         @endforeach
       </div>
     </div>
@@ -56,28 +82,38 @@
 
   <section class="about-statistics" aria-label="Hoàng Thịnh Luật qua những con số">
     <div class="about-statistics-grid" style="--about-background: url('{{ asset('assets/images/about-statistics-bg.png') }}')">
-      @foreach ([['500', 'Vụ việc đã tư vấn'], ['200', 'Khách hàng tin tưởng'], ['10', 'Luật sư & chuyên gia'], ['15', 'Năm kinh nghiệm']] as [$number, $label])
-        <div><p class="about-statistic-number">{{ $number }}<span>+</span></p><p class="about-statistic-label">{{ $label }}</p></div>
+      @foreach ([['1000', '+', 'Khách hàng tin tưởng'], ['2.000', '+', 'Vụ việc pháp lý đã tư vấn'], ['10', '+', 'Lĩnh vực pháp lý chuyên sâu'], ['98', '%', 'Khách hàng hài lòng']] as [$number, $suffix, $label])
+        @unless ($loop->first)
+          <span class="about-statistic-separator" aria-hidden="true"></span>
+        @endunless
+        <div class="about-statistic-item"><p class="about-statistic-number">{{ $number }}<span>{{ $suffix }}</span></p><p class="about-statistic-label">{{ $label }}</p></div>
       @endforeach
     </div>
   </section>
 
   <section class="about-commitments-section" aria-labelledby="commitment-title">
-    <div class="about-commitments">
-      <div>
-        <p class="about-eyebrow">Tại sao chọn chúng tôi</p>
-        <h2 id="commitment-title" class="about-heading">Cam kết của Hoàng Thịnh Luật</h2>
-        <div class="about-commitment-grid">
-          @foreach ([['Tư vấn đúng trọng tâm', 'Mỗi vụ việc được tiếp cận kỹ lưỡng, xác định rõ vấn đề pháp lý và đưa ra phương án phù hợp với nhu cầu thực tế của từng khách hàng.'], ['Đồng hành tận tâm', 'Luôn lắng nghe, trao đổi rõ ràng và theo sát khách hàng trong suốt quá trình tư vấn, giải quyết hồ sơ và xử lý các vấn đề phát sinh.'], ['Bảo vệ quyền lợi tối đa', 'Mọi giải pháp đều hướng đến bảo vệ quyền và lợi ích hợp pháp của khách hàng, đồng thời hạn chế tối đa các rủi ro pháp lý phát sinh.'], ['Bảo mật và minh bạch', 'Cam kết bảo mật thông tin khách hàng, minh bạch về quy trình và phương án xử lý để khách hàng luôn chủ động trong mọi quyết định.']] as [$title, $description])
-            <article class="about-commitment-card"><span aria-hidden="true"><img src="{{ asset('assets/icons/'.['5403496 1.svg', '1322236 (1) 1.svg', 'SVG.svg', '15189475 1.svg'][$loop->index]) }}" alt="" width="32" height="32" loading="lazy"></span><div><h3>{{ $title }}</h3><p>{{ $description }}</p></div></article>
-          @endforeach
-        </div>
+    <div>
+      <p class="about-eyebrow">Tại sao chọn chúng tôi</p>
+      <h2 id="commitment-title" class="about-heading">Cam kết của Hoàng Thịnh Luật</h2>
+      <div class="about-commitment-grid">
+        @foreach ([
+          ['Chuyên môn sâu', 'Am hiểu pháp luật, kinh nghiệm thực tiễn đa lĩnh vực.', '5403496 1.svg'],
+          ['Giải pháp tối ưu', 'Đưa ra phương án phù hợp với từng tình huống cụ thể.', '1322236 (1) 1.svg'],
+          ['Chi phí hợp lý', 'Minh bạch, rõ ràng, hiệu quả và tiết kiệm.', 'SVG.svg'],
+          ['Bảo mật tuyệt đối', 'Cam kết bảo mật mọi thông tin của khách hàng.', '15189475 1.svg'],
+          ['Hỗ trợ toàn quốc', 'Tư vấn trực tiếp, trực tuyến và qua nhiều kênh liên lạc.', 'SVG.svg'],
+        ] as [$title, $description, $icon])
+          <article class="about-commitment-card">
+            <span aria-hidden="true"><img src="{{ asset('assets/icons/'.$icon) }}" alt="" width="32" height="32" loading="lazy"></span>
+            <div><h3>{{ $title }}</h3><p>{{ $description }}</p></div>
+          </article>
+        @endforeach
       </div>
-      <div class="about-commitment-image"><img src="{{ asset('assets/images/dbd489a228abca26bbe14e84780504a830e29b14.png') }}" alt="Đội ngũ chuyên viên pháp lý" loading="lazy" width="1122" height="1402"></div>
     </div>
+    <div class="about-commitment-image"><img src="{{ asset('assets/images/dbd489a228abca26bbe14e84780504a830e29b14.png') }}" alt="Đội ngũ chuyên viên pháp lý" loading="lazy" width="1122" height="1402"></div>
   </section>
 
-  <section id="doi-ngu" class="about-team about-section" aria-labelledby="team-title">
+  {{-- <section id="doi-ngu" class="about-team about-section" aria-labelledby="team-title">
     <div class="about-team-container" data-team-carousel>
       <div class="about-team-header">
         <div>
@@ -88,9 +124,9 @@
       </div>
       <div class="about-team-slider">
         <div class="about-team-viewport" tabindex="0" role="region" aria-label="Slider đội ngũ chủ chốt">
-          <div id="about-team-cards" class="about-team-grid">
+          <div id="about-team-cards" class="about-team-grid"> --}}
             {{-- Kinh nghiệm và chuyên môn bên dưới là dữ liệu mẫu để xem trước giao diện hover. --}}
-            @foreach ([
+            {{-- @foreach ([
               ['about-luat-su-1.png', 'Giám đốc', 'Ông Phan Minh Hoàng', '15 năm kinh nghiệm', 'Đất đai, BĐS, Xây dựng'],
               ['about-luat-su-2.png', 'Luật sư cộng sự', 'Bà Lê Thị Hồng', '12 năm kinh nghiệm', 'Dân sự, Hôn nhân gia đình'],
               ['about-luat-su-3.png', 'Luật sư cộng sự', 'Ông Phạm Văn Dũng', '10 năm kinh nghiệm', 'Doanh nghiệp, Hợp đồng'],
@@ -104,14 +140,14 @@
                 :specialties="$specialties"
                 class="about-team-card"
               />
-            @endforeach
-          </div>
+            @endforeach --}}
+          {{-- </div>
         </div>
         <button class="about-team-arrow about-team-prev" type="button" aria-label="Xem nhân sự trước" aria-controls="about-team-cards" data-team-prev><img src="{{ asset('assets/icons/Frame 2147238982.svg') }}" alt="" width="64" height="64"></button>
         <button class="about-team-arrow about-team-next" type="button" aria-label="Xem nhân sự tiếp theo" aria-controls="about-team-cards" data-team-next><img src="{{ asset('assets/icons/Frame 2147238981.svg') }}" alt="" width="64" height="64"></button>
       </div>
     </div>
-  </section>
+  </section> --}}
 
   @include('partials.contact-section')
 @endsection
