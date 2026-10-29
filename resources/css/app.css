@@ -61,8 +61,12 @@
     .article-prose tbody tr:last-child td { border-bottom: 0; }
 
     /* Section: PracticeAreaContent */
-    .practice-detail { @apply bg-white px-5 py-12 sm:px-8 md:py-16 xl:px-20; }
-    .practice-detail-layout { @apply mx-auto grid w-full max-w-7xl items-start gap-10 lg:grid-cols-[minmax(0,1fr)_300px]; }
+    /* Padding trên section: lòng 1280px, lề 320px tại khung 1920px. */
+    .practice-detail { @apply bg-white py-12 md:py-16; padding-inline: max(20px, calc((100% - 1280px) / 2)); }
+    @media (min-width: 640px) {
+        .practice-detail { padding-inline: max(32px, calc((100% - 1280px) / 2)); }
+    }
+    .practice-detail-layout { @apply grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_300px]; }
     .practice-detail-main { @apply flex min-w-0 flex-col gap-6; }
     .practice-detail-heading { @apply relative pb-6 font-sans text-3xl leading-10 font-semibold text-brand-black uppercase md:text-4xl md:leading-12; }
     .practice-detail-heading::after { content: ''; position: absolute; inset-inline: 0; bottom: 0; height: 1px; background: rgb(0 0 0 / 16.08%); }
@@ -90,7 +94,7 @@
     .sidebar-post a:hover { color: #7e011f; }
 
     /* Section: SidebarConsultation */
-    .sidebar-consultation { @apply flex flex-col gap-4 rounded-2xl p-4 text-white; background: linear-gradient(135deg, #017b81, #188c91); }
+    .sidebar-consultation { @apply flex flex-col gap-4 rounded-2xl p-4 text-white; background: #017b81 url('../../public/assets/images/tuvan-Frame.png') center / cover no-repeat; }
     .sidebar-consultation h2 { @apply text-center text-sm leading-5 font-semibold uppercase; }
     .sidebar-consultation p { @apply text-center text-sm leading-5 font-normal; }
     .sidebar-consultation > a { @apply inline-flex items-center justify-center gap-1 rounded-lg bg-white px-4 py-2.5 text-sm leading-5 font-semibold; color: #017b81; }
@@ -776,6 +780,9 @@
 
 /* Khi đủ khung 1280px: thẻ 416 × 325px, lòng trong 368 × 277px. */
 @media (min-width: 1536px) {
+    /* Blog danh sách: thẻ 305 × 376px, padding 8px cho lòng 289 × 360px. */
+    .practice-detail-posts { grid-template-columns: repeat(3, 305px); }
+    .practice-detail-posts .blog-card { height: 376px; }
     /* Thẻ trang Lĩnh vực giữ kích thước nguyên khi đủ khung nội dung 1280px. */
     .practice-areas-grid { grid-template-columns: repeat(3, 413px); justify-content: space-between; }
     /* Ảnh giám đốc đúng kích thước Figma, không chia cột theo tỷ lệ gây pixel lẻ. */
