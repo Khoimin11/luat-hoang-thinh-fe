@@ -8,7 +8,7 @@ import { initValuePropsCarousel } from './value-props-carousel';
 document.querySelectorAll('.site-header').forEach(initHeaderMenu);
 
 function initConsultationForm(form) {
-  const fields = ['name', 'email', 'service', 'message'];
+  const fields = ['name', 'phone', 'email', 'service', 'message'];
   const button = form.querySelector('button[type="submit"]');
   const buttonLabel = button.querySelector('[data-submit-label]');
   const idleLabel = buttonLabel.textContent;

@@ -6,6 +6,10 @@ export function validateLienHe(values) {
     errors.name = 'Vui lòng nhập họ và tên hợp lệ';
   }
 
+  if (!/^\+?[0-9]{9,15}$/.test(values.phone ?? '')) {
+    errors.phone = 'Số điện thoại phải gồm 9–15 chữ số, có thể bắt đầu bằng dấu +';
+  }
+
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email ?? '')) {
     errors.email = 'Email không đúng định dạng';
   } else if (length(values.email) > 255) {

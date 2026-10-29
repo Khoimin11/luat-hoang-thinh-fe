@@ -254,8 +254,9 @@
     .home-practice-header h2, .home-news-header h2 { @apply flex flex-wrap items-center gap-6 font-sans text-2xl leading-8 font-semibold uppercase md:text-3xl md:leading-10; color: #002123; }
     .home-practice-header h2 img, .home-news-header h2 img { width: 32px; height: 32px; flex-shrink: 0; }
     /* ViewMore: hover/focus dùng gradient đỏ, chữ và mũi tên trắng. */
-    .view-more { @apply inline-flex shrink-0 items-center justify-center gap-2 rounded-2xl px-4 py-2 font-sans text-base leading-6 font-medium; color: #a92021; border: 1px solid #a92021; background: rgb(126 1 31 / 5%); transition: color 200ms ease, border-color 200ms ease; }
-    .view-more svg { flex-shrink: 0; }
+    /* Nút Xem thêm: lòng trong 117 × 24px, padding 16px/8px và viền 1px. */
+    .view-more { @apply inline-flex shrink-0 items-center justify-center gap-2 rounded-2xl px-4 py-2 font-sans text-base leading-6 font-medium; min-width: 151px; min-height: 42px; color: #a92021; border: 1px solid #a92021; background: rgb(126 1 31 / 5%); transition: color 200ms ease, border-color 200ms ease; }
+    .view-more svg { flex-shrink: 0; width: 24px; height: 24px; }
     .view-more[aria-disabled='true'] { cursor: default; }
     .view-more:not([aria-disabled='true']):is(:hover, :focus-visible) { color: #fff; border-color: transparent; background: linear-gradient(180deg, #b92324, #8b1517); }
     .home-practice-layout { @apply mt-10 grid items-start gap-10; }
@@ -292,7 +293,8 @@
     .article-related-prev { @apply left-0 -translate-x-1/2 xl:-left-15 xl:translate-x-0; }
     .article-related-next { @apply right-0 translate-x-1/2 xl:-right-15 xl:translate-x-0; }
     .article-related-arrow img { @apply block size-full; }
-    .blog-card { @apply flex min-w-0 cursor-pointer flex-col gap-3 overflow-hidden rounded-3xl p-2; border: 1px solid rgb(0 0 0 / 5%); background: #fcfcfc; }
+    /* Viền bên trong không chiếm kích thước: thẻ 308px - padding 16px = ảnh 292px. */
+    .blog-card { @apply flex min-w-0 cursor-pointer flex-col gap-3 overflow-hidden rounded-3xl p-2; border: 0; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 5%); background: #fcfcfc; }
     .blog-card-image { @apply relative overflow-hidden rounded-2xl; }
     /* Hover toàn bộ thẻ: ảnh zoom nhẹ trong khung, tiêu đề chuyển đỏ. */
     .blog-card-image img { width: 100%; height: 200px; object-fit: cover; transition: transform 300ms ease-out; }
@@ -479,11 +481,12 @@
     .about-contact-label, .about-contact-separator { @apply font-medium; }
     .about-contact-channels { @apply flex flex-col gap-2; }
     .about-contact-channels p { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 4px; }
-    .about-consultation-form { @apply flex flex-col gap-6 rounded-3xl bg-white/10 p-8; --consultation-field-background: #918b85; }
+    /* Form tư vấn: padding 32px, gap nhóm/cột 24px, label cách ô nhập 6px. */
+    .about-consultation-form { @apply flex min-w-0 flex-col gap-6 rounded-3xl bg-white/10 p-8 backdrop-blur-xl; --consultation-field-background: rgb(255 255 255 / 40%); }
     .about-form-row { @apply grid grid-cols-2 gap-6; }
     .about-form-row > div { min-width: 0; }
     .about-consultation-form label { @apply mb-1.5 block text-sm leading-5 font-medium text-white; }
-    .about-consultation-form input, .about-consultation-form select, .about-consultation-form textarea { @apply w-full rounded-2xl border-0 px-4 py-3 font-sans text-base leading-6 font-normal text-white outline-offset-2; background-color: var(--consultation-field-background); }
+    .about-consultation-form input, .about-consultation-form select, .about-consultation-form textarea { @apply w-full rounded-2xl border-0 px-4 py-3.5 font-sans text-base leading-6 font-normal text-white outline-offset-2; background-color: var(--consultation-field-background); }
     .about-consultation-form :is(input, textarea):is(:autofill, :-webkit-autofill) { box-shadow: inset 0 0 0 1000px var(--consultation-field-background); -webkit-text-fill-color: white; caret-color: white; }
     .about-consultation-form ::placeholder { color: rgb(255 255 255 / 60%); opacity: 1; font-size: 16px; font-weight: 400; line-height: 24px; font-style: italic; }
     .about-consultation-form :disabled { opacity: 1; cursor: default; }
@@ -491,7 +494,7 @@
     .about-consultation-form select { appearance: none; }
     .about-consultation-form select option { color: #373d4e; background: white; }
     .about-consultation-form textarea { @apply block resize-y; min-height: 194px; }
-    .about-consultation-form button { @apply flex w-full items-center justify-center gap-3 rounded-full px-4 py-2 text-base leading-6 font-medium text-white; background: linear-gradient(180deg, #b92324, #8b1517); }
+    .about-consultation-form button { @apply flex w-full items-center justify-center gap-2 rounded-2xl px-4 py-2 text-base leading-6 font-medium text-white; background: linear-gradient(180deg, #b92324, #8b1517); }
     .about-consultation-form button:hover:not(:disabled) { background: #8b1517; }
     .about-consultation-form [aria-invalid='true'] { outline: 2px solid #fda4af; }
     .about-form-error { @apply mt-2 text-sm leading-5 text-rose-200; }
@@ -735,6 +738,31 @@
     .footer-main { margin-top: 64px; }
 }
 
+/* Tư vấn mobile: thông tin gọn, trường nhập 16px và nút bấm cao ít nhất 48px. */
+@media (max-width: 767px) {
+    .about-contact { padding: 24px 20px; }
+    .about-contact-grid { gap: 20px; }
+    .about-contact-company { min-height: 0; }
+    .about-contact-logo { width: 56px; height: 56px; margin-bottom: 12px; }
+    .about-contact .about-heading { font-size: 18px; line-height: 24px; }
+    .about-contact-details { margin-top: 16px; gap: 12px; font-size: 14px; line-height: 22px; }
+    .about-contact-details strong { margin-bottom: 4px; font-size: 14px; line-height: 22px; }
+    .about-contact-address { font-size: 14px; line-height: 22px; }
+    .about-contact-channels { gap: 8px; }
+    .about-contact-channels p { overflow-wrap: anywhere; }
+    .about-consultation-form { min-height: 0; padding: 16px; gap: 12px; border-radius: 20px; }
+    .about-form-row { gap: 12px; align-items: start; }
+    .about-consultation-form :is(input, select, textarea) { padding: 12px; font-size: 16px; line-height: 24px; border-radius: 12px; scroll-margin-top: 96px; }
+    .about-consultation-form :is(input, select) { height: 48px; }
+    .about-consultation-form textarea { height: 112px; min-height: 112px; }
+    .about-consultation-form button { min-height: 48px; border-radius: 12px; }
+    .about-consultation-form.consultation-form--light button { height: 48px; }
+}
+
+@media (max-width: 359px) {
+    .about-form-row { grid-template-columns: minmax(0, 1fr); }
+}
+
 /* Trang chủ mobile: ảnh giá trị cuộn ngang, hero gọn và hai nút xếp theo cột. */
 @media (max-width: 767px) {
     .home-value-images { padding-block: 20px; }
@@ -833,13 +861,29 @@
 
 @media (min-width: 1280px) {
     .about-commitment-card:nth-child(n + 3)::after { top: -32px; }
+    /* Thẻ lĩnh vực trang chủ: ảnh 130px + nội dung 100px + viền 2px = 232px. */
+    .home-practice-grid .practice-area-card { height: 232px; }
+    .home-practice-grid .practice-area-card-image { height: 130px; aspect-ratio: auto; }
+    .home-practice-grid .practice-area-card-body { height: 100px; min-height: 0; padding-block: 12px; }
+    .home-practice-grid .practice-area-card h3 { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
+    .home-practice-grid .practice-area-card p { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .hero-page-1-container { width: calc(100% - 160px); }
-    .home-hero-container { width: calc(100% - 160px); padding: 0; }
-    .home-hero-copy { width: 67.578125%; }
-    .about-contact-grid { grid-template-columns: minmax(0, 416px) minmax(0, 526px); justify-content: center; gap: 134px; }
+    .home-hero { display: flex; align-items: center; }
+    .home-hero-container { width: min(865px, calc((100% - 160px) * 0.67578125)); max-width: none; height: auto; margin: 0; margin-inline-start: max(80px, calc((100% - 1280px) / 2)); padding: 0; }
+    .home-hero-copy { width: 100%; }
+    .about-contact-grid { grid-template-columns: minmax(0, 416fr) minmax(0, 730fr); gap: 134px; }
     .about-contact { background-size: 100% 100%; }
     .about-contact-company, .about-consultation-form { min-height: 552px; }
-    .about-contact-company { width: 416px; max-width: 100%; box-sizing: border-box; padding: 41px 0 39px; }
+    /* Khối thông tin 416 × 552px: không padding, căn giữa nội dung theo chiều dọc như Figma. */
+    .about-contact-company { width: 416px; max-width: 100%; box-sizing: border-box; padding: 0; justify-content: center; }
+}
+
+/* Hero khung thiết kế 1920px: giữ đúng cỡ chữ và chiều cao dù có thanh cuộn dọc. */
+@media (min-width: 1900px) {
+    .home-hero { height: 900px; }
+    .home-hero-eyebrow, .home-hero-tagline { font-size: 48px; }
+    .home-hero h1 { font-size: 60px; }
+    .home-hero-description { font-size: 36px; }
 }
 
 @media (min-width: 1024px) {
