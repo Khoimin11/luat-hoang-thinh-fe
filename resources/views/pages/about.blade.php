@@ -13,7 +13,7 @@
   <section class="about-intro-section" aria-labelledby="intro-title">
     <div class="about-intro">
       <div class="about-intro-copy">
-        <p class="about-eyebrow">Giới thiệu</p>
+        <p class="about-eyebrow"><span>Giới thiệu</span></p>
         <h2 id="intro-title" class="about-heading">Về Hoàng Thịnh Luật <img class="about-intro-icon" src="{{ asset('assets/icons/2970777 1.svg') }}" alt="" width="32" height="32"></h2>
         <div class="about-prose">
           <h3 class="about-intro-lead">Cung cấp dịch vụ pháp lý chuyên sâu, toàn diện và hiệu quả</h3>
@@ -93,7 +93,7 @@
 
   <section class="about-commitments-section" aria-labelledby="commitment-title">
     <div>
-      <p class="about-eyebrow">Tại sao chọn chúng tôi</p>
+      <p class="about-eyebrow"><span>Tại sao chọn chúng tôi</span></p>
       <h2 id="commitment-title" class="about-heading">Cam kết của Hoàng Thịnh Luật</h2>
       <div class="about-commitment-grid">
         @foreach ([
@@ -117,7 +117,7 @@
     <div class="about-team-container" data-team-carousel>
       <div class="about-team-header">
         <div>
-          <p class="about-eyebrow">Nhân sự</p>
+          <p class="about-eyebrow"><span>Nhân sự</span></p>
           <h2 id="team-title" class="about-heading">Đội ngũ chủ chốt <img src="{{ asset('assets/icons/2970777 1.svg') }}" alt="" width="32" height="32"></h2>
         </div>
         <x-buttons.view-more-button :href="route('team')" />

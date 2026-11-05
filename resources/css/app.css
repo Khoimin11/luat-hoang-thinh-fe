@@ -112,6 +112,15 @@
     .pagination-next { color: #b92324; }
 }
 
+/* Lexend Regular cho nhãn ngôn ngữ VN/EN trên header. */
+@font-face {
+    font-family: 'Lexend';
+    src: url('../../public/assets/fonts/Lexend/static/Lexend-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* Plus Jakarta Sans cho tiêu đề các thẻ định hướng phát triển. */
 @font-face {
     font-family: 'Plus Jakarta Sans';
@@ -238,10 +247,11 @@
     .home-hero-container { width: calc(100% - 40px); max-width: 1280px; height: 100%; margin: 0 auto; display: flex; align-items: center; padding: 48px 0; }
     .home-hero-copy { display: flex; flex-direction: column; gap: 32px; width: 100%; max-width: 865px; }
     .home-hero-brand { display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 784px; font-family: var(--font-utm-times); font-weight: 700; text-transform: uppercase; }
-    .home-hero-eyebrow { font-size: clamp(28px, 2.5vw, 48px); line-height: 1.2; }
-    .home-hero h1 { font-size: clamp(34px, 3.125vw, 60px); line-height: 1.4; color: #f59e0b; }
-    .home-hero-tagline { font-size: clamp(24px, 2.5vw, 48px); line-height: 1.2; color: #f59e0b; }
-    .home-hero-description { @apply font-sans font-medium uppercase; font-size: clamp(16px, 1.875vw, 36px); line-height: 1.5; }
+    .home-hero-eyebrow { font-size: clamp(28px, 2.5vw, 48px); line-height: 1.2; letter-spacing: 0; }
+    .home-hero h1, .home-hero-tagline { background-image: linear-gradient(90deg, #dd9f18 0%, #ffe597 50%, #dd9f18 100%); background-clip: text; color: transparent; }
+    .home-hero h1 { font-size: clamp(34px, 2.916667vw, 56px); line-height: 1.5; letter-spacing: 0; }
+    .home-hero-tagline { font-size: clamp(24px, 2.5vw, 48px); line-height: 1.2; letter-spacing: 0; }
+    .home-hero-description { @apply font-sans font-medium uppercase text-white; width: 100%; font-size: clamp(16px, 1.875vw, 36px); line-height: 1.5; letter-spacing: 0; }
     .home-hero-actions { @apply flex flex-wrap items-center gap-4; }
     .home-hero-actions a { @apply inline-flex items-center justify-center rounded-2xl px-6 py-3 text-center text-base leading-6 font-medium xl:px-8 xl:py-4 xl:text-lg xl:leading-7; }
     .home-hero-booking { color: #002123; background: linear-gradient(90deg, #f59e0b, #fde68a, #f59e0b); backdrop-filter: blur(9.95px); }
@@ -249,7 +259,7 @@
     .home-hero-actions a:hover { filter: brightness(1.1); }
 
     /* ValuePropsImages: thay thanh lợi ích bằng 3 ảnh, padding dọc 32px, khung 1320px. */
-    .home-value-images { padding-block: 32px; padding-inline: max(20px, calc((100% - 1320px) / 2)); background: #fff; }
+    .home-value-images { background: #f5f8fa; padding-block: 32px; padding-inline: max(20px, calc((100% - 1320px) / 2)); }
     .home-value-images-grid { @apply grid gap-5 md:grid-cols-3 xl:gap-15; }
     .home-value-images-grid img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; border-radius: 16px; }
     @media (min-width: 640px) {
@@ -263,13 +273,23 @@
     }
     .home-practice-container { width: 100%; max-width: 1320px; margin: 0 auto; }
     .home-practice-header, .home-news-header { @apply flex flex-wrap items-end justify-between gap-6; }
+    /* Gradient/2: chữ và đường trang trí có vùng chuyển màu riêng, không tính khoảng trống vào gradient chữ. */
+    .home-practice-eyebrow, .home-news-eyebrow, .about-eyebrow { --section-label-gradient: linear-gradient(180deg, #017b81 0%, #55a7ab 100%); }
     .home-practice-eyebrow, .home-news-eyebrow { @apply mb-2 font-sans text-sm leading-5 font-semibold; color: #017b81; }
-    .home-practice-eyebrow::before, .home-news-eyebrow::before { content: ''; display: block; width: 56px; height: 2px; margin-bottom: 12px; background: linear-gradient(90deg, #003436, #017b81); }
+    .home-practice-eyebrow > span, .home-news-eyebrow > span, .about-eyebrow > span { display: block; width: fit-content; background-image: var(--section-label-gradient); background-clip: text; color: transparent; }
+    .home-practice-eyebrow::before, .home-news-eyebrow::before, .about-eyebrow::before { content: ''; display: block; width: 56px; height: 2px; margin-bottom: 12px; background: var(--section-label-gradient); }
     .home-practice-header h2, .home-news-header h2 { @apply flex flex-wrap items-center gap-6 font-sans text-2xl leading-8 font-semibold uppercase md:text-3xl md:leading-10; color: #002123; }
+    /* Tiêu đề lĩnh vực desktop: heading/H4, 32px với line-height 120%. */
+    .home-practice-header h2 { letter-spacing: 0; text-align: center; }
+    @media (min-width: 768px) {
+        .home-practice-header h2 { font-size: 32px; line-height: 1.2; }
+    }
     .home-practice-header h2 img, .home-news-header h2 img { width: 32px; height: 32px; flex-shrink: 0; }
     /* ViewMore: hover/focus dùng gradient đỏ, chữ và mũi tên trắng. */
     /* Nút Xem thêm: lòng trong 117 × 24px, padding 16px/8px và viền 1px. */
-    .view-more { @apply inline-flex shrink-0 items-center justify-center gap-2 rounded-2xl px-4 py-2 font-sans text-base leading-6 font-medium; min-width: 151px; min-height: 42px; color: #a92021; border: 1px solid #a92021; background: rgb(126 1 31 / 5%); transition: color 200ms ease, border-color 200ms ease; }
+    /* Nút Xem thêm: viền gradient nằm bên trong, không cộng thêm vào kích thước 149 × 40px. */
+    .view-more { @apply relative inline-flex shrink-0 items-center justify-center gap-2 rounded-2xl px-4 py-2 font-sans text-base leading-6 font-medium; min-width: 149px; min-height: 40px; color: #a92021; border: 0; background: rgb(126 1 31 / 5%); transition: color 200ms ease; }
+    .view-more::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: linear-gradient(180deg, #b92324, #8b1517); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; pointer-events: none; }
     .view-more svg { flex-shrink: 0; width: 24px; height: 24px; }
     .view-more[aria-disabled='true'] { cursor: default; }
     .view-more:not([aria-disabled='true']):is(:hover, :focus-visible) { color: #fff; border-color: transparent; background: linear-gradient(180deg, #b92324, #8b1517); }
@@ -289,7 +309,7 @@
     .home-practice-reasons-eyebrow { @apply font-sans text-sm leading-5 font-bold uppercase; }
     .home-practice-reasons h3 { @apply mt-4 font-sans text-3xl leading-10 font-bold; }
     .home-practice-reasons ul { @apply my-8 flex list-none flex-col gap-4 p-0; }
-    .home-practice-reasons li { @apply flex items-start gap-3 font-sans text-sm leading-5 font-normal; }
+    .home-practice-reasons li { @apply flex items-start gap-3 font-sans text-sm leading-5 font-normal text-white; }
     .home-practice-reasons li span { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: white; }
     .home-practice-contact { @apply flex w-full items-center justify-center gap-2 rounded-xl bg-white px-4 py-3 font-sans text-base leading-6 font-semibold; color: #017b81; }
     .home-practice-contact:hover { background: #e5f2f2; }
@@ -359,7 +379,6 @@
     .hero-page-2::before { display: none; }
     .hero-page-2 .hero-page-1-image { inset: 0; width: 100%; height: 100%; min-height: 0; object-position: center; transform: none; filter: none; }
     .about-eyebrow { @apply mb-2 text-sm leading-5 font-semibold tracking-normal text-cyan-700 uppercase; }
-    .about-eyebrow::before { content: ''; display: block; width: 56px; height: 2px; margin-bottom: 12px; background: linear-gradient(90deg, #0e7490, #34d399); }
     .about-heading { @apply text-2xl leading-8 font-semibold text-brand-black uppercase md:text-3xl md:leading-10; }
     .about-prose { @apply mt-4 space-y-2 text-base leading-6 font-normal text-body-copy; }
     .about-prose strong { @apply font-semibold text-brand-black; }
@@ -383,11 +402,11 @@
     .about-mission-portrait { @apply hidden self-end xl:block; width: 277px; max-width: 100%; height: 309px; }
     .about-mission-portrait img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; }
     .about-mission-title, .about-mission-description { min-width: 0; }
-    /* Banner định hướng: gap tiêu đề 16px, gap nội dung 20px, hai cột chữ cách 24px. */
+    /* Banner định hướng: gap tiêu đề 16px, gap nội dung 19px, hai cột chữ cách 24px. */
     .about-mission-title { display: flex; flex-direction: column; gap: 16px; }
-    .about-mission-description { display: flex; flex-direction: column; gap: 20px; }
+    .about-mission-description { display: flex; flex-direction: column; gap: 19px; }
     .about-mission .about-eyebrow { @apply font-sans text-sm leading-5 font-semibold text-white; margin-bottom: 0; }
-    .about-mission .about-heading { @apply font-sans text-white; font-size: 30px; line-height: 40px; font-weight: 600; }
+    .about-mission .about-heading { @apply font-sans text-white; font-size: 32px; line-height: 1.2; font-weight: 600; letter-spacing: 0; }
     .about-mission .about-eyebrow::before { height: 2px; margin-bottom: 16px; background: white; }
     .about-motto { @apply font-sans text-xl leading-6 font-bold text-white; }
     .about-mission-copy { @apply font-sans text-base leading-6 font-normal text-white; }
@@ -420,8 +439,7 @@
     @media (min-width: 640px) {
         .about-commitments-section { padding-inline: max(32px, calc((100% - 1280px) / 2)); }
     }
-    .about-commitments-section .about-eyebrow { @apply text-sm leading-5 font-semibold; width: fit-content; background: linear-gradient(90deg, #017b81, #003436); background-clip: text; -webkit-background-clip: text; color: transparent; }
-    .about-commitments-section .about-eyebrow::before { display: block; background: linear-gradient(90deg, #003436, #017b81); }
+    .about-commitments-section .about-eyebrow { @apply text-sm leading-5 font-semibold; width: fit-content; }
     /* Cam kết: icon 56px, gap icon–chữ 16px; hàng cách đường phân cách 32px mỗi phía. */
     .about-commitment-grid { @apply mt-8 grid gap-x-12 gap-y-8 sm:grid-cols-2 sm:gap-y-16 xl:mt-16; }
     .about-commitment-card { @apply relative flex min-w-0 items-start gap-4; }
@@ -618,6 +636,21 @@
     .header-link-dropdown[aria-expanded='true'] img { transform: rotate(180deg); }
     .header-practice-panel { width: 100%; border: 1px solid rgb(0 0 0 / 10%); border-radius: 0 0 24px 24px; background: #fcfcfc; }
     .header-practice-panel[hidden] { display: none; }
+    /* Dropdown Kiến thức pháp lý: danh sách gọn, viền bên trong theo Figma. */
+    .header-knowledge { display: flex; flex-wrap: wrap; align-items: center; min-width: 0; }
+    .header-knowledge > a { flex: 1; padding: 8px 10px; font-size: 14px; line-height: 20px; }
+    .header-knowledge-toggle { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; padding: 0; border: 0; background: transparent; color: #002123; cursor: pointer; }
+    .header-knowledge-panel { display: flex; flex-direction: column; gap: 4px; width: 100%; padding: 8px; border-radius: 16px; background: white; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 8%); }
+    .header-knowledge-panel[hidden] { display: none; }
+    .header-knowledge-item { position: relative; display: block; padding: 12px; border-radius: 12px; font-family: var(--font-sans); font-size: 16px; line-height: 24px; font-weight: 500; color: #111; transition: color 180ms ease, background-color 180ms ease, padding-left 180ms ease; }
+    .header-knowledge-item::before { content: ''; position: absolute; left: 12px; top: 50%; width: 5px; height: 5px; border-radius: 50%; background: currentColor; opacity: 0; transform: translateY(-50%); transition: opacity 180ms ease; }
+    .header-knowledge-item:focus-visible { padding-left: 28px; color: #920025; background: #fdf1eb; }
+    .header-knowledge-item:focus-visible::before { opacity: 1; }
+    @media (hover: hover) {
+        .header-knowledge-item:hover { padding-left: 28px; color: #920025; background: #fdf1eb; }
+        .header-knowledge-item:hover::before { opacity: 1; }
+    }
+    .header-knowledge-item:active { color: #7e011f; background: #fae7df; }
     .header-practice-grid { @apply mx-auto grid w-full max-w-7xl gap-8 px-5 py-6; }
     .header-practice-group { min-width: 0; padding-right: 16px; }
     .header-practice-group h2 { @apply font-sans text-xl leading-6 font-bold; color: #920025; }
@@ -635,19 +668,24 @@
     .is-unavailable { @apply text-slate-500; }
     .header-actions { @apply flex shrink-0 items-center gap-3; }
     .header-hotline { @apply hidden items-center gap-3 sm:flex; color: #c61118; }
-    .hotline-copy { @apply flex flex-col items-end gap-0.5; white-space: nowrap; }
-    .hotline-copy small { @apply text-sm leading-5 font-normal text-slate-700; }
-    .hotline-copy strong { @apply flex h-7 items-center; }
-    .hotline-copy strong img { width: 142px; height: 16px; object-fit: contain; }
+    .hotline-copy { @apply inline-flex flex-col justify-center items-end gap-0.5; width: 144px; height: 48px; white-space: nowrap; }
+    .hotline-copy small { @apply self-stretch text-right font-sans text-sm leading-5 font-normal text-brand-black; }
+    /* Hotline 144 × 48px: dòng nhãn 20px + khoảng cách 2px + dòng số 26px. */
+    .hotline-copy strong { @apply flex items-center justify-end text-right font-sans font-bold; width: 144px; height: 26px; flex-shrink: 0; font-size: 22px; line-height: 26px; letter-spacing: 0; font-variant-numeric: lining-nums tabular-nums; background-image: linear-gradient(180deg, #a92021, #cf0405); background-clip: text; color: transparent; }
     .hotline-icon { @apply flex size-12 items-center justify-center rounded-full; }
     .hotline-icon img, .header-search img { @apply size-12 shrink-0 object-contain; }
     .header-hotline:hover { @apply text-brand-red-dark; }
     .header-search { @apply hidden size-12 shrink-0 items-center justify-center rounded-full border-0 bg-transparent p-0 lg:flex; cursor: default; }
-    .header-languages { @apply hidden h-12 items-center gap-2 rounded-full border border-brand-stroke bg-neutral-50 px-2 md:flex; }
+    .header-languages { @apply hidden h-12 items-center gap-2 px-2 md:flex; border: 0; border-radius: 99px; background: #fcfcfc; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 8%); }
     .header-languages > span { @apply inline-flex items-center gap-1.5 rounded-full px-1.5 py-1.5 font-lexend text-sm leading-4 font-normal; }
     .language-current { @apply bg-gray-800/5; color: #002224; }
     .language-unavailable { @apply text-slate-500; position: relative; margin-left: 8px; opacity: .6; }
     .language-unavailable::before { content: ''; position: absolute; left: -8px; width: 1px; height: 20px; background: #0022241a; }
+    /* Khung ngôn ngữ desktop: 150 × 48px, lòng ngang 134px, viền không chiếm diện tích. */
+    @media (min-width: 768px) {
+        .header-languages { width: 150px; flex-shrink: 0; }
+        .header-languages > span { flex: 1; min-width: 0; justify-content: center; }
+    }
     /* Language PNGs include labels; show only the flag in the existing 20px slot. */
     .language-flag { width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%; object-fit: none; object-position: -6px -6px; }
     .language-flag-wrapper { display: inline-flex; width: 20px; height: 20px; flex-shrink: 0; overflow: hidden; border-radius: 50%; }
@@ -706,26 +744,30 @@
     .footer-legal-links { grid-area: legal; }
     #footer-contact { grid-area: contact; }
     .footer-grid > * { min-width: 0; }
-    .site-footer .site-brand { @apply flex; width: 96px; max-width: 100%; gap: 5px; }
-    .footer-logo { width: 96px; max-width: 100%; height: 96px; object-fit: contain; }
+    /* Logo footer gồm biểu tượng mới và tên thương hiệu màu trắng đặt cạnh nhau. */
+    .site-footer .site-brand { @apply flex; width: 389px; max-width: 100%; gap: 5px; }
+    .footer-logo { width: 64px; height: auto; flex: 0 0 16.45%; aspect-ratio: 1; object-fit: contain; }
+    .footer-logo-wordmark { display: block; width: 0; min-width: 0; height: auto; flex: 1; object-fit: contain; filter: brightness(0) invert(1); }
     .site-footer .brand-emblem { @apply border-white/60 text-white; }
     .site-footer .brand-emblem small, .site-footer .brand-wordmark { @apply text-white; }
     .site-footer .brand-wordmark small { @apply text-slate-300; }
-    .footer-company-name { @apply mt-6 text-2xl leading-8 font-semibold uppercase; }
+    /* Tên công ty: hai dòng liền nhau, line-height 32px + 40px = 72px. */
+    .footer-company-name { @apply mt-6 flex flex-col text-2xl leading-8 font-semibold uppercase text-white; font-family: 'SVN-Poppins', sans-serif; }
     .footer-company-name strong { @apply block text-3xl leading-10 font-semibold; }
-    .footer-tagline { @apply mt-2 text-base leading-6 font-normal text-stone-200; }
+    /* Màu chữ phụ theo Figma: style mang tên stone-200 nhưng giá trị là #F0E8E8. */
+    .footer-tagline { @apply mt-2 text-base leading-6 font-normal text-[#f0e8e8]; }
     .footer-socials { @apply mt-6 flex items-center gap-4; }
     .footer-socials button { @apply flex size-8 items-center justify-center rounded-full border border-white/60 bg-transparent p-0; cursor: default; }
     .footer-socials img { width: 14px; height: 14px; }
-    .footer-heading { @apply border-b border-white/20 pb-3 text-lg leading-7 font-semibold uppercase; }
-    .footer-links { @apply flex list-none flex-col gap-4 p-0 text-sm leading-5 font-normal text-stone-200; margin-top: 11px; }
+    .footer-heading { @apply border-b border-white/20 pb-3 font-sans text-lg leading-7 font-semibold text-white uppercase; }
+    .footer-links { @apply flex list-none flex-col gap-4 p-0 font-sans text-sm leading-5 font-normal text-[#f0e8e8]; margin-top: 11px; }
     .footer-links li { @apply flex items-start gap-1; }
-    .footer-links li::before, .footer-address p::before { content: '›'; flex-shrink: 0; color: rgb(255 255 255 / 80%); }
-    .footer-links [aria-disabled='true'] { @apply text-stone-200; }
-    .footer-address { @apply flex flex-col gap-4 text-sm leading-5 font-normal text-stone-200 not-italic; margin-top: 11px; }
+    .footer-links li::before, .footer-address p::before { content: '›'; flex-shrink: 0; color: #f0e8e8; }
+    .footer-links [aria-disabled='true'] { @apply text-[#f0e8e8]; }
+    .footer-address { @apply flex flex-col gap-4 text-sm leading-5 font-normal text-[#f0e8e8] not-italic; margin-top: 11px; }
     .footer-address p { position: relative; padding-left: 8px; overflow-wrap: anywhere; }
     .footer-address p::before { position: absolute; left: 0; top: 0; }
-    .footer-address p > span { @apply font-normal text-stone-200; }
+    .footer-address p > span { @apply font-normal text-[#f0e8e8]; }
     .site-footer a:hover { @apply text-amber-200; }
     .footer-map { @apply block min-w-0 overflow-hidden rounded-xl; grid-area: map; }
     .footer-map iframe { display: block; width: 100%; height: 132px; border: 0; }
@@ -740,9 +782,9 @@
         .footer-main { margin-top: 24px; margin-bottom: 24px; }
         .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: 'company company' 'map map' 'quick legal' 'contact contact'; column-gap: 16px; row-gap: 12px; }
         .footer-company { text-align: center; }
-        .site-footer .site-brand { width: 72px; margin-inline: auto; }
-        .footer-logo { width: 72px; height: 72px; }
-        .footer-company-name { margin-top: 12px; font-size: 14px; line-height: 20px; }
+        .site-footer .site-brand { width: 240px; margin-inline: auto; }
+        .footer-logo { width: 40px; height: auto; }
+        .footer-company-name { margin-top: 12px; gap: 0; font-size: 14px; line-height: 20px; }
         .footer-company-name strong { font-size: 20px; line-height: 28px; }
         .footer-tagline { margin-top: 4px; font-size: 11px; line-height: 18px; }
         .footer-socials { justify-content: center; gap: 10px; margin-top: 12px; }
@@ -778,6 +820,9 @@
     .about-mission-title, .about-mission-description { padding: 0; }
     .about-mission .about-heading { white-space: nowrap; }
     .footer-grid { grid-template-columns: minmax(0, 388fr) minmax(0, 164fr) minmax(0, 164fr) minmax(0, 420fr); grid-template-areas: 'company quick legal contact' 'company quick legal map'; row-gap: 12px; }
+    /* Liên kết nhanh cao theo nội dung: 41px tiêu đề + 12px cách + 164px danh sách = 217px. */
+    .footer-quick-links { align-self: start; }
+    .footer-quick-links .footer-links { margin-top: 12px; }
     .site-footer { min-height: 492px; background-size: 100% 100%; }
     .footer-main, .footer-bottom { padding-inline: max(80px, calc((100% - 1280px) / 2)); }
     .footer-main { margin-top: 64px; }
@@ -798,7 +843,7 @@
     .about-mission { column-gap: 21px; }
     .about-mission-content { grid-template-columns: minmax(0, 1fr) 533px; }
     /* Đường kẻ là nét vẽ không chiếm chiều cao, khớp khối tiêu đề cao 92px. */
-    .about-mission .about-eyebrow::before { height: 0; outline: 1px solid white; background: transparent; }
+    .about-mission .about-eyebrow::before { width: 56px; height: 2px; background: white; }
 }
 
 /* Hero kiểu 1 dùng chung: tablet giữ tỷ lệ ảnh, điện thoại dùng caption gọn. */
@@ -939,7 +984,7 @@
 @media (min-width: 1536px) {
     .contact-info-layout { gap: 190px; min-height: 621px; }
     .header-container { flex-wrap: nowrap; column-gap: 0; padding: 24px 64px; }
-    .header-right { display: flex; flex: 1; min-width: 0; align-items: center; justify-content: flex-end; gap: 20px; }
+    .header-right { display: flex; flex: 1; min-width: 0; align-items: center; justify-content: flex-end; gap: 48px; }
     .brand-emblem { width: 64px; height: 64px; font-size: 30px; }
     .header-navigation { display: flex; order: initial; flex: none; width: auto; flex-direction: row; align-items: center; justify-content: flex-end; gap: 16px; border: 0; padding: 0; margin: 0; }
     .header-link { padding: 4px 8px; white-space: nowrap; }
@@ -949,19 +994,21 @@
     .header-practice { flex-wrap: nowrap; flex-shrink: 0; width: 190px; gap: 8px; padding: 4px 8px; }
     .header-practice > a { padding: 0; }
     .header-practice-toggle { width: 12px; height: 24px; padding: 0; }
+    .header-knowledge { position: relative; flex-wrap: nowrap; flex-shrink: 0; gap: 8px; padding: 4px 8px; }
+    .header-knowledge > a { flex: none; padding: 0; font-size: 16px; line-height: 24px; }
+    .header-knowledge-toggle { width: 12px; height: 24px; }
+    /* Căn trái theo mục menu, đặt dưới cạnh header 5px; chiều rộng ôm danh sách. */
+    .header-knowledge-panel { --knowledge-offset: calc((var(--header-height, 113px) - 32px) / 2 + 5px); position: absolute; top: calc(100% + var(--knowledge-offset)); left: 0; z-index: 1; width: max-content; max-width: calc(100vw - 40px); }
+    .header-knowledge-panel::before { content: ''; position: absolute; bottom: 100%; left: 0; right: 0; height: var(--knowledge-offset); }
+    .header-knowledge-item { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .header-practice-panel { position: absolute; top: var(--header-height, calc(100% + 1px)); left: 0; right: 0; border-radius: 0 0 48px 48px; }
     .header-practice-grid { width: calc(100% - 64px); min-height: 372px; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; padding: 48px 0; }
-}
-
-@media (min-width: 1800px) {
-    .header-right { gap: 48px; }
 }
 
 @media (min-width: 1536px) and (max-width: 1799px) {
     .header-container { padding-right: 32px; padding-left: 32px; }
     .header-logo-wordmark { width: 220px; height: auto; }
     .header-navigation { gap: 8px; }
-    .header-link { padding-right: 4px; padding-left: 4px; }
 }
 
 /* Header điện thoại: logo gọn để đủ chỗ cho tìm kiếm, VN/EN và nút menu. */
@@ -1018,7 +1065,7 @@
 @media (min-width: 1900px) {
     .home-hero { height: 900px; }
     .home-hero-eyebrow, .home-hero-tagline { font-size: 48px; }
-    .home-hero h1 { font-size: 60px; }
+    .home-hero h1 { font-size: 56px; }
     .home-hero-description { font-size: 36px; }
 }
 

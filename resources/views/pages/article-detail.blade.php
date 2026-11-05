@@ -10,7 +10,7 @@
       <li aria-hidden="true">/</li>
       <li><a href="{{ route('practice-areas') }}">Lĩnh vực hoạt động</a></li>
       <li aria-hidden="true">/</li>
-      <li><a href="{{ route('practice-areas.land') }}">Luật sư đất đai, nhà ở, BĐS</a></li>
+      <li><a href="{{ route('practice-areas.show', 'luat-dat-dai') }}">Luật sư đất đai, nhà ở, BĐS</a></li>
       <li aria-hidden="true">/</li>
       <li aria-current="page">Pháp Lý Khi Xây Nhà: Những Điều Bắt Buộc Phải Biết Trước Khi Khởi Công</li>
     </ol>

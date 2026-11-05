@@ -7,6 +7,7 @@
     <meta name="turbo-cache-control" content="no-cache">
 
     <title>@yield('title', 'Hoàng Thịnh Luật')</title>
+    <link rel="icon" type="image/png" href="{{ asset('assets/images/logo-symbol.png') }}">
 
     <link rel="preload" href="{{ Vite::asset('public/assets/fonts/SVN-Poppins/SVN-Poppins-Medium.ttf') }}" as="font" type="font/ttf" crossorigin>
     @if (request()->routeIs('home'))

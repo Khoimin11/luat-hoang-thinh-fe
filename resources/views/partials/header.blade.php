@@ -13,15 +13,26 @@
                     <button id="practice-menu-trigger" class="header-practice-toggle header-link-dropdown" type="button" aria-label="Mở danh sách lĩnh vực hoạt động" aria-expanded="false" aria-controls="practice-menu" data-practice-trigger><img src="{{ asset('assets/icons/Icon.svg') }}" width="12" height="12" alt=""></button>
                     @include('partials.menu-dropdown')
                 </div>
-                <a class="header-link header-link-dropdown {{ request()->routeIs('news') ? 'is-active' : '' }}" href="{{ route('news') }}" @if(request()->routeIs('news')) aria-current="page" @endif>
-                    <span>Kiến thức pháp lý</span>
-                    <img src="{{ asset('assets/icons/Icon.svg') }}" width="12" height="12" alt="" aria-hidden="true">
-                </a>
+                <div class="header-knowledge" data-header-dropdown>
+                    <a class="header-link {{ request()->routeIs('news') ? 'is-active' : '' }}" href="{{ route('news') }}" @if(request()->routeIs('news')) aria-current="page" @endif>Kiến thức pháp lý</a>
+                    <button class="header-knowledge-toggle header-link-dropdown" type="button" aria-label="Mở danh mục kiến thức pháp lý" aria-expanded="false" aria-controls="knowledge-menu" data-header-dropdown-trigger><img src="{{ asset('assets/icons/Icon.svg') }}" width="12" height="12" alt=""></button>
+                    <div id="knowledge-menu" class="header-knowledge-panel" data-header-dropdown-panel hidden>
+                        @foreach ([
+                            'Tin tức pháp lý – Chính sách mới',
+                            'Văn bản pháp luật cập nhật',
+                            'Bài viết – Kiến thức pháp lý',
+                            'Giải đáp thắc mắc thường gặp',
+                            'Hoạt động của Hoàng Thịnh Luật',
+                        ] as $category)
+                            <a class="header-knowledge-item" href="{{ route('news') }}">{{ $category }}</a>
+                        @endforeach
+                    </div>
+                </div>
                 <a class="header-link {{ request()->routeIs('contact') ? 'is-active' : '' }}" href="{{ route('contact') }}" @if(request()->routeIs('contact')) aria-current="page" @endif>Liên hệ</a>
             </nav>
             <div class="header-actions">
                 <a class="header-hotline" href="" aria-label="Tư vấn miễn phí: 0913 849 072">
-                    <span class="hotline-copy"><small>Tư vấn miễn phí</small><strong><img src="{{ asset('assets/icons/phone-number.png') }}" width="142" height="16" alt="0913.849.072"></strong></span>
+                    <span class="hotline-copy"><small>Tư vấn miễn phí</small><strong>0913.849.072</strong></span>
                     <span class="hotline-icon" aria-hidden="true">
                         <img src="{{ asset('assets/icons/phone-red.png') }}" width="48" height="48" alt="">
                     </span>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PracticeAreaController;
 
 Route::view('/', 'pages.home')->name('home');
 
@@ -8,7 +9,7 @@ Route::view('/gioi-thieu', 'pages.about')->name('about');
 
 Route::view('/linh-vuc-hoat-dong', 'pages.practice-areas')->name('practice-areas');
 
-Route::view('/linh-vuc-hoat-dong/luat-dat-dai', 'pages.practice-area-detail')->name('practice-areas.land');
+Route::get('/linh-vuc-hoat-dong/{slug}', [PracticeAreaController::class, 'show'])->name('practice-areas.show');
 
 Route::view('/tin-tuc-va-kien-thuc-phap-luat', 'pages.news')->name('news');
 

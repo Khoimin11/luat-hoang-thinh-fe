@@ -4,10 +4,11 @@
         <div class="footer-grid">
             <div class="footer-company">
                 <a class="site-brand" href="{{ url('/') }}" aria-label="Hoàng Thịnh Luật — Trang chủ">
-                    <img class="footer-logo" src="{{ asset('assets/images/logo-symbol.png') }}" alt="Hoàng Thịnh Luật" width="96" height="96" loading="lazy">
+                    <img class="footer-logo" src="{{ asset('assets/images/logo-symbol.png') }}" alt="" width="64" height="64" loading="lazy">
+                    <img class="footer-logo-wordmark" src="{{ asset('assets/images/logo-wordmark.png') }}" alt="Hoàng Thịnh Luật" width="320" height="48" loading="lazy">
                 </a>
                 <p class="footer-company-name">Công ty Luật TNHH MTV<strong>Hoàng Thịnh Luật</strong></p>
-                <p class="footer-tagline">Pháp lý tối đa - Quyền lợi đảm bảo</p>
+                <p class="footer-tagline">Pháp lý tối đa – Quyền lợi đảm bảo</p>
                 <div class="footer-socials" aria-label="Mạng xã hội">
                     <button type="button" disabled aria-label="Facebook"><img src="{{ asset('assets/icons/Frame-1.svg') }}" alt="" width="14" height="14"></button>
                     <button type="button" disabled aria-label="LinkedIn"><img src="{{ asset('assets/icons/linkedin.svg') }}" alt="" width="14" height="14"></button>
