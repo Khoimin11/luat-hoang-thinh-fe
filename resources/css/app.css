@@ -1,17 +1,17 @@
 @import 'tailwindcss';
-/* Trang chi tiết lĩnh vực: bài viết, sidebar và phân trang */
+/* Chi tiết lĩnh vực */
 @layer components {
-    /* Section: ArticleBreadcrumb — nền đen 4%, khung 1280px, padding dọc 16px. */
+    /* Breadcrumb bài viết */
     .article-breadcrumb { @apply py-4; background: rgb(0 0 0 / 4%); }
     .article-breadcrumb ol { @apply mx-auto flex w-full max-w-7xl list-none flex-wrap items-center gap-1.25 p-0 font-sans text-sm leading-5 font-normal text-brand-black; }
     .article-breadcrumb li { min-width: 0; overflow-wrap: anywhere; }
     .article-breadcrumb li:not([aria-current]) { opacity: .6; }
     .article-breadcrumb a:hover { @apply text-brand-red; }
 
-    /* Section: Article — khung chung cho tiêu đề, nội dung và sidebar. */
+    /* Trang bài viết chi tiết */
     .article-section { @apply bg-white pt-12 pb-8; }
 
-    /* Trang bài viết: lề khung 1280px nằm ở padding section, thống nhất với Figma. */
+
     .article-breadcrumb, .article-section, .home-news.article-related { padding-inline: max(20px, calc((100% - 1280px) / 2)); }
     @media (min-width: 640px) {
         .article-breadcrumb, .article-section, .home-news.article-related { padding-inline: max(32px, calc((100% - 1280px) / 2)); }
@@ -21,9 +21,9 @@
     }
     .article-container { @apply mx-auto flex w-full max-w-7xl flex-col gap-12; }
 
-    /* ArticleHeader: tiêu đề và hàng ngày đăng/chia sẻ. */
+    /* Tiêu đề bài viết */
     .article-heading { @apply flex min-w-0 flex-col gap-4; }
-    /* Một dòng tiêu đề: 38 + padding 16 + viền 1 + gap 16 + meta 32 = 103px. */
+
     .article-heading h1 { @apply border-b border-black/5 pb-4 font-sans text-3xl leading-9.5 font-semibold text-brand-black uppercase; }
     .article-heading-meta { @apply flex flex-wrap items-center justify-between gap-4 font-sans text-sm leading-5 font-medium; }
     .article-heading-date { @apply inline-flex items-center gap-1 text-body-copy; }
@@ -32,12 +32,12 @@
     .article-heading-share button { @apply flex size-8 shrink-0 items-center justify-center rounded-full bg-neutral-50; box-shadow: 0 2.91px 5.82px rgb(0 0 0 / 4%), inset 0 0 0 .73px rgb(0 0 0 / 10%); }
     .article-heading-share img { @apply block size-4; }
 
-    /* ArticleBody: nằm trong section có padding trực tiếp, sidebar rộng 300px. */
+    /* Bố cục nội dung và sidebar bài viết */
     .article-body-layout { @apply grid min-w-0 items-start gap-10 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-16; }
     .article-body-content { @apply min-w-0; }
     .article-sidebar { @apply flex min-w-0 flex-col gap-6; }
 
-    /* ArticleTableOfContents: nền #F9F9F9, viền đen 8%, padding 16px. */
+    /* Mục lục bài viết */
     .article-toc { @apply rounded-2xl border p-4 text-brand-black; background: #f9f9f9; border-color: rgb(0 0 0 / 8%); }
     .article-toc-header { @apply mb-4 flex items-center justify-between gap-4; }
     .article-toc-header h2 { @apply text-lg leading-6.75 font-bold tracking-tight; font-family: 'Manrope', sans-serif; }
@@ -45,7 +45,7 @@
     .article-toc-list { @apply m-0 list-decimal space-y-2 pl-6 font-sans text-base leading-6 font-normal; }
     .article-toc-sublist { @apply mt-2 list-none space-y-1 p-0; }
 
-    /* ArticleContent: body 16/24 regular, khoảng cách giữa các khối 24px. */
+    /* Nội dung bài viết */
     .article-prose { @apply mt-6 flex min-w-0 flex-col gap-6 font-sans text-base leading-6 font-normal text-body-copy; }
     .article-prose p { @apply m-0 text-justify; }
     .article-prose .article-prose-intro { @apply sm:px-6; }
@@ -61,8 +61,8 @@
     .article-prose th:nth-child(2) { width: 20%; }
     .article-prose tbody tr:last-child td { border-bottom: 0; }
 
-    /* Section: PracticeAreaContent */
-    /* Padding trên section: lòng 1280px, lề 320px tại khung 1920px. */
+    /* Danh sách bài viết theo lĩnh vực */
+
     .practice-detail { @apply bg-white py-12 md:py-16; padding-inline: max(20px, calc((100% - 1280px) / 2)); }
     @media (min-width: 640px) {
         .practice-detail { padding-inline: max(32px, calc((100% - 1280px) / 2)); }
@@ -75,7 +75,7 @@
     .practice-detail-posts .blog-card { border: 0; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 5%); background: #fafafa; }
     .practice-detail-sidebar { @apply flex min-w-0 flex-col gap-6; }
 
-    /* Section: SidebarServices */
+    /* Sidebar: dịch vụ luật */
     .sidebar-panel { @apply overflow-hidden rounded-2xl bg-[#fcfcfc]; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 10%); }
     .sidebar-heading { @apply px-5 py-4 text-sm leading-5 font-semibold text-white uppercase; background: #017b81; }
     .sidebar-services { @apply m-0 list-none p-0; }
@@ -85,7 +85,7 @@
     .sidebar-services li:hover > a, .sidebar-services li:hover > .sidebar-service-unavailable,
     .sidebar-services li > a:focus-visible { color: #7e011f; }
 
-    /* Section: SidebarLatestPosts */
+    /* Sidebar: bài viết mới nhất */
     .sidebar-post { @apply flex items-start gap-2.5 p-3; }
     .sidebar-post:not(:last-child) { padding-bottom: 11px; border-bottom: 1px solid rgb(0 0 0 / 5%); }
     .sidebar-post > img { @apply size-15 shrink-0 rounded-md object-cover; }
@@ -94,14 +94,14 @@
     .sidebar-post time { @apply text-[10px] leading-3.75 font-normal text-body-copy/70; }
     .sidebar-post a:hover { color: #7e011f; }
 
-    /* Section: SidebarConsultation */
+    /* Sidebar: tư vấn miễn phí */
     .sidebar-consultation { @apply flex flex-col gap-4 rounded-2xl p-4 text-white; background: #017b81 url('../../public/assets/images/tuvan-Frame.png') center / cover no-repeat; }
     .sidebar-consultation h2 { @apply text-center text-sm leading-5 font-semibold uppercase; }
     .sidebar-consultation p { @apply text-center text-sm leading-5 font-normal; }
     .sidebar-consultation > a { @apply inline-flex items-center justify-center gap-1 rounded-lg bg-white px-4 py-2.5 text-sm leading-5 font-semibold; color: #017b81; }
     .sidebar-consultation > a:hover { background: #e5f2f2; }
 
-    /* Section: Pagination */
+    /* Phân trang */
     .pagination { @apply flex flex-wrap items-center justify-center gap-1.5 self-center sm:gap-3; }
     .pagination-item { @apply inline-flex size-8 shrink-0 items-center justify-center rounded-xl border border-black/10 bg-white p-0 text-sm leading-5 font-medium text-brand-black sm:size-10; }
     .pagination-item.is-current { @apply border-transparent text-white; background: linear-gradient(180deg, #b92324, #8b1517); }
@@ -112,7 +112,7 @@
     .pagination-next { color: #b92324; }
 }
 
-/* Lexend Regular cho nhãn ngôn ngữ VN/EN trên header. */
+/* Font Lexend */
 @font-face {
     font-family: 'Lexend';
     src: url('../../public/assets/fonts/Lexend/static/Lexend-Regular.ttf') format('truetype');
@@ -121,7 +121,7 @@
     font-display: swap;
 }
 
-/* Plus Jakarta Sans cho tiêu đề các thẻ định hướng phát triển. */
+/* Font Plus Jakarta Sans */
 @font-face {
     font-family: 'Plus Jakarta Sans';
     src: url('../../public/assets/fonts/Plus-Jakarta-Sans/PlusJakartaSans-variable.ttf') format('truetype');
@@ -130,7 +130,7 @@
     font-display: swap;
 }
 
-/* Font UTM Times cho nhận diện thương hiệu và hero trang chủ. */
+/* Font UTM Times */
 @font-face {
     font-family: 'UTM Times';
     src: url('../../public/assets/fonts/UTM Times/UTM Times.ttf') format('truetype');
@@ -147,7 +147,7 @@
     font-display: swap;
 }
 
-/* Font Manrope cho tiêu đề mục lục bài viết theo thiết kế. */
+/* Font Manrope */
 @font-face {
     font-family: 'Manrope';
     src: url('../../public/assets/fonts/Manrope/Manrope-variable.ttf') format('truetype');
@@ -204,8 +204,8 @@
     font-display: swap;
 }
 
-@source '../views/**/*.blade.php';
-@source '../js/**/*.js';
+@source '../views*.blade.php';
+@source '../js*.js';
 
 @theme {
     --font-sans: 'SVN-Poppins', 'Poppins', Arial, sans-serif;
@@ -237,7 +237,7 @@
     .section-space { @apply py-12 md:py-16; }
     .skip-link { @apply fixed top-3 left-3 z-100 -translate-y-20 bg-white px-4 py-3 text-sm text-teal-900 focus:translate-y-0; }
 
-    /* HomeHero: nhận diện UTM Times, khoảng cách các khối 32px, hai nút tư vấn. */
+    /* Hero trang chủ */
     .home-hero { position: relative; isolation: isolate; overflow: hidden; min-height: 560px; height: clamp(560px, 46.875vw, 900px); background: #003436; color: white; }
     .home-hero-viewport { position: absolute; inset: 0; z-index: -3; overflow: hidden; }
     .home-hero-track { display: flex; width: 100%; height: 100%; }
@@ -258,7 +258,7 @@
     .home-hero-contact { color: #fff; background: linear-gradient(180deg, #b91c1c, #7f1d1d); }
     .home-hero-actions a:hover { filter: brightness(1.1); }
 
-    /* ValuePropsImages: thay thanh lợi ích bằng 3 ảnh, padding dọc 32px, khung 1320px. */
+    /* Ba ảnh giá trị trang chủ */
     .home-value-images { background: #f5f8fa; padding-block: 32px; padding-inline: max(20px, calc((100% - 1320px) / 2)); }
     .home-value-images-grid { @apply grid gap-5 md:grid-cols-3 xl:gap-15; }
     .home-value-images-grid img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; border-radius: 16px; }
@@ -266,28 +266,28 @@
         .home-value-images { padding-inline: max(32px, calc((100% - 1320px) / 2)); }
     }
 
-    /* PracticeAreas trang chủ: padding trực tiếp, khung 1320px, lề 300px tại 1920px. */
+    /* Lĩnh vực hoạt động trang chủ */
     .home-practice { @apply py-12 md:py-20; padding-inline: max(20px, calc((100% - 1320px) / 2)); background: #f5f8fa; }
     @media (min-width: 640px) {
         .home-practice { padding-inline: max(32px, calc((100% - 1320px) / 2)); }
     }
     .home-practice-container { width: 100%; max-width: 1320px; margin: 0 auto; }
     .home-practice-header, .home-news-header { @apply flex flex-wrap items-end justify-between gap-6; }
-    /* Gradient/2: chữ và đường trang trí có vùng chuyển màu riêng, không tính khoảng trống vào gradient chữ. */
+    /* Nhãn đầu section và đường trang trí */
     .home-practice-eyebrow, .home-news-eyebrow, .about-eyebrow { --section-label-gradient: linear-gradient(180deg, #017b81 0%, #55a7ab 100%); }
     .home-practice-eyebrow, .home-news-eyebrow { @apply mb-2 font-sans text-sm leading-5 font-semibold; color: #017b81; }
     .home-practice-eyebrow > span, .home-news-eyebrow > span, .about-eyebrow > span { display: block; width: fit-content; background-image: var(--section-label-gradient); background-clip: text; color: transparent; }
     .home-practice-eyebrow::before, .home-news-eyebrow::before, .about-eyebrow::before { content: ''; display: block; width: 56px; height: 2px; margin-bottom: 12px; background: var(--section-label-gradient); }
     .home-practice-header h2, .home-news-header h2 { @apply flex flex-wrap items-center gap-6 font-sans text-2xl leading-8 font-semibold uppercase md:text-3xl md:leading-10; color: #002123; }
-    /* Tiêu đề lĩnh vực desktop: heading/H4, 32px với line-height 120%. */
+
     .home-practice-header h2 { letter-spacing: 0; text-align: center; }
     @media (min-width: 768px) {
         .home-practice-header h2 { font-size: 32px; line-height: 1.2; }
     }
     .home-practice-header h2 img, .home-news-header h2 img { width: 32px; height: 32px; flex-shrink: 0; }
-    /* ViewMore: hover/focus dùng gradient đỏ, chữ và mũi tên trắng. */
-    /* Nút Xem thêm: lòng trong 117 × 24px, padding 16px/8px và viền 1px. */
-    /* Nút Xem thêm: viền gradient nằm bên trong, không cộng thêm vào kích thước 149 × 40px. */
+    /* Nút Xem thêm */
+
+
     .view-more { @apply relative inline-flex shrink-0 items-center justify-center gap-2 rounded-2xl px-4 py-2 font-sans text-base leading-6 font-medium; min-width: 149px; min-height: 40px; color: #a92021; border: 0; background: rgb(126 1 31 / 5%); transition: color 200ms ease; }
     .view-more::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: linear-gradient(180deg, #b92324, #8b1517); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; pointer-events: none; }
     .view-more svg { flex-shrink: 0; width: 24px; height: 24px; }
@@ -314,23 +314,23 @@
     .home-practice-contact { @apply flex w-full items-center justify-center gap-2 rounded-xl bg-white px-4 py-3 font-sans text-base leading-6 font-semibold; color: #017b81; }
     .home-practice-contact:hover { background: #e5f2f2; }
 
-    /* Tin tức & Bài viết trang chủ */
+    /* Tin tức trang chủ */
     .home-news { @apply bg-white px-5 py-12 sm:px-8 md:py-16 xl:px-20; }
     .home-news-container { @apply mx-auto w-full max-w-7xl; }
     .home-news-header > div { min-width: 0; }
     .home-news-grid { @apply mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4; }
 
-    /* Section: RelatedArticles — dùng lại thẻ trang chủ, hai nút chỉ hiển thị giao diện. */
+    /* Bài viết liên quan */
     .home-news.article-related { @apply pt-12 pb-8; }
     .article-related-carousel { @apply relative; }
     .article-related-arrow { @apply absolute top-1/2 z-10 size-10 -translate-y-1/2 border-0 bg-transparent p-0 sm:size-12 xl:size-14; cursor: default; }
     .article-related-prev { @apply left-0 -translate-x-1/2 xl:-left-15 xl:translate-x-0; }
     .article-related-next { @apply right-0 translate-x-1/2 xl:-right-15 xl:translate-x-0; }
     .article-related-arrow img { @apply block size-full; }
-    /* Viền bên trong không chiếm kích thước: thẻ 308px - padding 16px = ảnh 292px. */
+    /* Thẻ blog */
     .blog-card { @apply flex min-w-0 cursor-pointer flex-col gap-3 overflow-hidden rounded-3xl p-2; border: 0; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 5%); background: #fcfcfc; }
     .blog-card-image { @apply relative overflow-hidden rounded-2xl; }
-    /* Hover toàn bộ thẻ: ảnh zoom nhẹ trong khung, tiêu đề chuyển đỏ. */
+
     .blog-card-image img { width: 100%; height: 200px; object-fit: cover; transition: transform 300ms ease-out; }
     .blog-card:hover .blog-card-image img, .blog-card:focus-within .blog-card-image img { transform: scale(1.05); }
     .blog-card-image::after { content: ''; position: absolute; inset: 0; background: rgb(0 0 0 / 40%); opacity: 0; transition: opacity 200ms ease; }
@@ -348,7 +348,7 @@
     .blog-card a:hover { color: #7e011f; }
 
     /* Trang Lĩnh vực hoạt động */
-    /* Lĩnh vực: padding trực tiếp trên section, lòng 1280px tại khung 1920px. */
+
     .practice-areas-section { @apply bg-white py-12 md:py-16; padding-inline: max(20px, calc((100% - 1280px) / 2)); }
     @media (min-width: 640px) {
         .practice-areas-section { padding-inline: max(32px, calc((100% - 1280px) / 2)); }
@@ -361,9 +361,9 @@
     .about-container { @apply mx-auto w-full max-w-7xl px-5 sm:px-8; }
     .about-section { @apply py-12 md:py-16; }
     .hero-page-1 { @apply relative isolate flex h-90 items-end overflow-hidden bg-[#003436] md:h-120 xl:h-162.5; }
-    /* Hero dùng chung: ảnh rõ, không lật/phóng lớn; gradient và blur nằm ở caption. */
+    /* Hero dùng chung */
     .hero-page-1-image { position: absolute; inset: 0; z-index: -20; width: 100%; max-width: none; height: 100%; min-height: 0; object-fit: cover; object-position: center; }
-    /* Caption: lớp blur hiện dần để mép trên mềm, gradient #003436 từ 0% đến 90%. */
+
     .hero-page-1-caption { @apply relative flex w-full flex-col items-start gap-2 px-5 pt-8 pb-8 md:pb-12; }
     .hero-page-1-caption::before, .hero-page-1-caption::after { content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0; }
     .hero-page-1-caption::before { backdrop-filter: blur(16px); mask-image: linear-gradient(180deg, transparent 0%, #000 65%); }
@@ -374,7 +374,7 @@
     .hero-page-1-breadcrumb [aria-current] { @apply font-medium text-white; }
     .hero-page-1 h1 { @apply text-3xl leading-10 font-medium text-white uppercase md:text-5xl md:leading-18; }
 
-    /* Section: HeroPage2 — banner ảnh có sẵn nền, chiều cao desktop 440px. */
+    /* Hero trang đội ngũ */
     .hero-page-2 { @apply h-80 md:h-96 xl:h-110; }
     .hero-page-2::before { display: none; }
     .hero-page-2 .hero-page-1-image { inset: 0; width: 100%; height: 100%; min-height: 0; object-position: center; transform: none; filter: none; }
@@ -402,7 +402,7 @@
     .about-mission-portrait { @apply hidden self-end xl:block; width: 277px; max-width: 100%; height: 309px; }
     .about-mission-portrait img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; }
     .about-mission-title, .about-mission-description { min-width: 0; }
-    /* Banner định hướng: gap tiêu đề 16px, gap nội dung 19px, hai cột chữ cách 24px. */
+    /* Banner Tầm nhìn & Sứ mệnh */
     .about-mission-title { display: flex; flex-direction: column; gap: 16px; }
     .about-mission-description { display: flex; flex-direction: column; gap: 19px; }
     .about-mission .about-eyebrow { @apply font-sans text-sm leading-5 font-semibold text-white; margin-bottom: 0; }
@@ -420,7 +420,7 @@
     .about-core-values li > span { @apply flex size-5 shrink-0 items-center justify-center rounded-full bg-brand-black text-xs leading-none text-white; }
     .about-core-values li > div { min-width: 0; }
     .about-statistics { @apply bg-white px-5 py-8 sm:px-8 xl:px-20; }
-    /* Thống kê: khung tối đa 1280px, padding dọc 40px; cột số liệu tối đa 256px. */
+    /* Thống kê trang Giới thiệu */
     .about-statistics-grid { @apply mx-auto grid w-full max-w-7xl grid-cols-2 gap-y-8 overflow-hidden rounded-3xl bg-slate-950 px-4 py-8 md:flex md:items-center md:justify-between md:gap-y-0 md:px-0 md:py-10; background-image: var(--about-background, none); background-size: cover; background-position: center; }
     .about-statistic-item { min-width: 0; text-align: center; }
     .about-statistic-separator { display: none; }
@@ -434,13 +434,13 @@
     .about-statistic-number { @apply font-bebas text-5xl leading-18 font-normal text-white md:text-7xl md:leading-[109.78px]; }
     .about-statistic-number span { @apply align-baseline text-inherit font-normal; }
     .about-statistic-label { @apply text-sm leading-6 font-medium tracking-normal text-white uppercase md:text-base; }
-    /* Cam kết: section trực tiếp quản lý grid và padding; lòng rộng 1280px tại khung 1920px. */
+    /* Cam kết của Hoàng Thịnh Luật */
     .about-commitments-section { @apply grid items-start gap-8 bg-white py-12 md:py-16 lg:grid-cols-[2fr_1fr] xl:gap-20; padding-inline: max(20px, calc((100% - 1280px) / 2)); }
     @media (min-width: 640px) {
         .about-commitments-section { padding-inline: max(32px, calc((100% - 1280px) / 2)); }
     }
     .about-commitments-section .about-eyebrow { @apply text-sm leading-5 font-semibold; width: fit-content; }
-    /* Cam kết: icon 56px, gap icon–chữ 16px; hàng cách đường phân cách 32px mỗi phía. */
+
     .about-commitment-grid { @apply mt-8 grid gap-x-12 gap-y-8 sm:grid-cols-2 sm:gap-y-16 xl:mt-16; }
     .about-commitment-card { @apply relative flex min-w-0 items-start gap-4; }
     .about-commitment-card > div { min-width: 0; }
@@ -460,7 +460,7 @@
     .about-team-slider { @apply relative mt-8 md:mt-12; }
     .about-team-viewport { overflow: hidden; }
     .about-team-grid { @apply flex gap-6; }
-    /* Section: TeamIntroductionAndFilters — trang Đội ngũ luật sư. */
+    /* Giới thiệu và bộ lọc đội ngũ */
     .team-intro-section { @apply bg-white px-5 pt-12 pb-10 sm:px-8 xl:px-20; }
     .team-intro-container { @apply mx-auto flex w-full max-w-7xl flex-col gap-8; }
     .team-intro-copy { @apply flex flex-col gap-3 text-body-copy; }
@@ -471,18 +471,18 @@
     .team-filter.is-active { color: white; background: linear-gradient(180deg, #b92324, #8b1517); box-shadow: none; }
     .team-filter:disabled { cursor: default; opacity: 1; }
 
-    /* Section: LawyerList — 12 thẻ luật sư, khung 1280px, cách nhau 32px. */
+    /* Danh sách luật sư */
     .team-list-section { @apply bg-white px-5 pb-16 sm:px-8 xl:px-20; }
     .team-list-grid { @apply mx-auto grid w-full max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3; }
     .team-list-grid .team-list-card { min-width: 0; aspect-ratio: 608 / 825; }
     .team-list-card .profile-caption p { @apply text-base leading-6 font-normal text-white/70; }
     .team-list-card .profile-caption h3 { @apply text-xl leading-6 font-semibold text-white; }
 
-    /* Section: Profile — thẻ luật sư dùng chung. */
+    /* Thẻ luật sư */
     .profile { @apply relative shrink-0 overflow-hidden rounded-3xl bg-neutral-800; aspect-ratio: 312 / 450; }
     .profile-photo { position: absolute; inset: 0; }
     .profile-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-    /* Hover: phần thông tin mở từ 100px lên 204px, dịch lên 104px trong 300ms. */
+
     .profile-caption { @apply absolute inset-x-0 bottom-0 px-4 pb-4 text-white; height: 100px; padding-top: 36px; background: linear-gradient(180deg, rgb(169 32 33 / 0%), rgb(169 32 33 / 95%)); transition: height 300ms cubic-bezier(0, 0, .58, 1); }
     .profile-summary { min-height: 48px; }
     .profile-caption p { @apply text-base leading-6 font-normal text-white/70; }
@@ -502,7 +502,7 @@
     .about-team-next { right: -32px; }
     .about-team-arrow img { width: 100%; height: 100%; }
     .about-team-arrow:disabled { cursor: default; opacity: .55; }
-    /* Section: ContactInformation — trang Liên hệ, thông tin công ty và bản đồ. */
+    /* Thông tin và bản đồ trang Liên hệ */
     .contact-info-section { @apply bg-white px-5 pt-12 pb-20 sm:px-10; }
     .contact-info-layout { @apply mx-auto grid w-full max-w-7xl items-start gap-10 lg:grid-cols-[minmax(0,416fr)_minmax(0,674fr)] lg:gap-12; }
     .contact-info-company { @apply min-w-0 font-sans text-lg leading-6.75 font-normal text-brand-black; }
@@ -539,7 +539,7 @@
     .about-contact-label, .about-contact-separator { @apply font-medium; }
     .about-contact-channels { @apply flex flex-col gap-2; }
     .about-contact-channels p { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 4px; }
-    /* Form tư vấn: padding 32px, gap nhóm/cột 24px, label cách ô nhập 6px. */
+    /* Form tư vấn */
     .about-consultation-form { @apply flex min-w-0 flex-col gap-6 rounded-3xl bg-white/10 p-8 backdrop-blur-xl; --consultation-field-background: rgb(255 255 255 / 40%); }
     .about-form-row { @apply grid grid-cols-2 gap-6; }
     .about-form-row > div { min-width: 0; }
@@ -556,7 +556,7 @@
     .about-consultation-form button:hover:not(:disabled) { background: #8b1517; }
     .about-consultation-form [aria-invalid='true'] { outline: 2px solid #fda4af; }
     .about-form-error { @apply mt-2 text-sm leading-5 text-rose-200; }
-    /* Toast: pop-up thông báo góc phải. */
+    /* Thông báo toast */
     .site-toast-region { position: fixed; top: 100px; right: 40px; z-index: 10000; display: flex; flex-direction: column; gap: 12px; width: 400px; max-width: calc(100% - 32px); pointer-events: none; }
     .site-toast { @apply flex items-center gap-3 rounded-lg p-4 text-base leading-6 font-semibold; min-height: 64px; border-left: 8px solid var(--toast-color); color: #242424; background: var(--toast-background); box-shadow: 0 4px 16px rgb(0 0 0 / 12%); pointer-events: auto; animation: toast-enter 350ms ease-out; }
     .site-toast[data-type='success'] { --toast-color: #16a34a; --toast-background: #f0fdf4; }
@@ -579,7 +579,7 @@
         .site-toast, .site-toast.is-closing { animation: none; }
     }
 
-    /* Section: ContactMessage — giới thiệu bên trái, form sáng dùng chung bên phải. */
+    /* Form gửi yêu cầu trang Liên hệ */
     .contact-message-section { @apply grid items-start gap-10 pt-16 lg:grid-cols-[minmax(0,528fr)_minmax(0,672fr)] lg:gap-20; padding-inline: max(20px, calc((100% - 1280px) / 2)); background: linear-gradient(180deg, #ffffff, #e5f2f2); }
     @media (min-width: 640px) {
         .contact-message-section { padding-inline: max(32px, calc((100% - 1280px) / 2)); }
@@ -589,7 +589,7 @@
     .contact-message-copy p { @apply mt-3 text-base leading-6 font-normal text-body-copy; }
     .contact-message-portrait { @apply block w-full; aspect-ratio: 528 / 508; object-fit: cover; object-position: center top; }
 
-    /* Desktop: hai cột cùng bắt đầu, ảnh chạm đáy section, form cách footer 64px. */
+
     @media (min-width: 1024px) {
         .contact-message-section { align-items: stretch; }
         .contact-message-intro { min-height: 0; }
@@ -597,7 +597,7 @@
         .contact-message-section > .consultation-form--light { align-self: start; margin-bottom: 64px; }
     }
 
-    /* Variant: light — giữ nguyên class cấu trúc, ID, tên trường và JavaScript của form cũ. */
+    /* Form tư vấn: giao diện sáng */
     .about-consultation-form.consultation-form--light { @apply min-w-0 bg-white; --consultation-field-background: #fcfcfc; }
     .about-consultation-form.consultation-form--light label { @apply text-brand-black; }
     .about-consultation-form.consultation-form--light :is(input, select, textarea) { @apply text-brand-black; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 8%); }
@@ -611,7 +611,7 @@
     /* Header */
     .site-header { @apply sticky top-0 z-50 w-full border-b border-brand-stroke bg-white; }
     .header-container { @apply mx-auto flex w-full max-w-480 flex-wrap items-center justify-between gap-x-5 gap-y-0 px-4 py-4 sm:px-8; }
-    /* Frame bên phải nhóm menu và actions; mobile giữ cách xuống hàng hiện có. */
+
     .header-right { display: contents; }
     .site-brand { @apply inline-flex min-w-0 shrink-0 items-center gap-2.5; }
     .header-brand { gap: 6px; }
@@ -636,7 +636,7 @@
     .header-link-dropdown[aria-expanded='true'] img { transform: rotate(180deg); }
     .header-practice-panel { width: 100%; border: 1px solid rgb(0 0 0 / 10%); border-radius: 0 0 24px 24px; background: #fcfcfc; }
     .header-practice-panel[hidden] { display: none; }
-    /* Dropdown Kiến thức pháp lý: danh sách gọn, viền bên trong theo Figma. */
+    /* Dropdown Kiến thức pháp lý */
     .header-knowledge { display: flex; flex-wrap: wrap; align-items: center; min-width: 0; }
     .header-knowledge > a { flex: 1; padding: 8px 10px; font-size: 14px; line-height: 20px; }
     .header-knowledge-toggle { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; padding: 0; border: 0; background: transparent; color: #002123; cursor: pointer; }
@@ -670,7 +670,7 @@
     .header-hotline { @apply hidden items-center gap-3 sm:flex; color: #c61118; }
     .hotline-copy { @apply inline-flex flex-col justify-center items-end gap-0.5; width: 144px; height: 48px; white-space: nowrap; }
     .hotline-copy small { @apply self-stretch text-right font-sans text-sm leading-5 font-normal text-brand-black; }
-    /* Hotline 144 × 48px: dòng nhãn 20px + khoảng cách 2px + dòng số 26px. */
+    /* Hotline header */
     .hotline-copy strong { @apply flex items-center justify-end text-right font-sans font-bold; width: 144px; height: 26px; flex-shrink: 0; font-size: 22px; line-height: 26px; letter-spacing: 0; font-variant-numeric: lining-nums tabular-nums; background-image: linear-gradient(180deg, #a92021, #cf0405); background-clip: text; color: transparent; }
     .hotline-icon { @apply flex size-12 items-center justify-center rounded-full; }
     .hotline-icon img, .header-search img { @apply size-12 shrink-0 object-contain; }
@@ -681,12 +681,12 @@
     .language-current { @apply bg-gray-800/5; color: #002224; }
     .language-unavailable { @apply text-slate-500; position: relative; margin-left: 8px; opacity: .6; }
     .language-unavailable::before { content: ''; position: absolute; left: -8px; width: 1px; height: 20px; background: #0022241a; }
-    /* Khung ngôn ngữ desktop: 150 × 48px, lòng ngang 134px, viền không chiếm diện tích. */
+    /* Ngôn ngữ header desktop */
     @media (min-width: 768px) {
         .header-languages { width: 150px; flex-shrink: 0; }
         .header-languages > span { flex: 1; min-width: 0; justify-content: center; }
     }
-    /* Language PNGs include labels; show only the flag in the existing 20px slot. */
+
     .language-flag { width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%; object-fit: none; object-position: -6px -6px; }
     .language-flag-wrapper { display: inline-flex; width: 20px; height: 20px; flex-shrink: 0; overflow: hidden; border-radius: 50%; }
     .menu-toggle { @apply flex size-10 items-center justify-center rounded-full border border-brand-stroke text-slate-800 hover:bg-slate-100; }
@@ -696,7 +696,7 @@
     .menu-toggle[aria-expanded='true'] .menu-icon-close { display: block; }
     .header-menu-backdrop[hidden] { display: none; }
 
-    /* Menu mobile: hàng logo đứng yên, toàn bộ menu cuộn trong một panel. */
+    /* Menu mobile */
     @media (max-width: 1535px) {
         html.has-mobile-menu { overflow: hidden; }
         .header-navigation {
@@ -734,9 +734,9 @@
 
     /* Footer */
     .site-footer { @apply w-full bg-[#07172d] text-white; display: flow-root; background-image: var(--footer-background, none); background-size: cover; background-position: center; }
-    /* Hai frame footer độc lập, dùng padding trực tiếp để giữ khung nội dung 1280px. */
+
     .footer-main, .footer-bottom { padding-inline: max(20px, calc((100% - 1280px) / 2)); }
-    /* Khoảng cách dọc nằm ngoài frame nội dung; frame chỉ có padding ngang. */
+
     .footer-main { margin-top: 32px; margin-bottom: 48px; }
     .footer-grid { @apply grid grid-cols-2 gap-x-12 gap-y-10; grid-template-areas: 'company quick' 'legal contact' 'legal map'; }
     .footer-company { grid-area: company; }
@@ -744,17 +744,17 @@
     .footer-legal-links { grid-area: legal; }
     #footer-contact { grid-area: contact; }
     .footer-grid > * { min-width: 0; }
-    /* Logo footer gồm biểu tượng mới và tên thương hiệu màu trắng đặt cạnh nhau. */
+    /* Logo footer */
     .site-footer .site-brand { @apply flex; width: 389px; max-width: 100%; gap: 5px; }
     .footer-logo { width: 64px; height: auto; flex: 0 0 16.45%; aspect-ratio: 1; object-fit: contain; }
     .footer-logo-wordmark { display: block; width: 0; min-width: 0; height: auto; flex: 1; object-fit: contain; filter: brightness(0) invert(1); }
     .site-footer .brand-emblem { @apply border-white/60 text-white; }
     .site-footer .brand-emblem small, .site-footer .brand-wordmark { @apply text-white; }
     .site-footer .brand-wordmark small { @apply text-slate-300; }
-    /* Tên công ty: hai dòng liền nhau, line-height 32px + 40px = 72px. */
+    /* Tên công ty footer */
     .footer-company-name { @apply mt-6 flex flex-col text-2xl leading-8 font-semibold uppercase text-white; font-family: 'SVN-Poppins', sans-serif; }
     .footer-company-name strong { @apply block text-3xl leading-10 font-semibold; }
-    /* Màu chữ phụ theo Figma: style mang tên stone-200 nhưng giá trị là #F0E8E8. */
+
     .footer-tagline { @apply mt-2 text-base leading-6 font-normal text-[#f0e8e8]; }
     .footer-socials { @apply mt-6 flex items-center gap-4; }
     .footer-socials button { @apply flex size-8 items-center justify-center rounded-full border border-white/60 bg-transparent p-0; cursor: default; }
@@ -776,7 +776,7 @@
     .footer-map small { @apply mt-1.5 block text-xs text-slate-400; }
     .footer-bottom { @apply flex min-h-14 items-center justify-center border-t border-white/10 text-center text-sm leading-5 font-normal text-white/50; }
 
-    /* Footer mobile: bản đồ nằm dưới các icon mạng xã hội, trước hai nhóm liên kết. */
+    /* Footer mobile */
     @media (max-width: 767px) {
         .site-footer { background-image: linear-gradient(rgb(7 23 45 / 70%), rgb(7 23 45 / 90%)), var(--footer-background, none); }
         .footer-main { margin-top: 24px; margin-bottom: 24px; }
@@ -808,19 +808,19 @@
 }
 
 @media (min-width: 1280px) {
-    /* Desktop: lớp nền cao cố định 534px; section vẫn giãn để chứa đủ nội dung. */
+
     .about-values { padding-bottom: 88px; }
     .about-values-background { top: 181px; bottom: auto; height: 534px; }
     .about-values > .about-container { width: calc(100% - 160px); }
     .about-mission { grid-template-columns: 277px minmax(0, 1fr); gap: 0; min-height: 309px; padding: 0 64px 0 24px; }
     .about-mission-portrait { width: 277px; height: 309px; }
-    /* Giữ vị trí ba thẻ so với lớp nền sau khi banner giảm 11px chiều cao. */
+
     .about-value-grid { margin-top: 51px; }
     .about-mission-content { display: grid; grid-template-columns: max-content minmax(0, 1fr); align-items: start; gap: 24px; padding: 0; }
     .about-mission-title, .about-mission-description { padding: 0; }
     .about-mission .about-heading { white-space: nowrap; }
     .footer-grid { grid-template-columns: minmax(0, 388fr) minmax(0, 164fr) minmax(0, 164fr) minmax(0, 420fr); grid-template-areas: 'company quick legal contact' 'company quick legal map'; row-gap: 12px; }
-    /* Liên kết nhanh cao theo nội dung: 41px tiêu đề + 12px cách + 164px danh sách = 217px. */
+
     .footer-quick-links { align-self: start; }
     .footer-quick-links .footer-links { margin-top: 12px; }
     .site-footer { min-height: 492px; background-size: 100% 100%; }
@@ -828,25 +828,25 @@
     .footer-main { margin-top: 64px; }
 }
 
-/* Khi đủ khung 1280px: thẻ 416 × 325px, lòng trong 368 × 277px. */
+
 @media (min-width: 1536px) {
-    /* Blog danh sách: thẻ 305 × 376px, padding 8px cho lòng 289 × 360px. */
+
     .practice-detail-posts { grid-template-columns: repeat(3, 305px); }
     .practice-detail-posts .blog-card { height: 376px; }
-    /* Thẻ trang Lĩnh vực giữ kích thước nguyên khi đủ khung nội dung 1280px. */
+
     .practice-areas-grid { grid-template-columns: repeat(3, 413px); justify-content: space-between; }
-    /* Ảnh giám đốc đúng kích thước Figma, không chia cột theo tỷ lệ gây pixel lẻ. */
+
     .about-intro { grid-template-columns: minmax(0, 1fr) 520px; }
     .about-director { width: 520px; height: 527px; }
     .about-director > img { width: 520px; height: 527px; }
     .about-value-card { height: 325px; }
     .about-mission { column-gap: 21px; }
     .about-mission-content { grid-template-columns: minmax(0, 1fr) 533px; }
-    /* Đường kẻ là nét vẽ không chiếm chiều cao, khớp khối tiêu đề cao 92px. */
+
     .about-mission .about-eyebrow::before { width: 56px; height: 2px; background: white; }
 }
 
-/* Hero kiểu 1 dùng chung: tablet giữ tỷ lệ ảnh, điện thoại dùng caption gọn. */
+/* Hero dùng chung: responsive */
 @media (min-width: 640px) and (max-width: 1279px) {
     .hero-page-1:not(.hero-page-2) { height: auto; aspect-ratio: 1920 / 650; }
     .hero-page-1:not(.hero-page-2) .hero-page-1-caption { padding: 24px 32px; }
@@ -862,7 +862,7 @@
     .hero-page-1:not(.hero-page-2) h1 { font-size: 28px; line-height: 36px; }
 }
 
-/* Tầm nhìn & Sứ mệnh mobile: banner và thẻ gọn, giữ đủ nội dung không cắt chữ. */
+/* Tầm nhìn & Sứ mệnh: mobile */
 @media (max-width: 767px) {
     .about-values { padding-bottom: 24px; }
     .about-values-background { top: 72px; }
@@ -877,7 +877,7 @@
     .about-value-grid { margin-top: 16px; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: calc(100% - 56px); gap: 12px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
     .about-value-grid::-webkit-scrollbar { display: none; }
     .about-value-card { display: grid; grid-template-columns: 40px minmax(0, 1fr); align-items: center; align-content: start; gap: 12px; padding: 16px; border-radius: 16px; text-align: left; scroll-snap-align: center; }
-    /* Thẻ giữa nổi bật, các thẻ bên cạnh thu nhỏ và giảm độ đậm. */
+
     .about-value-grid { padding-block: 12px; }
     .about-value-grid.is-carousel-ready .about-value-card { opacity: .5; transform: translateY(6px) scale(.96); filter: saturate(.65); transition: transform 300ms ease, opacity 300ms ease, filter 300ms ease, box-shadow 300ms ease; }
     .about-value-grid.is-carousel-ready .about-value-card.is-active { opacity: 1; transform: translateY(0) scale(1); filter: none; box-shadow: 0 6px 12px rgb(0 0 0 / 20%); }
@@ -893,7 +893,7 @@
     .about-value-grid.is-carousel-ready .about-value-card { transition: none; }
 }
 
-/* Cam kết mobile: bốn mục đầu chia hai cột, hỗ trợ toàn quốc ở hàng cuối; ẩn ảnh. */
+/* Cam kết: mobile */
 @media (max-width: 767px) {
     .about-commitments-section { padding-block: 32px; gap: 0; }
     .about-commitments-section .about-eyebrow { font-size: 12px; line-height: 18px; }
@@ -910,7 +910,7 @@
     .about-commitment-image { display: none; }
 }
 
-/* Liên hệ mobile: logo ở giữa, dùng bản đồ footer, bỏ ảnh minh họa để form dễ tiếp cận. */
+/* Thông tin liên hệ: mobile */
 @media (max-width: 767px) {
     .contact-info-section { padding: 32px 20px 24px; }
     .contact-info-logo { margin-inline: auto; }
@@ -918,7 +918,7 @@
     .contact-message-section { padding-block: 24px; gap: 24px; }
 }
 
-/* Tư vấn mobile: thông tin gọn, trường nhập 16px và nút bấm cao ít nhất 48px. */
+/* Form tư vấn: mobile */
 @media (max-width: 767px) {
     .about-contact { padding: 24px 20px; }
     .about-contact-grid { gap: 20px; }
@@ -943,7 +943,7 @@
     .about-form-row { grid-template-columns: minmax(0, 1fr); }
 }
 
-/* Trang chủ mobile: ảnh giá trị cuộn ngang, hero gọn và hai nút xếp theo cột. */
+/* Trang chủ: mobile */
 @media (max-width: 767px) {
     .home-value-images { padding-block: 20px; }
     .home-value-images-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: min(82%, 300px); gap: 12px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
@@ -990,14 +990,14 @@
     .header-link { padding: 4px 8px; white-space: nowrap; }
     .header-actions { gap: 16px; }
     .menu-toggle { display: none; }
-    /* Một cụm menu: padding 4px/8px, chữ và icon cách 8px, lòng cao 24px. */
+
     .header-practice { flex-wrap: nowrap; flex-shrink: 0; width: 190px; gap: 8px; padding: 4px 8px; }
     .header-practice > a { padding: 0; }
     .header-practice-toggle { width: 12px; height: 24px; padding: 0; }
     .header-knowledge { position: relative; flex-wrap: nowrap; flex-shrink: 0; gap: 8px; padding: 4px 8px; }
     .header-knowledge > a { flex: none; padding: 0; font-size: 16px; line-height: 24px; }
     .header-knowledge-toggle { width: 12px; height: 24px; }
-    /* Căn trái theo mục menu, đặt dưới cạnh header 5px; chiều rộng ôm danh sách. */
+
     .header-knowledge-panel { --knowledge-offset: calc((var(--header-height, 113px) - 32px) / 2 + 5px); position: absolute; top: calc(100% + var(--knowledge-offset)); left: 0; z-index: 1; width: max-content; max-width: calc(100vw - 40px); }
     .header-knowledge-panel::before { content: ''; position: absolute; bottom: 100%; left: 0; right: 0; height: var(--knowledge-offset); }
     .header-knowledge-item { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -1011,7 +1011,7 @@
     .header-navigation { gap: 8px; }
 }
 
-/* Header điện thoại: logo gọn để đủ chỗ cho tìm kiếm, VN/EN và nút menu. */
+/* Header: mobile */
 @media (max-width: 767px) {
     .header-container { flex-wrap: nowrap; column-gap: 8px; padding: 12px; }
     .header-brand { gap: 4px; }
@@ -1044,7 +1044,7 @@
 }
 
 @media (min-width: 1280px) {
-    /* Thẻ lĩnh vực trang chủ: ảnh 130px + nội dung 100px + viền 2px = 232px. */
+
     .home-practice-grid .practice-area-card { height: 232px; }
     .home-practice-grid .practice-area-card-image { height: 130px; aspect-ratio: auto; }
     .home-practice-grid .practice-area-card-body { height: 100px; min-height: 0; padding-block: 12px; }
@@ -1057,11 +1057,11 @@
     .about-contact-grid { grid-template-columns: minmax(0, 416fr) minmax(0, 730fr); gap: 134px; }
     .about-contact { background-size: 100% 100%; }
     .about-contact-company, .about-consultation-form { min-height: 552px; }
-    /* Khối thông tin 416 × 552px: không padding, căn giữa nội dung theo chiều dọc như Figma. */
+
     .about-contact-company { width: 416px; max-width: 100%; box-sizing: border-box; padding: 0; justify-content: center; }
 }
 
-/* Hero khung thiết kế 1920px: giữ đúng cỡ chữ và chiều cao dù có thanh cuộn dọc. */
+/* Hero trang chủ: desktop lớn */
 @media (min-width: 1900px) {
     .home-hero { height: 900px; }
     .home-hero-eyebrow, .home-hero-tagline { font-size: 48px; }
