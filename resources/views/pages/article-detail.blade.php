@@ -247,6 +247,7 @@
               date="2026-07-26"
             />
           @endforeach
+          <x-buttons.view-more-button class="cards-view-more" :href="route('news')" />
         </div>
         {{-- Nút chuyển slide: chỉ dựng giao diện, chưa gắn chức năng. --}}
         <button class="article-related-arrow article-related-prev" type="button" aria-label="Bài viết trước" disabled>

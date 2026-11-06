@@ -16,7 +16,41 @@ export function initValuePropsCarousel(track, { autoplay = 0 } = {}) {
   let visible = false;
   let hovering = false;
   let activeFrame = 0;
+  let animationFrame = 0;
+  const duration = Number(track.dataset.transitionDuration) || 0;
+  const initialSnap = track.style.scrollSnapType;
   const highlightActive = track.hasAttribute('data-highlight-active');
+  const syncedHero = track.hasAttribute('data-sync-home-slider')
+    ? track.closest('main')?.querySelector('[data-home-slider]') : null;
+
+  const stopAnimation = () => {
+    cancelAnimationFrame(animationFrame);
+    animationFrame = 0;
+    track.style.scrollSnapType = initialSnap;
+  };
+
+  const advance = () => {
+    const distance = cycleWidth / items.length;
+    if (!duration) {
+      track.scrollBy({ left: distance, behavior: 'smooth' });
+      return;
+    }
+    stopAnimation();
+    const start = track.scrollLeft;
+    const started = performance.now();
+    track.style.scrollSnapType = 'none';
+    const step = (now) => {
+      const progress = Math.min(1, (now - started) / duration);
+      const eased = progress * progress * (3 - 2 * progress);
+      track.scrollLeft = start + distance * eased;
+      if (progress < 1) animationFrame = requestAnimationFrame(step);
+      else {
+        stopAnimation();
+        normalize();
+      }
+    };
+    animationFrame = requestAnimationFrame(step);
+  };
 
   const updateActive = () => {
     if (!highlightActive || !mobile.matches) return;
@@ -47,18 +81,17 @@ export function initValuePropsCarousel(track, { autoplay = 0 } = {}) {
     });
   };
 
+  const canAutoplay = () => autoplay && mobile.matches && visible && !touching && !hovering
+    && !document.hidden && !reducedMotion.matches && !track.contains(document.activeElement);
+
   const scheduleAutoplay = () => {
-    clearTimeout(autoTimer);
-    if (!autoplay || !mobile.matches || !visible || touching || hovering
-      || document.hidden || reducedMotion.matches || track.contains(document.activeElement)) return;
-    autoTimer = setTimeout(() => {
-      track.scrollBy({ left: cycleWidth / items.length, behavior: 'smooth' });
-      scheduleAutoplay();
-    }, autoplay);
+    clearInterval(autoTimer);
+    if (syncedHero || !canAutoplay()) return;
+    autoTimer = setInterval(advance, autoplay);
   };
 
   const normalize = () => {
-    if (!cycleWidth || touching) return;
+    if (!cycleWidth || touching || animationFrame) return;
     const offset = track.scrollLeft - cycleStart;
     if (offset < -1 || offset >= cycleWidth - 1) {
       track.scrollLeft = cycleStart + ((offset % cycleWidth) + cycleWidth) % cycleWidth;
@@ -69,7 +102,6 @@ export function initValuePropsCarousel(track, { autoplay = 0 } = {}) {
     scheduleActive();
     clearTimeout(timer);
     timer = setTimeout(normalize, 180);
-    scheduleAutoplay();
   };
 
   const measure = () => {
@@ -84,7 +116,8 @@ export function initValuePropsCarousel(track, { autoplay = 0 } = {}) {
 
   const update = () => {
     clearTimeout(timer);
-    clearTimeout(autoTimer);
+    clearInterval(autoTimer);
+    stopAnimation();
     clones.forEach((clone) => clone.remove());
     clones = [];
     cycleWidth = 0;
@@ -114,12 +147,16 @@ export function initValuePropsCarousel(track, { autoplay = 0 } = {}) {
   };
 
   track.addEventListener('scroll', scheduleNormalize, { passive: true, signal });
+  syncedHero?.addEventListener('home:slidechange', () => {
+    if (canAutoplay()) advance();
+  }, { signal });
   track.addEventListener('scrollend', normalize, { signal });
   track.addEventListener('touchstart', () => {
     touching = true;
-    clearTimeout(autoTimer);
+    clearInterval(autoTimer);
+    stopAnimation();
   }, { passive: true, signal });
-  const finishTouch = () => { touching = false; scheduleNormalize(); };
+  const finishTouch = () => { touching = false; scheduleNormalize(); scheduleAutoplay(); };
   track.addEventListener('touchend', finishTouch, { passive: true, signal });
   track.addEventListener('touchcancel', finishTouch, { passive: true, signal });
   mobile.addEventListener('change', update, { signal });
@@ -134,7 +171,7 @@ export function initValuePropsCarousel(track, { autoplay = 0 } = {}) {
     hovering = false;
     scheduleAutoplay();
   }, { signal });
-  track.addEventListener('focusin', () => clearTimeout(autoTimer), { signal });
+  track.addEventListener('focusin', () => clearInterval(autoTimer), { signal });
   track.addEventListener('focusout', () => queueMicrotask(scheduleAutoplay), { signal });
   const visibilityObserver = new IntersectionObserver(([entry]) => {
     visible = entry.isIntersecting;
@@ -156,7 +193,8 @@ export function initValuePropsCarousel(track, { autoplay = 0 } = {}) {
     observer.disconnect();
     visibilityObserver.disconnect();
     clearTimeout(timer);
-    clearTimeout(autoTimer);
+    clearInterval(autoTimer);
+    stopAnimation();
     cancelAnimationFrame(activeFrame);
     clones.forEach((clone) => clone.remove());
     track.classList.remove('is-carousel-ready');

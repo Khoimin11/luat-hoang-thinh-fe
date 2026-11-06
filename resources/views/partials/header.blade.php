@@ -45,8 +45,7 @@
                     <span class="language-unavailable" lang="en" aria-label="Chuyển sang tiếng Anh" aria-disabled="true"><span class="language-flag-wrapper" aria-hidden="true"><img class="language-flag" src="{{ asset('assets/icons/lang-eng.png') }}" width="20" height="20" alt=""></span> EN</span>
                 </div>
                 <button class="menu-toggle" type="button" data-menu-toggle aria-controls="main-navigation" aria-expanded="false" aria-label="Mở hoặc đóng menu">
-                    <svg class="menu-icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-                    <svg class="menu-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+                    <svg class="menu-icon-open" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><rect x="2" y="4" width="16" height="2" rx="1"/><rect x="2" y="9" width="16" height="2" rx="1"/><rect x="2" y="14" width="16" height="2" rx="1"/></svg>
                 </button>
             </div>
         </div>

@@ -41,7 +41,7 @@
 
   {{-- Section: ValuePropsImages --}}
   <section class="home-value-images" aria-label="Giá trị đồng hành của Hoàng Thịnh Luật">
-    <div class="home-value-images-grid" data-value-props-carousel>
+    <div class="home-value-images-grid" data-value-props-carousel data-sync-home-slider data-autoplay="5000" data-transition-duration="650">
       @foreach ([
         ['value-props-1.png', 'Pháp lý chuyên sâu — Bảo vệ tối đa quyền và lợi ích hợp pháp của khách hàng'],
         ['value-props-2.png', 'Điểm tựa pháp lý tin cậy của khách hàng'],
@@ -72,6 +72,7 @@
               :description="$area['description']"
             />
           @endforeach
+          <x-buttons.view-more-button class="cards-view-more" :href="route('practice-areas')" />
         </div>
         <aside class="home-practice-reasons" aria-labelledby="home-practice-reasons-title" style="--practice-background: url('{{ asset('assets/images/home-practice-reason-bg-img.png') }}')">
           <p class="home-practice-reasons-eyebrow">Vì sao chọn</p>
@@ -116,6 +117,7 @@
             date="2026-07-26"
           />
         @endforeach
+        <x-buttons.view-more-button class="cards-view-more" :href="route('news')" />
       </div>
     </div>
   </section>

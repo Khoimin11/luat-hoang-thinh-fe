@@ -17,6 +17,18 @@
     $items[] = $number;
     $previous = $number;
   }
+  $mobileNumbers = $lastPage <= 4 ? range(1, $lastPage) : (
+    $currentPage <= 3 ? [1, 2, 3, $lastPage] : (
+      $currentPage >= $lastPage - 2 ? [1, $lastPage - 2, $lastPage - 1, $lastPage] : [1, $currentPage, $lastPage]
+    )
+  );
+  $mobileItems = [];
+  $previous = 0;
+  foreach ($mobileNumbers as $number) {
+    if ($previous && $number - $previous > 1) $mobileItems[] = null;
+    $mobileItems[] = $number;
+    $previous = $number;
+  }
 @endphp
 
 @if ($lastPage > 1)
@@ -27,7 +39,9 @@
       <button class="pagination-item pagination-arrow" type="button" disabled aria-label="Trang trước">‹</button>
     @endif
 
-    @foreach ($items as $page)
+    @foreach (['desktop' => $items, 'mobile' => $mobileItems] as $variant => $pages)
+      <span class="pagination-pages pagination-pages-{{ $variant }}">
+      @foreach ($pages as $page)
       @if ($page === null)
         <span class="pagination-item pagination-ellipsis" aria-hidden="true">...</span>
       @elseif ($page === $currentPage)
@@ -37,6 +51,8 @@
       @else
         <button class="pagination-item" type="button" disabled aria-label="Trang {{ $page }}">{{ $page }}</button>
       @endif
+      @endforeach
+      </span>
     @endforeach
 
     @if ($currentPage < $lastPage && !empty($pageUrls[$currentPage + 1]))

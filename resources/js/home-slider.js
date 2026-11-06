@@ -40,6 +40,7 @@ export function initHomeSlider(slider) {
     track.style.transition = reducedMotion.matches ? 'none' : 'transform 650ms ease';
     track.style.transform = `translateX(-${index * 100}%)`;
     updateSlides();
+    slider.dispatchEvent(new CustomEvent('home:slidechange'));
     if (reducedMotion.matches) finish();
     else fallback = setTimeout(finish, 700);
   };

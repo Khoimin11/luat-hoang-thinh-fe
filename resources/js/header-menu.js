@@ -11,6 +11,35 @@ export function initHeaderMenu(header) {
   const backdrop = header.querySelector('[data-menu-backdrop]');
   const desktop = window.matchMedia('(min-width: 1536px)');
   const hover = window.matchMedia('(hover: hover)');
+  const mobile = window.matchMedia('(max-width: 767px)');
+  let lastScrollY = window.scrollY;
+  let scrollFrame = 0;
+  let scrollOffset = 0;
+
+  const showHeader = () => {
+    scrollOffset = 0;
+    header.style.setProperty('--header-scroll-offset', '0px');
+    lastScrollY = window.scrollY;
+  };
+  const updateHeaderVisibility = () => {
+    scrollFrame = 0;
+    const position = Math.max(0, window.scrollY);
+    if (!mobile.matches || navigation.classList.contains('is-open') || header.querySelector(':focus-visible')
+      || position <= 0) {
+      showHeader();
+      return;
+    }
+    const delta = position - lastScrollY;
+    scrollOffset = Math.min(header.offsetHeight, Math.max(0, scrollOffset + delta));
+    header.style.setProperty('--header-scroll-offset', `${scrollOffset}px`);
+    lastScrollY = position;
+  };
+  window.addEventListener('scroll', () => {
+    if (!scrollFrame) scrollFrame = requestAnimationFrame(updateHeaderVisibility);
+  }, { passive: true });
+  mobile.addEventListener('change', showHeader);
+  header.addEventListener('focusin', showHeader);
+  document.addEventListener('turbo:load', showHeader);
 
   // Panel cuộn trong phần màn hình còn lại bên dưới hàng logo.
   const updateHeaderHeight = () => {
@@ -36,7 +65,10 @@ export function initHeaderMenu(header) {
 
   const setNavigation = (open) => {
     open = open && !desktop.matches;
-    if (open) updateHeaderHeight();
+    if (open) {
+      showHeader();
+      updateHeaderHeight();
+    }
     navigation.classList.toggle('is-open', open);
     menuToggle.setAttribute('aria-expanded', String(open));
     menuToggle.setAttribute('aria-label', open ? 'Đóng menu' : 'Mở menu');
