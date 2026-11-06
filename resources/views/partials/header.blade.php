@@ -14,17 +14,11 @@
                     @include('partials.menu-dropdown')
                 </div>
                 <div class="header-knowledge" data-header-dropdown>
-                    <a class="header-link {{ request()->routeIs('news') ? 'is-active' : '' }}" href="{{ route('news') }}" @if(request()->routeIs('news')) aria-current="page" @endif>Kiến thức pháp lý</a>
+                    <a class="header-link {{ request()->routeIs('news', 'news.*') ? 'is-active' : '' }}" href="{{ route('news') }}" @if(request()->routeIs('news', 'news.*')) aria-current="page" @endif>Kiến thức pháp lý</a>
                     <button class="header-knowledge-toggle header-link-dropdown" type="button" aria-label="Mở danh mục kiến thức pháp lý" aria-expanded="false" aria-controls="knowledge-menu" data-header-dropdown-trigger><img src="{{ asset('assets/icons/Icon.svg') }}" width="12" height="12" alt=""></button>
                     <div id="knowledge-menu" class="header-knowledge-panel" data-header-dropdown-panel hidden>
-                        @foreach ([
-                            'Tin tức pháp lý – Chính sách mới',
-                            'Văn bản pháp luật cập nhật',
-                            'Bài viết – Kiến thức pháp lý',
-                            'Giải đáp thắc mắc thường gặp',
-                            'Hoạt động của Hoàng Thịnh Luật',
-                        ] as $category)
-                            <a class="header-knowledge-item" href="{{ route('news') }}">{{ $category }}</a>
+                        @foreach ($newsCategories as $newsCategory)
+                            <a class="header-knowledge-item" href="{{ route('news.category', $newsCategory['slug']) }}">{{ $newsCategory['title'] }}</a>
                         @endforeach
                     </div>
                 </div>

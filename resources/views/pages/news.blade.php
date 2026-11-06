@@ -1,35 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'Kiến thức pháp lý')
+@section('title', $category['title'] ?? 'Kiến thức pháp lý')
 
 @section('content')
   {{-- Section: Hero --}}
   <x-heroes.hero-page-1
     class="news-hero"
-    title="Kiến thức pháp lý"
+    :title="$category['title'] ?? 'Kiến thức pháp lý'"
     heading-id="news-title"
     :image="asset('assets/images/hero-img-news.png')"
-    :breadcrumbs="[
-      ['label' => 'Trang chủ', 'url' => route('home')],
-      ['label' => 'Tin tức và Kiến thức pháp luật'],
-    ]"
+    :breadcrumbs="$breadcrumbs"
   />
-
-  @php
-    $posts = json_decode(
-      file_get_contents(resource_path('data/news-posts.json')),
-      true,
-      512,
-      JSON_THROW_ON_ERROR
-    );
-    $landPosts = json_decode(
-      file_get_contents(resource_path('data/land-posts.json')),
-      true,
-      512,
-      JSON_THROW_ON_ERROR
-    );
-    $latestPosts = array_map(fn ($index) => $landPosts[$index], [0, 1, 3, 9, 4]);
-  @endphp
 
   {{-- Section: Content --}}
   <section class="practice-detail" aria-labelledby="news-posts-title">

@@ -11,5 +11,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $areas = json_decode(file_get_contents(resource_path('data/practice-areas.json')), true, 512, JSON_THROW_ON_ERROR);
         View::share('practiceAreas', collect($areas));
+        $categories = json_decode(file_get_contents(resource_path('data/news-categories.json')), true, 512, JSON_THROW_ON_ERROR);
+        View::share('newsCategories', collect($categories));
     }
 }
