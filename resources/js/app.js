@@ -6,8 +6,10 @@ import { initHomeSlider } from './home-slider';
 import { initValuePropsCarousel } from './value-props-carousel';
 import { initArticleToc } from './article-table-contents';
 import { initLanguageSwitcher } from './language-switcher';
+import { initHeaderSearch } from './header-search';
 
 document.querySelectorAll('.site-header').forEach(initHeaderMenu);
+document.querySelectorAll('.site-header').forEach(initHeaderSearch);
 document.querySelectorAll('[data-language-switcher]').forEach(initLanguageSwitcher);
 
 function initConsultationForm(form) {

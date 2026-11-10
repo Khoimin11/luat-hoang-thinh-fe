@@ -24,7 +24,7 @@ export function initHeaderMenu(header) {
   const updateHeaderVisibility = () => {
     scrollFrame = 0;
     const position = Math.max(0, window.scrollY);
-    if (!mobile.matches || navigation.classList.contains('is-open') || header.querySelector(':focus-visible')
+    if (!mobile.matches || navigation.classList.contains('is-open') || header.querySelector('.header-search-form.is-open') || header.querySelector(':focus-visible')
       || position <= 0) {
       showHeader();
       return;
@@ -55,6 +55,9 @@ export function initHeaderMenu(header) {
   updateHeaderHeight();
 
   const setDropdown = (dropdown, open, fromHover = false) => {
+    if (open && desktop.matches) {
+      header.dispatchEvent(new CustomEvent('header:panel-open', { detail: 'menu' }));
+    }
     clearTimeout(dropdown.closeTimer);
     dropdown.closeTimer = null;
     dropdown.openedByHover = open && fromHover;
@@ -66,6 +69,7 @@ export function initHeaderMenu(header) {
   const setNavigation = (open) => {
     open = open && !desktop.matches;
     if (open) {
+      header.dispatchEvent(new CustomEvent('header:panel-open', { detail: 'menu' }));
       showHeader();
       updateHeaderHeight();
     }
@@ -81,6 +85,9 @@ export function initHeaderMenu(header) {
     }
   };
 
+  header.addEventListener('header:panel-open', (event) => {
+    if (event.detail !== 'menu') setNavigation(false);
+  });
   backdrop.addEventListener('click', () => setNavigation(false));
   document.addEventListener('turbo:before-render', () => setNavigation(false));
 

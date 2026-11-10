@@ -2,6 +2,7 @@ export function initLanguageSwitcher(switcher) {
   const buttons = [...switcher.querySelectorAll('.language-option')];
   const trigger = switcher.querySelector('.language-trigger');
   const mobile = window.matchMedia('(max-width: 767px)');
+  const header = switcher.closest('.site-header');
 
   const close = () => {
     switcher.classList.remove('is-open');
@@ -9,8 +10,13 @@ export function initLanguageSwitcher(switcher) {
   };
 
   trigger.addEventListener('click', () => {
-    const open = switcher.classList.toggle('is-open');
+    const open = !switcher.classList.contains('is-open');
+    if (open) header.dispatchEvent(new CustomEvent('header:panel-open', { detail: 'language' }));
+    switcher.classList.toggle('is-open', open);
     trigger.setAttribute('aria-expanded', String(open));
+  });
+  header.addEventListener('header:panel-open', (event) => {
+    if (event.detail !== 'language') close();
   });
 
   switcher.addEventListener('click', (event) => {

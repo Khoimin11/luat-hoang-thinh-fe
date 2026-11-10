@@ -31,8 +31,8 @@
                         <img src="{{ asset('assets/icons/phone-red.png') }}" width="48" height="48" alt="">
                     </span>
                 </a>
-                <button class="header-search" type="button" disabled aria-label="Tìm kiếm chưa khả dụng">
-                    <img src="{{ asset('assets/icons/search-icon.png') }}" width="48" height="48" alt="">
+                <button class="header-search" type="button" data-search-toggle aria-label="Mở tìm kiếm" aria-expanded="false" aria-controls="header-search-form">
+                    <svg class="search-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7"/><path d="m16 16 5 5"/></svg>
                 </button>
                 <div class="header-languages" data-language-switcher data-language="vi" role="group" aria-label="Chọn ngôn ngữ">
                     <button class="language-trigger" type="button" aria-expanded="false" aria-controls="language-options" aria-label="Chọn ngôn ngữ">
@@ -55,4 +55,8 @@
         </div>
     </div>
     <div class="header-menu-backdrop" data-menu-backdrop aria-hidden="true" hidden></div>
+    <form id="header-search-form" class="header-search-form" role="search" data-turbo="false" inert>
+        <label class="sr-only" for="header-search-input">Tìm kiếm</label>
+        <input id="header-search-input" type="search" name="q" placeholder="Tìm kiếm..." autocomplete="off">
+    </form>
 </header>
