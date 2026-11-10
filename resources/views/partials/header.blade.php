@@ -34,9 +34,19 @@
                 <button class="header-search" type="button" disabled aria-label="Tìm kiếm chưa khả dụng">
                     <img src="{{ asset('assets/icons/search-icon.png') }}" width="48" height="48" alt="">
                 </button>
-                <div class="header-languages" aria-label="Ngôn ngữ">
-                    <span class="language-current" lang="vi" aria-label="Ngôn ngữ hiện tại: tiếng Việt"><span class="language-flag-wrapper" aria-hidden="true"><img class="language-flag" src="{{ asset('assets/icons/lang-vn.png') }}" width="20" height="20" alt=""></span> VN</span>
-                    <span class="language-unavailable" lang="en" aria-label="Chuyển sang tiếng Anh" aria-disabled="true"><span class="language-flag-wrapper" aria-hidden="true"><img class="language-flag" src="{{ asset('assets/icons/lang-eng.png') }}" width="20" height="20" alt=""></span> EN</span>
+                <div class="header-languages" data-language-switcher data-language="vi" role="group" aria-label="Chọn ngôn ngữ">
+                    <button class="language-trigger" type="button" aria-expanded="false" aria-controls="language-options" aria-label="Chọn ngôn ngữ">
+                        <img class="language-flag" src="{{ asset('assets/icons/lang-vn.svg') }}" width="20" height="20" alt="">
+                        <span>VN</span>
+                    </button>
+                    <div id="language-options" class="language-options">
+                    @foreach ([['vi', 'VN', 'lang-vn.svg', 'Tiếng Việt'], ['en', 'EN', 'lang-eng.svg', 'English']] as [$code, $label, $flag, $name])
+                        <button class="language-option" type="button" data-language="{{ $code }}" lang="{{ $code }}" aria-label="{{ $name }}" aria-pressed="{{ $code === 'vi' ? 'true' : 'false' }}">
+                            <img class="language-flag" src="{{ asset('assets/icons/'.$flag) }}" width="20" height="20" alt="">
+                            <span>{{ $label }}</span>
+                        </button>
+                    @endforeach
+                    </div>
                 </div>
                 <button class="menu-toggle" type="button" data-menu-toggle aria-controls="main-navigation" aria-expanded="false" aria-label="Mở hoặc đóng menu">
                     <svg class="menu-icon-open" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><rect x="2" y="4" width="16" height="2" rx="1"/><rect x="2" y="9" width="16" height="2" rx="1"/><rect x="2" y="14" width="16" height="2" rx="1"/></svg>

@@ -5,8 +5,10 @@ import { initHeaderMenu } from './header-menu';
 import { initHomeSlider } from './home-slider';
 import { initValuePropsCarousel } from './value-props-carousel';
 import { initArticleToc } from './article-table-contents';
+import { initLanguageSwitcher } from './language-switcher';
 
 document.querySelectorAll('.site-header').forEach(initHeaderMenu);
+document.querySelectorAll('[data-language-switcher]').forEach(initLanguageSwitcher);
 
 function initConsultationForm(form) {
   const fields = ['name', 'phone', 'email', 'service', 'message'];
