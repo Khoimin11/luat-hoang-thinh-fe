@@ -4,6 +4,7 @@ import { initTeamSlider } from './team-slider';
 import { initHeaderMenu } from './header-menu';
 import { initHomeSlider } from './home-slider';
 import { initValuePropsCarousel } from './value-props-carousel';
+import { initArticleToc } from './article-table-contents';
 
 document.querySelectorAll('.site-header').forEach(initHeaderMenu);
 
@@ -104,6 +105,9 @@ function initPage() {
     if (cleanup) sliderCleanups.push(cleanup);
   });
   main.querySelectorAll('[data-consultation-form]').forEach(initConsultationForm);
+  main.querySelectorAll('[data-article-toc]').forEach((toc) => {
+    sliderCleanups.push(initArticleToc(toc));
+  });
 
   document.querySelectorAll('.header-navigation a.header-link').forEach((link) => {
     const destination = new URL(link.href);

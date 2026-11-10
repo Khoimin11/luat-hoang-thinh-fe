@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PracticeAreaController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ArticleController;
 
 Route::view('/', 'pages.home')->name('home');
 
@@ -15,7 +16,7 @@ Route::get('/linh-vuc-hoat-dong/{slug}', [PracticeAreaController::class, 'show']
 Route::get('/tin-tuc-va-kien-thuc-phap-luat', [NewsController::class, 'show'])->name('news');
 Route::get('/tin-tuc-va-kien-thuc-phap-luat/{slug}', [NewsController::class, 'show'])->name('news.category');
 
-Route::view('/bai-viet-chi-tiet', 'pages.article-detail')->name('article-detail');
+Route::get('/bai-viet-chi-tiet', [ArticleController::class, 'show'])->name('article-detail');
 
 Route::view('/doi-ngu-luat-su', 'pages.team')->name('team');
 
